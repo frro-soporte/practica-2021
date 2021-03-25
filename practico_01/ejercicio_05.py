@@ -11,7 +11,7 @@ def multiplicar_basico(numeros: Iterable[float]) -> float:
     """
     rta=1
     if len(numeros)==0:
-        rta=0
+        return 0
     for i in numeros:
         rta*=i
     return rta    
@@ -36,7 +36,13 @@ def multiplicar_reduce(numeros: Iterable[float]) -> float:
     """CHALLENGE OPCIONAL - Re-escribir utilizando reduce.
     Referencia: https://docs.python.org/3.8/library/functools.html#functools.reduce
     """
-    pass # Completar
+    if len(numeros)==0:
+        return 0
+    for i in numeros:
+        j=i+1
+        return reduce(lambda x, y: x*y , numeros )
+    
+        
 
 
 # NO MODIFICAR - INICIO
