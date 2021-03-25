@@ -7,12 +7,13 @@ def maximo_encadenado(a: float, b: float, c: float) -> float:
     Restricción: Utilizar UNICAMENTE tres IFs y comparaciones encadenadas.
     Referencia: https://docs.python.org/3/reference/expressions.html#comparisons
     """
-    if b<a>c:
+    if b < a > c:
         return a
-    if a<b>c:
+    if a < b > c:
         return b
-    if a<c>b:
-        return c        
+    if a < c > b:
+        return c
+
 
 # NO MODIFICAR - INICIO
 assert maximo_encadenado(1, 10, 5) == 10
@@ -28,7 +29,7 @@ def maximo_cuadruple(a: float, b: float, c: float, d: float) -> float:
     """Re-escribir para que tome 4 parámetros, utilizar la función max.
 
     Referencia: https://docs.python.org/3/library/functions.html#max"""
-    return max(a,b,c,d)
+    return max(a, b, c, d)
 
 
 # NO MODIFICAR - INICIO
@@ -47,10 +48,10 @@ def maximo_arbitrario(*args) -> float:
     Referencia: https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists
     """
     mayor = args[0]
-    for i in range(1,len(args)):
+    for i in range(1, len(args)):
         if args[i] > mayor:
             mayor = args[i]
-    
+
     return mayor
 
 
@@ -67,12 +68,12 @@ assert maximo_arbitrario(24, 9, 18, 30) == 30
 
 def maximo_recursivo(*args):
     """Re-Escribir de forma recursiva."""
-    if len(args)>2:
-        a=args[0]
-        b=maximo_recursivo(*args[1:])
-        return maximo_recursivo(a,b)
-    elif len(args)==2:
-        return args[0] if args[0]>=args[1] else args[1]
+    if len(args) > 2:
+        a = args[0]
+        b = maximo_recursivo(*args[1:])
+        return maximo_recursivo(a, b)
+    elif len(args) == 2:
+        return args[0] if args[0] >= args[1] else args[1]
 
 
 # NO MODIFICAR - INICIO

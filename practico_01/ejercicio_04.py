@@ -16,10 +16,11 @@ def es_vocal_if(letra: str) -> bool:
     if letra.lower() == "i":
         return True
     if letra.lower() == "o":
-        return True        
+        return True
     if letra.lower() == "u":
-        return True             
-    return False                   
+        return True
+    return False
+
 
 # NO MODIFICAR - INICIO
 assert es_vocal_if("a")
@@ -35,9 +36,9 @@ def es_vocal_if_in(letra: str) -> bool:
     """Re-escribir utilizando un sólo IF y el operador IN.
     Referencia: https://docs.python.org/3/reference/expressions.html#membership-test-operations
     """
-    if letra.lower() in ("a","e","i","o","u"):
+    if letra.lower() in ("a", "e", "i", "o", "u"):
         return True
-    return False    
+    return False
 
 
 # NO MODIFICAR - INICIO
@@ -52,7 +53,7 @@ assert es_vocal_if_in("A")
 
 def es_vocal_in(letra: str) -> bool:
     """Re-escribir utilizando el operador IN pero sin utilizar IF."""
-    return letra.lower() in ("a","e","i","o","u")
+    return letra.lower() in ("a", "e", "i", "o", "u")
 
 
 # NO MODIFICAR - INICIO
