@@ -65,9 +65,14 @@ assert maximo_arbitrario(24, 9, 18, 30) == 30
 ###############################################################################
 
 
-def maximo_recursivo(*args) -> float:
+def maximo_recursivo(*args):
     """Re-Escribir de forma recursiva."""
-    pass # Completar
+    if len(args)>2:
+        a=args[0]
+        b=maximo_recursivo(*args[1:])
+        return maximo_recursivo(a,b)
+    elif len(args)==2:
+        return args[0] if args[0]>=args[1] else args[1]
 
 
 # NO MODIFICAR - INICIO
