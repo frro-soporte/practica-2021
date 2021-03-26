@@ -63,13 +63,15 @@ assert maximo_arbitrario(24, 9, 18, 30) == 30
 
 def maximo_recursivo(*args):
     """Re-Escribir de forma recursiva."""
-    if len(args) > 2:
-        primero , *resto = args    # forma mas optima y prolija
-        resto=maximo_recursivo( *resto )
-        return maximo_recursivo ( primero, resto )
-    elif len(args)==2:
-        a,b=args
-        return a if a>=b else b
+    if len(args) == 2:    #--la primer vez que cuple condicion frena la
+        a, b = args       #recursividad
+        return a if a >= b else b
+    primero , *resto = args    # se guarda el primer elemento
+    resto = maximo_recursivo( *resto )    #--busca el mayor en resto de forma recursiva
+    return maximo_recursivo ( primero, resto ) #--se activa con el mayor elemento de la 
+                                               #anterior recursividad y el elemto almacenado 
+                                               # en su iteracion
+    
         
 
 
