@@ -10,24 +10,15 @@ def es_vocal_if(letra: str) -> bool:
     """
     if str.lower(letra)=='a':
         return True
-        else 
-        return False
     if str.lower(letra)=='e':
         return True
-        else 
-        return False
     if str.lower(letra)=='i':
         return True
-        else 
-        return False
     if str.lower(letra)=='o':
         return True
-        else 
-        return False
     if str.lower(letra)=='u':
         return True
-        else 
-        return False
+    return False
 
 # NO MODIFICAR - INICIO
 assert es_vocal_if("a")
