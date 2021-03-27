@@ -47,8 +47,11 @@ def maximo_arbitrario(*args) -> float:
     """Re-escribir para que tome una cantidad arbitraria de parámetros.
     Referencia: https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists
     """
-    def write_multiple_items(file,separator,*args):
-        file.write(separator.join(args))
+    maximo=-1
+    for arg in args:
+        if arg > maximo:
+        maximo = arg
+    return maximo    
 
 
 # NO MODIFICAR - INICIO
