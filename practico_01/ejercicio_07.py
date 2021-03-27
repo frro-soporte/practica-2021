@@ -8,6 +8,9 @@ def es_palindromo(palabra: str) -> bool:
     Restricción: No utilizar bucles - Usar Slices de listas.
     Referencia: https://docs.python.org/3/tutorial/introduction.html#lists
     """
+    for letra in palabra
+        if palabra[letra-1]=palabra[-letra]
+        return es_palindromo
     pass # Completar
 
 
