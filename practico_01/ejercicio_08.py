@@ -47,14 +47,7 @@ def superposicion_any(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
     """Re-Escribir utilizando sin bucles, el operador in y la funcion any.
     Referencia: https://docs.python.org/3/library/functions.html#any
     """
-    def any(a,b):
-        for element in a:
-            if element in b:
-                return True
-        return False
-
-    return any(lista_1, lista_2)
-    #revisar
+    return any(item in lista_1 for item in lista_2)
 
 # NO MODIFICAR - INICIO
 test_list = [1, "hello", 35.20]
