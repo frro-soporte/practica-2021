@@ -53,10 +53,15 @@ def numeros_al_final_sorted(lista: List[Union[float, str]]) -> List[Union[float,
     """Re-escribir utilizando la función sorted con una custom key.
     Referencia: https://docs.python.org/3/library/functions.html#sorted
     """
-    listaOrdenada=sorted(lista, key=str, reverse=True)
+    """Toma una lista de enteros y strings y devuelve una lista con todos los
+    elementos numéricos al final.
+    """
+    """listaOrdenada=sorted(lista, key=str, reverse=True)
     print(listaOrdenada)
     return listaOrdenada
-    #no funciona
+    #no funciona"""
+    print(sorted(lista, key=lambda x:  not isinstance(x, int),reverse=True))
+    return sorted(lista, key=lambda x:  not isinstance(x, int),reverse=True)
 
 # NO MODIFICAR - INICIO
 assert numeros_al_final_sorted([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
