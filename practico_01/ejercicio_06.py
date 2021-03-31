@@ -15,10 +15,8 @@ def numeros_al_final_basico(lista: List[Union[float, str]]) -> List[Union[float,
             numeros.append(valor)
         else:
             strings.append(valor)
-    for string in strings:
-        todos.append(string)
-    for num in numeros:
-        todos.append(num)
+    todos.extend(strings)
+    todos.extend(numeros)
     return todos
 
 # NO MODIFICAR - INICIO
@@ -31,15 +29,12 @@ assert numeros_al_final_basico([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 
 
 def numeros_al_final_comprension(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     """Re-escribir utilizando comprensión de listas."""
-    numeros=[]
-    for valor in lista:
-        if type(valor)==int:
-            lista.remove(valor)
-            numeros.append(valor)
-    for num in numeros:
-        lista.append(num)
-    return lista
-
+    numeros=[num for num in lista if type(num)==int]
+    strings=[cad for cad in lista if type(cad)==str]
+    todos=[]
+    todos.extend(strings)
+    todos.extend(numeros)
+    return todos
 
 # NO MODIFICAR - INICIO
 assert numeros_al_final_comprension([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
@@ -67,18 +62,10 @@ def numeros_al_final_filter(lista: List[Union[float, str]]) -> List[Union[float,
     """CHALLENGE OPCIONAL - Re-escribir utilizando la función filter.
     Referencia: https://docs.python.org/3/library/functions.html#filter
     """
-    def getStrings(valor):
-        if type(valor)==str:
-            return True
-    def getNumeros(valor):
-        if type(valor)==int:
-            return True
-
-    strings=list(filter(getStrings, lista))
-    numeros=list(filter(getNumeros, lista))
-    for num in numeros:
-        strings.append(num)
-    return strings
+    todos=[]
+    todos=list(filter(lambda a: type(a)==str, lista))
+    todos.extend(list(filter(lambda a: type(a)==int, lista)))
+    return todos
 
 # NO MODIFICAR - INICIO
 if __name__ == "__main__":
