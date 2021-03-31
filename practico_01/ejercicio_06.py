@@ -48,8 +48,14 @@ def numeros_al_final_sorted(lista: List[Union[float, str]]) -> List[Union[float,
     """Re-escribir utilizando la función sorted con una custom key.
     Referencia: https://docs.python.org/3/library/functions.html#sorted
     """
-    pass # Completar
+    def compara(a):
+        if type(a) == int:
+            retorno = 1
+        else:
+            retorno = -1
+        return retorno
 
+    return sorted(lista, key=compara)
 
 # NO MODIFICAR - INICIO
 assert numeros_al_final_sorted([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
@@ -63,7 +69,18 @@ def numeros_al_final_filter(lista: List[Union[float, str]]) -> List[Union[float,
     """CHALLENGE OPCIONAL - Re-escribir utilizando la función filter.
     Referencia: https://docs.python.org/3/library/functions.html#filter
     """
-    pass # Completar
+    def esNro(a):
+        if type(a) == int:
+            return True
+
+    def esLetra(a):
+        if type(a) != int:
+            return True
+
+    numeros = list(filter(esNro, lista))
+    letras = list(filter(esLetra, lista))
+    letras.extend(numeros)
+    return letras
 
 
 # NO MODIFICAR - INICIO
