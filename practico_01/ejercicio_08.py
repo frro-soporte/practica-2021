@@ -65,9 +65,7 @@ def superposicion_set(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
     """
     list1 = set(lista_1)
     list2 = set(lista_2)
-    if list1.intersection(list2)!=set():  #set() significa un set genérico vacío
-        return True
-    return False
+    return list1.intersection(list2)!=set()  #set() significa un set genérico vacío
 
 # NO MODIFICAR - INICIO
 test_list = [1, "hello", 35.20]
