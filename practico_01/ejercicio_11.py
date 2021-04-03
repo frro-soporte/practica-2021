@@ -11,10 +11,11 @@ def suma_cubo_pares_for(numeros: Iterable[int]) -> int:
     separar los pares.
     """
     acum = 0
+    cubos = []
     for num in numeros:
-        num ** 3
-        if num%2 == 0:
-            for num in numeros:
+        cubos = [num ** 3]
+        for num in cubos:
+            if num%2 == 0:
                 acum = acum + num  
     return acum
             
