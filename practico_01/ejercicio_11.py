@@ -12,8 +12,8 @@ def suma_cubo_pares_for(numeros: Iterable[int]) -> int:
     """
     acum = 0
     for num in numeros:
-        num**3
-        if num%2==0:
+        num ** 3
+        if num%2 == 0:
             for num in numeros:
                 acum = acum + num  
     return acum
