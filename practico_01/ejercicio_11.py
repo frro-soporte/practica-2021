@@ -10,6 +10,14 @@ def suma_cubo_pares_for(numeros: Iterable[int]) -> int:
     Restricción: Utilizar dos bucles for, uno para elevar al cubo y otro para
     separar los pares.
     """
+    acum = 0
+    for num in numeros:
+        if num%2==0:
+            for num in numeros:
+                acum = acum + num
+        return num**3
+    return acum
+            
     pass # Completar
 
 
