@@ -45,11 +45,11 @@ def operacion_multiple(a: float, b: float, multiplicar: bool) -> Union[float, st
     """Re-Escribir utilizando tres returns."""
     if multiplicar:
         return a * b
-    else: 
-        if b != 0:
-            return a / b
-        else:
-            return "Operación no válida"
+
+    if b != 0:
+        return a / b
+
+    return "Operación no válida"
 
 
 # NO MODIFICAR - INICIO
