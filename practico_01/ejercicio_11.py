@@ -83,7 +83,7 @@ numeros_al_cubo_pares = list(filter(lambda x: x % 2 == 0, numeros_al_cubo))
 
 from functools import reduce
 
-suma_numeros_al_cubo_pares = list(reduce(lambda x, y: x + y, numeros_al_cubo_pares))
+suma_numeros_al_cubo_pares = reduce(lambda x, y: x + y, numeros_al_cubo_pares)
 # Completar
 
 
