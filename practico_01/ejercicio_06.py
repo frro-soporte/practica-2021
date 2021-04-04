@@ -31,10 +31,8 @@ def numeros_al_final_comprension(lista: List[Union[float, str]]) -> List[Union[f
     """Re-escribir utilizando comprensión de listas."""
     numeros=[num for num in lista if type(num)==int]
     strings=[cad for cad in lista if type(cad)==str]
-    todos=[]
-    todos.extend(strings)
-    todos.extend(numeros)
-    return todos
+    strings.extend(numeros)
+    return strings
 
 # NO MODIFICAR - INICIO
 assert numeros_al_final_comprension([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
@@ -62,7 +60,6 @@ def numeros_al_final_filter(lista: List[Union[float, str]]) -> List[Union[float,
     """CHALLENGE OPCIONAL - Re-escribir utilizando la función filter.
     Referencia: https://docs.python.org/3/library/functions.html#filter
     """
-    todos=[]
     todos=list(filter(lambda a: type(a)==str, lista))
     todos.extend(list(filter(lambda a: type(a)==int, lista)))
     return todos
