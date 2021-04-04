@@ -55,8 +55,11 @@ def medir_tiempo(func: Callable[[], int]) -> Tuple[int, float]:
     Restricción: La función no debe tomar parámetros y por lo tanto se
     recomienda usar partial.
     """
-    pass # Completar
+    start = perf_counter()
 
+    return (func(), perf_counter() - start)
+
+    
 
 # NO MODIFICAR - INICIO
 result, elapsed = medir_tiempo(partial(calcular_posibilidades, lista, limite))
@@ -73,7 +76,12 @@ def medir_tiempo(func: Callable[[Sequence[int], int], int]) -> Callable[[Sequenc
     partial. En este caso se debe devolver una función que devuelva la tupla y
     tome una cantidad arbitraria de parámetros.
     """
-    pass # Completar
+    def measure_execution_time(*args, **kwargs):
+        start = perf_counter()
+
+        return (func(*args, *kwargs), perf_counter() - start)
+        
+    return measure_execution_time
 
 
 # NO MODIFICAR - INICIO
@@ -95,6 +103,14 @@ Referencia: https://docs.python.org/3/glossary.html#term-decorator
 
 Este es un ejemplo y no hay que escribir código.
 """
+
+def medir_tiempo(function):
+    def measure_execution_time(*args, **kwargs):
+        start = perf_counter()
+
+        return (function(*args, *kwargs), perf_counter() - start)
+
+    return measure_execution_time
 
 
 # NO MODIFICAR - INICIO
@@ -127,7 +143,19 @@ def memoized(func):
     tiempo para la función calcular posibilidades. Prestar atención a los tiempo
     de ejecución
     """
-    pass # Completar
+
+    def cache_func(*args, **kwargs):
+        key = tuple([*args, *kwargs])
+        print(key)
+
+        if not cache_func.cache[key]:
+            cache_func.cache[key] = func(*args, *kwargs)
+
+        return cache_func.cache[key]
+
+    cache_func.cache = {}
+
+    return cache_func
 
 
 @medir_tiempo
@@ -171,7 +199,12 @@ sucesivas.
 @memoized
 def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
     """Re-Escribir de manera recursiva"""
-    pass # Completar
+    if limite == 0:
+        return 1
+
+    
+    return len([*permutations(lista, limite)]) + calcular_posibilidades(lista, limite - 1)
+    
 
 
 # NO MODIFICAR - INICIO
