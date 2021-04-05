@@ -144,19 +144,34 @@ def memoized(func):
     de ejecución
     """
 
-    def cache_func(*args, **kwargs):
-        key = tuple([*args, *kwargs])
-        print(key)
+    def cache_func(args, kwargs):
+        key = (tuple(args), kwargs)    
 
-        if not cache_func.cache[key]:
-            cache_func.cache[key] = func(*args, *kwargs)
+        if not cache_func.cache.get(key):
+            cache_func.cache[key] = func(args, kwargs)
 
-        return cache_func.cache[key]
+        return cache_func.cache.get(key)
 
     cache_func.cache = {}
 
     return cache_func
 
+    '''
+    ##########################
+    Otra forma, sin usar la propiedad cache de la funcion (el tiempo de ejecucion es menor)
+    ##########################
+
+    results={}
+    def cache_func(lista, limite):
+        tlista = tuple(lista)
+
+        if (tlista, limite) not in results.keys():
+           results[(tlista, limite)] = func(tlista, limite)
+
+        return results[(tlista, limite)]
+
+    return cache_func
+    '''
 
 @medir_tiempo
 @memoized
