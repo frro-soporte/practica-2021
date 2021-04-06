@@ -144,11 +144,11 @@ def memoized(func):
     de ejecución
     """
 
-    def cache_func(args, kwargs):
-        key = (tuple(args), kwargs)    
+    def cache_func(*args, **kwargs):
+        key = str(args) + str(kwargs)
 
         if not cache_func.cache.get(key):
-            cache_func.cache[key] = func(args, kwargs)
+            cache_func.cache[key] = func(*args, *kwargs)
 
         return cache_func.cache.get(key)
 
@@ -214,12 +214,11 @@ sucesivas.
 @memoized
 def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
     """Re-Escribir de manera recursiva"""
-    if limite == 0:
+    if limite == 1:
         return 1
 
-    
+
     return len([*permutations(lista, limite)]) + calcular_posibilidades(lista, limite - 1)
-    
 
 
 # NO MODIFICAR - INICIO
