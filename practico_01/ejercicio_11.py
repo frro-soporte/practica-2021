@@ -76,14 +76,14 @@ numeros_al_cubo = list(map(lambda x: x**3, numeros))
 
 # Escribir una función lambda que permita filtrar todos los elementos pares
 
-numeros_al_cubo_pares = list(filter(lambda numeroPar: numeroPar % 2  == 0, list(map(lambda x: x**3, numeros))))
+numeros_al_cubo_pares = list(filter(lambda numeroPar: numeroPar % 2  == 0, numeros_al_cubo))
 
 
 # Escribir una función Lambda que sume todos los elementos
 
 from functools import reduce
 
-suma_numeros_al_cubo_pares = reduce(lambda x,y: x+y, list(filter(lambda numeroPar: numeroPar % 2  == 0, list(map(lambda x: x**3, numeros)))))
+suma_numeros_al_cubo_pares = reduce(lambda x,y: x+y, list(filter(lambda numeroPar: numeroPar % 2  == 0, numeros_al_cubo_pares)))
 
 
 # Escribir una función Lambda que permita ordenar los elementos de la numeros
