@@ -7,7 +7,8 @@ def numeros_al_final_basico(lista: List[Union[float, str]]) -> List[Union[float,
     """Toma una lista de enteros y strings y devuelve una lista con todos los
     elementos numéricos al final.
     """    
-    count, ordered = 0, []
+    count = 0
+    ordered = []
     for i in lista:        
         if type(i) == int:                     
             ordered.append(i)
@@ -27,8 +28,9 @@ assert numeros_al_final_basico([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 
 def numeros_al_final_comprension(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     """Re-escribir utilizando comprensión de listas."""
 
-    strings, numbers = [], []
-    [strings.append(i) if type(i) != int else numbers.append(i) for i in lista]
+    strings = [i for i in lista if type(i) != int]
+    numbers = [i for i in lista if type(i) == int]
+    
     return strings + numbers
 
 # NO MODIFICAR - INICIO
@@ -58,7 +60,9 @@ def numeros_al_final_filter(lista: List[Union[float, str]]) -> List[Union[float,
     """CHALLENGE OPCIONAL - Re-escribir utilizando la función filter.
     Referencia: https://docs.python.org/3/library/functions.html#filter
     """
-    return list(filter(lambda n: type(n) != int, lista)) + list(filter(lambda n: type(n) == int, lista))
+    strings = list(filter(lambda n: type(n) != int, lista))
+    numbers = list(filter(lambda n: type(n) == int, lista))
+    return strings + numbers
 
 
 # NO MODIFICAR - INICIO
