@@ -44,8 +44,7 @@ def sumatoria_reduce(n: int) -> int:
     """CHALLENGE OPCIONAL: Re-escribir utilizando reduce.
     Referencia: https://docs.python.org/3/library/functools.html#functools.reduce
     """
-    n=range(n+1)
-    reutrn  reduce(lambda x, y: x+y, n)
+    return  reduce(lambda x, y: x+y, range(n+1))
 
 
 # NO MODIFICAR - INICIO
