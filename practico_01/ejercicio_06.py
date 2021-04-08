@@ -6,9 +6,16 @@ from typing import List, Union
 def numeros_al_final_basico(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     """Toma una lista de enteros y strings y devuelve una lista con todos los
     elementos numéricos al final.
-    """
-    pass # Completar
-
+    """        
+    lista2: List[Union[float, str]] = []
+    j = 0
+    for i in range(0,len(lista)):
+        if type(lista[i]) == str:
+            lista2.insert(j,lista[i])
+            j += 1
+        elif type(lista[i]) == int:
+            lista2.append(lista[i])
+    return lista2
 
 # NO MODIFICAR - INICIO
 assert numeros_al_final_basico([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
@@ -20,8 +27,10 @@ assert numeros_al_final_basico([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 
 
 def numeros_al_final_comprension(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     """Re-escribir utilizando comprensión de listas."""
-    pass # Completar
 
+    lista2 = [n for n in lista if type(n) == str]
+    lista3 = [n for n in lista if type(n) == int]
+    return lista2 + lista3
 
 # NO MODIFICAR - INICIO
 assert numeros_al_final_comprension([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
@@ -35,7 +44,7 @@ def numeros_al_final_sorted(lista: List[Union[float, str]]) -> List[Union[float,
     """Re-escribir utilizando la función sorted con una custom key.
     Referencia: https://docs.python.org/3/library/functions.html#sorted
     """
-    pass # Completar
+    
 
 
 # NO MODIFICAR - INICIO
