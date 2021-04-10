@@ -63,7 +63,7 @@ def superposicion_set(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
     """Re-Escribir utilizando conjuntos (sets).
     Referencia: https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset
     """
-    return len(set(lista_1)) != len(set(lista_1) - set(lista_2))
+    return set(lista_1) != set(lista_1) - set(lista_2)
 
 
 # NO MODIFICAR - INICIO
