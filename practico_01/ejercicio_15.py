@@ -156,11 +156,9 @@ def memoized(func):
 
     return cache_func
 
-    '''
-    ##########################
-    Otra forma, sin usar la propiedad cache de la funcion (el tiempo de ejecucion es menor)
-    ##########################
 
+    # Otra forma, sin usar la cache de la funcion, en la que el tiempo de ejecucion es menor
+    '''
     results={}
     def cache_func(lista, limite):
         tlista = tuple(lista)
@@ -214,15 +212,22 @@ sucesivas.
 @memoized
 def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
     """Re-Escribir de manera recursiva"""
-    
-    @memoized
-    def inner_calcular_posibilidades(lista, limite):
-        if limite == 1:
-            return 1
 
-        return len([*permutations(lista, limite - 1)]) + inner_calcular_posibilidades(lista, limite - 1)
+    if limite == 1:
+        return 1
+
+    result = calcular_posibilidades_recursiva(lista, limite - 1)[0]
+
+    return len([*permutations(lista, limite - 1)]) + result
+
+    # @memoized
+    # def inner_calcular_posibilidades(lista, limite):
+    #     if limite == 1:
+    #         return 1
+
+    #     return len([*permutations(lista, limite - 1)]) + inner_calcular_posibilidades(lista, limite - 1)
     
-    return inner_calcular_posibilidades(lista, limite)
+    # return inner_calcular_posibilidades(lista, limite)
 
 
 
