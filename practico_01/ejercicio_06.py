@@ -61,7 +61,7 @@ def numeros_al_final_filter(lista: List[Union[float, str]]) -> List[Union[float,
     Referencia: https://docs.python.org/3/library/functions.html#filter
     """
     strings = list(filter(lambda n: type(n) != int, lista))
-    numbers = list(filter(lambda n: type(n) == int, lista))
+    numbers = list(filter(lambda n: not n in strings, lista))
     return strings + numbers
 
 
@@ -75,16 +75,15 @@ if __name__ == "__main__":
 
 def numeros_al_final_recursivo(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     """CHALLENGE OPCIONAL - Re-escribir de forma recursiva."""
+  
+    if all(type(i) == int for i in lista):
+        return lista
 
     a, *b = lista
-    if [i for i in lista if type(i) != int]:
-        if type(a) == int:
-            b.append(a)
-            return numeros_al_final_recursivo(b)
-        else:
-            return [a] + numeros_al_final_recursivo(b)
-    else:
-        return lista
+    if type(a) == int:
+        b.append(a)
+        return numeros_al_final_recursivo(b)
+    return [a] + numeros_al_final_recursivo(b)
 
 # NO MODIFICAR - INICIO
 if __name__ == "__main__":
