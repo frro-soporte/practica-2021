@@ -59,7 +59,9 @@ def numeros_al_final_filter(lista: List[Union[float, str]]) -> List[Union[float,
     """CHALLENGE OPCIONAL - Re-escribir utilizando la función filter.
     Referencia: https://docs.python.org/3/library/functions.html#filter
     """
-    pass # Completar
+    lista1= list(filter(lambda x: type(x)==str, lista))
+    lista2 = list(filter(lambda x: type(x) == int, lista))
+    return lista1+lista2
 
 
 # NO MODIFICAR - INICIO
