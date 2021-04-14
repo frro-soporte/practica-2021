@@ -29,7 +29,7 @@ assert numeros_al_final_basico([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 
 
 def numeros_al_final_comprension(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     """Re-escribir utilizando comprensión de listas."""
-    numeros=[num for num in lista if type(num)==int]
+    numeros=[num for num in lista if type(num)!=str]
     strings=[cad for cad in lista if type(cad)==str]
     strings.extend(numeros)
     return strings
@@ -46,7 +46,7 @@ def numeros_al_final_sorted(lista: List[Union[float, str]]) -> List[Union[float,
     """Re-escribir utilizando la función sorted con una custom key.
     Referencia: https://docs.python.org/3/library/functions.html#sorted
     """
-    return sorted(lista, key=lambda x:  not type(x)==int,reverse=True)
+    return sorted(lista, key=lambda x:  type(x)!=str)
 
 # NO MODIFICAR - INICIO
 assert numeros_al_final_sorted([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
@@ -61,7 +61,7 @@ def numeros_al_final_filter(lista: List[Union[float, str]]) -> List[Union[float,
     Referencia: https://docs.python.org/3/library/functions.html#filter
     """
     todos=list(filter(lambda a: type(a)==str, lista))
-    todos.extend(list(filter(lambda a: type(a)==int, lista)))
+    todos.extend(list(filter(lambda a: a not in todos, lista)))
     return todos
 
 # NO MODIFICAR - INICIO
@@ -75,7 +75,16 @@ if __name__ == "__main__":
 
 def numeros_al_final_recursivo(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     """CHALLENGE OPCIONAL - Re-escribir de forma recursiva."""
-    def cargarLista(tipo: object, listaTotal: List[Union[float, str]]) -> List[Union[float, str]]:
+    if all(type(i) == int for i in lista):
+        return lista
+    
+    a,*b=lista
+    if type(a) == int:
+        b.append(a)
+        return numeros_al_final_recursivo(b)
+    return [a] + numeros_al_final_recursivo(b)
+    
+    """def cargarLista(tipo: object, listaTotal: List[Union[float, str]]) -> List[Union[float, str]]:
         for valor in lista:
                 if type(valor)==tipo:
                     listaTotal.append(valor)
@@ -84,7 +93,7 @@ def numeros_al_final_recursivo(lista: List[Union[float, str]]) -> List[Union[flo
         return listaTotal
 
     listaTotal=[]
-    return cargarLista(str, listaTotal)
+    return cargarLista(str, listaTotal)"""
 
 # NO MODIFICAR - INICIO
 if __name__ == "__main__":

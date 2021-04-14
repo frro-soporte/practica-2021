@@ -25,7 +25,7 @@ def generar_pares_clousure(initial: int = 0) -> Callable[[], int]:
         nonlocal numero
         numero = numero + 2
         return numero
-    numero=-2
+    numero=initial-2
     return obtenerSigPar
 
 
