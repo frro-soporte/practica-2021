@@ -45,7 +45,12 @@ def combinar_enumerate(nombres: List[str], precios: List[float], ids: List[int])
     """Re-Escribir utilizando enumerate y agregando un nuevo componente.
     Referencia: https://docs.python.org/3/library/functions.html#enumerate
     """
-    return tuple( (nombre, precio, ide) for ide,(nombre,precio) in enumerate(zip(nombres,precios),start=ids[0])  )
+    articulos=[]
+    for indice, nombre_valor in enumerate(zip(nombres,precios)):
+        articulos.append(nombre_valor+(ids[indice],))
+    return tuple(articulos)
+
+    #return tuple( (nombre, precio, ide) for ide,(nombre,precio) in enumerate(zip(nombres,precios),start=ids[0])  )
 
 
 # NO MODIFICAR - INICIO
