@@ -58,7 +58,6 @@ def medir_tiempo(func: Callable[[], int]) -> Tuple[int, float]:
     tupla = []
     start = perf_counter()
     f = partial(func)
-    #tupla.append((f(),(f"Tiempo: {elapsed:2.2f} segundos - Usando Partial")))
     tupla.append(f())
     elapsed = perf_counter() - start
     tupla.append(elapsed)
@@ -80,8 +79,15 @@ def medir_tiempo(func: Callable[[Sequence[int], int], int]) -> Callable[[Sequenc
     partial. En este caso se debe devolver una función que devuelva la tupla y
     tome una cantidad arbitraria de parámetros.
     """
-    pass # Completar
-
+    def aplicarFuncion(*args):
+        nonlocal func
+        tupla=[]
+        start = perf_counter()
+        tupla.append(func(*args))
+        elapsed = perf_counter() - start
+        tupla.append(elapsed)
+        return tuple(tupla)
+    return (aplicarFuncion)
 
 # NO MODIFICAR - INICIO
 calcular_posibilidades_nueva = medir_tiempo(calcular_posibilidades)
@@ -134,7 +140,13 @@ def memoized(func):
     tiempo para la función calcular posibilidades. Prestar atención a los tiempo
     de ejecución
     """
-    pass # Completar
+    memory = {}
+
+    def wrapper(resultado,tiempo):
+        if (resultado,tiempo) not in memory:
+            memory.append(func(resultado,tiempo))
+        return memory
+    return wrapper
 
 
 @medir_tiempo
