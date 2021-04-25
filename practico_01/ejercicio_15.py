@@ -58,7 +58,6 @@ def medir_tiempo(func: Callable[[], int]) -> Tuple[int, float]:
     tupla = []
     start = perf_counter()
     f = partial(func)
-    #tupla.append((f(),(f"Tiempo: {elapsed:2.2f} segundos - Usando Partial")))
     tupla.append(f())
     elapsed = perf_counter() - start
     tupla.append(elapsed)
@@ -89,7 +88,10 @@ def medir_tiempo(func: Callable[[Sequence[int], int], int]) -> Callable[[Sequenc
         tupla.append(elapsed)
         return tuple(tupla)
     return (aplicarFuncion)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2517bd8f89dc95ad1081ec774f72bab10fe7d9e9
 
 # NO MODIFICAR - INICIO
 calcular_posibilidades_nueva = medir_tiempo(calcular_posibilidades)
@@ -144,6 +146,7 @@ def memoized(func):
     """
     memory = {}
 
+<<<<<<< HEAD
     def wrapper(n):
         if n not in memory:
             memory[n] = func(n)
@@ -152,6 +155,13 @@ def memoized(func):
 
 
 
+=======
+    def wrapper(resultado,tiempo):
+        if (resultado,tiempo) not in memory:
+            memory.append(func(resultado,tiempo))
+        return memory
+    return wrapper
+>>>>>>> 2517bd8f89dc95ad1081ec774f72bab10fe7d9e9
 
 
 @medir_tiempo
