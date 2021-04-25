@@ -66,7 +66,7 @@ def numeros_al_final_filter(lista: List[Union[float, str]]) -> List[Union[float,
     Referencia: https://docs.python.org/3/library/functions.html#filter
     """
     strings = list(filter(lambda n: type(n) != int, lista))
-    numbers = list(filter(lambda n: not n in strings, lista))
+    numbers = list(filter(lambda n: n not in strings, lista))
     return strings + numbers
 
 
