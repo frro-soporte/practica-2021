@@ -15,15 +15,13 @@ def operacion_basica(a: float, b: float, multiplicar: bool) -> Union[float, str]
     """
     if multiplicar:
         result = a * b
-    else: 
+    else:
         if b != 0:
             result = a / b
         else:
             result = "Operación no válida"
-    
-    return result
 
-    
+    return result
 
 
 # NO MODIFICAR - INICIO

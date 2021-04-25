@@ -36,7 +36,7 @@ def generar_pares_clousure(initial: int = 0) -> Callable[[], int]:
 
         return initial
 
-    return next 
+    return next
 
 
 # NO MODIFICAR - INICIO
@@ -81,7 +81,7 @@ def generar_pares_generator_send(initial: int = 0) -> Iterator[int]:
     """CHALLENGE OPCIONAL: Re-Escribir utilizando send para saltear numeros"""
     while True:
         seed = yield initial
-        
+
         if seed is not None:
             initial = seed
         else:

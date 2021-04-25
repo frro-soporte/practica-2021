@@ -18,6 +18,8 @@ def apply(lista: Iterable[int], func: Callable[[int], bool]) -> Iterable[bool]:
     return list(map(func, lista))
 
 # NO MODIFICAR - INICIO
+
+
 def esta_entre_valores(x: int, min_: float, max_: float) -> bool:
     return min_ < x < max_
 # NO MODIFICAR - FIN

@@ -19,12 +19,13 @@ def combinar_basico(nombres: List[str], precios: List[float]) -> Tuple[Any]:
 
     Restricción: Resolver utilizando un bucle for.
     """
-    result=list()
+    result = list()
     for i in range(len(precios)):
-        result.append((nombres[i],precios[i]))
+        result.append((nombres[i], precios[i]))
     return tuple(result)
 
-    #return tuple(tuple(f[i] for f in [nombres,precios]) for i in range(len(precios)))
+    # return tuple(tuple(f[i] for f in [nombres,precios]) for i in range(len(precios)))
+
 
 # NO MODIFICAR - INICIO
 respuesta = (
@@ -48,10 +49,11 @@ def combinar_enumerate(nombres: List[str], precios: List[float], ids: List[int])
     Referencia: https://docs.python.org/3/library/functions.html#enumerate
     """
 
-    result=list()
+    result = list()
     for i, v in enumerate(nombres):
-        result.append((v,precios[i],ids[i]))
+        result.append((v, precios[i], ids[i]))
     return tuple(result)
+
 
 # NO MODIFICAR - INICIO
 respuesta = (
@@ -60,7 +62,8 @@ respuesta = (
     ("shampoo", 5.2, 3578),
 )
 
-assert combinar_enumerate(nombre_articulos, precio_articulos, id_articulos) == respuesta
+assert combinar_enumerate(
+    nombre_articulos, precio_articulos, id_articulos) == respuesta
 # NO MODIFICAR - FIN
 
 
@@ -84,7 +87,8 @@ respuesta = (
     ("shampoo", 5.2, 3578),
 )
 
-assert combinar_zip(nombre_articulos, precio_articulos, id_articulos) == respuesta
+assert combinar_zip(nombre_articulos, precio_articulos,
+                    id_articulos) == respuesta
 # NO MODIFICAR - FIN
 
 

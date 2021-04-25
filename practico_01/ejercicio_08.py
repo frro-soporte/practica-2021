@@ -33,6 +33,7 @@ def superposicion_in(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
             return True
     return False
 
+
 # NO MODIFICAR - INICIO
 test_list = [1, "hello", 35.20]
 assert superposicion_in(test_list, (2, "world", 35.20))
@@ -48,6 +49,7 @@ def superposicion_any(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
     Referencia: https://docs.python.org/3/library/functions.html#any
     """
     return any(i in lista_2 for i in lista_1)
+
 
 # NO MODIFICAR - INICIO
 test_list = [1, "hello", 35.20]

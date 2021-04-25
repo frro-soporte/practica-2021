@@ -9,7 +9,7 @@ def maximo_encadenado(a: float, b: float, c: float) -> float:
     """
     if a < b > c:
         return b
-    elif a > c: 
+    elif a > c:
         return a
     return c
 
@@ -28,7 +28,7 @@ def maximo_cuadruple(a: float, b: float, c: float, d: float) -> float:
     """Re-escribir para que tome 4 parámetros, utilizar la función max.
 
     Referencia: https://docs.python.org/3/library/functions.html#max"""
-    return max(a,b,c,d)
+    return max(a, b, c, d)
 
 
 # NO MODIFICAR - INICIO
@@ -63,9 +63,9 @@ assert maximo_arbitrario(24, 9, 18, 30) == 30
 def maximo_recursivo(*args) -> float:
     """Re-Escribir de forma recursiva."""
 
-    if len(args) != 1:     
-        a, b, *c = args 
-        c.append(a if a > b else b)   
+    if len(args) != 1:
+        a, b, *c = args
+        c.append(a if a > b else b)
         return maximo_recursivo(*c)
 
     return args[0]

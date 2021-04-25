@@ -6,11 +6,12 @@ from typing import Iterable
 def tiene_pares_basico(numeros: Iterable[int]) -> bool:
     """Toma una lista y devuelve un booleano en función si tiene al menos un
     número par."""
-    
+
     for i in numeros:
         if not i % 2:
-            return True 
+            return True
     return False
+
 
 # NO MODIFICAR - INICIO
 assert tiene_pares_basico([1, 3, 5]) is False
@@ -29,7 +30,7 @@ def tiene_pares_for_else(numeros: Iterable[int]) -> bool:
     for i in numeros:
         if not i % 2:
             break
-    else: 
+    else:
         return False
     return True
 
@@ -48,7 +49,7 @@ def tiene_pares_any(numeros: Iterable[int]) -> bool:
     """Re-Escribir utilizando la función any, sin utilizar bucles.
     Referencia: https://docs.python.org/3/library/functions.html#any
     """
-    return any(not i%2 for i in numeros)
+    return any(not i % 2 for i in numeros)
 
 
 # NO MODIFICAR - INICIO

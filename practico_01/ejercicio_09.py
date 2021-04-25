@@ -1,6 +1,9 @@
 """FOR, Sum, Reduce."""
 
 
+from functools import reduce
+
+
 def sumatoria_basico(n: int) -> int:
     """Devuelve la suma de los números de 1 a N.
 
@@ -10,7 +13,7 @@ def sumatoria_basico(n: int) -> int:
 
     for x in range(n + 1):
         suma += x
-    
+
     return suma
 
 
@@ -39,14 +42,11 @@ assert sumatoria_sum(100) == 5050
 ###############################################################################
 
 
-from functools import reduce
-
-
 def sumatoria_reduce(n: int) -> int:
     """CHALLENGE OPCIONAL: Re-escribir utilizando reduce.
     Referencia: https://docs.python.org/3/library/functools.html#functools.reduce
     """
-    return reduce(lambda x, y : x + y, range(n + 1))
+    return reduce(lambda x, y: x + y, range(n + 1))
 
 
 # NO MODIFICAR - INICIO

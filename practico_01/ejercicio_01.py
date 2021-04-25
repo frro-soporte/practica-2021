@@ -10,6 +10,7 @@ def maximo_basico(a: float, b: float) -> float:
 
     return b
 
+
 # NO MODIFICAR - INICIO
 assert maximo_basico(10, 5) == 10
 assert maximo_basico(9, 18) == 18
@@ -23,7 +24,7 @@ def maximo_libreria(a: float, b: float) -> float:
     """Re-escribir utilizando el built-in max.
     Referencia: https://docs.python.org/3/library/functions.html#max
     """
-    return max(a,b)
+    return max(a, b)
 
 
 # NO MODIFICAR - INICIO

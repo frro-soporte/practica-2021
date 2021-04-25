@@ -15,6 +15,7 @@ Para poder utilizar un ejemplo real, se utilizará una función que calcula
 y cuenta las permutaciones (una operación costosa computacionalmente).
 """
 
+from functools import partial
 from itertools import permutations
 from time import perf_counter
 from typing import Callable, Sequence, Tuple
@@ -45,9 +46,6 @@ assert result == 28671512
 ###############################################################################
 
 
-from functools import partial
-
-
 def medir_tiempo(func: Callable[[], int]) -> Tuple[int, float]:
     """Toma una función y devuelve una dupla conteniendo en su primer elemento
     el resultado de la función y en su segundo elemento el tiempo de ejecución.
@@ -59,7 +57,6 @@ def medir_tiempo(func: Callable[[], int]) -> Tuple[int, float]:
 
     return (func(), perf_counter() - start)
 
-    
 
 # NO MODIFICAR - INICIO
 result, elapsed = medir_tiempo(partial(calcular_posibilidades, lista, limite))
@@ -80,7 +77,7 @@ def medir_tiempo(func: Callable[[Sequence[int], int], int]) -> Callable[[Sequenc
         start = perf_counter()
 
         return (func(*args, *kwargs), perf_counter() - start)
-        
+
     return measure_execution_time
 
 
@@ -103,6 +100,7 @@ Referencia: https://docs.python.org/3/glossary.html#term-decorator
 
 Este es un ejemplo y no hay que escribir código.
 """
+
 
 def medir_tiempo(function):
     def measure_execution_time(*args, **kwargs):
@@ -156,7 +154,6 @@ def memoized(func):
 
     return cache_func
 
-
     # Otra forma, sin usar la cache de la funcion, en la que el tiempo de ejecucion es menor
     '''
     results={}
@@ -170,6 +167,7 @@ def memoized(func):
 
     return cache_func
     '''
+
 
 @medir_tiempo
 @memoized
@@ -226,9 +224,8 @@ def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
     #         return 1
 
     #     return len([*permutations(lista, limite - 1)]) + inner_calcular_posibilidades(lista, limite - 1)
-    
-    # return inner_calcular_posibilidades(lista, limite)
 
+    # return inner_calcular_posibilidades(lista, limite)
 
 
 # NO MODIFICAR - INICIO
@@ -236,11 +233,13 @@ if __name__ == "__main__":
     print()
 
     result, elapsed = calcular_posibilidades_recursiva(lista, limite)
-    print(f"Tiempo: {elapsed:2.2f} segundos - Recursiva Memoized - 1ra Ejecución")
+    print(
+        f"Tiempo: {elapsed:2.2f} segundos - Recursiva Memoized - 1ra Ejecución")
     assert result == 28671512
 
     result, elapsed = calcular_posibilidades_recursiva(lista, limite)
-    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - 2da Ejecución")
+    print(
+        f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - 2da Ejecución")
     assert result == 28671512
 
     print()
@@ -250,7 +249,8 @@ if __name__ == "__main__":
     assert result == 68588312
 
     result, elapsed = calcular_posibilidades_recursiva(lista, limite + 1)
-    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro + 1")
+    print(
+        f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro + 1")
     assert result == 68588312
 
     print()
@@ -260,7 +260,8 @@ if __name__ == "__main__":
     assert result == 108505112
 
     result, elapsed = calcular_posibilidades_recursiva(lista, limite + 2)
-    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro + 2")
+    print(
+        f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro + 2")
     assert result == 108505112
 
     print()
@@ -270,7 +271,8 @@ if __name__ == "__main__":
     assert result == 8713112
 
     result, elapsed = calcular_posibilidades_recursiva(lista, limite - 1)
-    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro - 1")
+    print(
+        f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro - 1")
     assert result == 8713112
 
     print()
@@ -280,6 +282,7 @@ if __name__ == "__main__":
     assert result == 2060312
 
     result, elapsed = calcular_posibilidades_recursiva(lista, limite - 2)
-    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro - 2")
+    print(
+        f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro - 2")
     assert result == 2060312
 # NO MODIFICAR - FIN

@@ -1,5 +1,6 @@
 """Bucle FOR y Reduce."""
 
+from functools import reduce
 from typing import Iterable
 
 
@@ -32,14 +33,11 @@ assert multiplicar_basico(range(1, 20)) == 121_645_100_408_832_000
 ###############################################################################
 
 
-from functools import reduce
-
-
 def multiplicar_reduce(numeros: Iterable[float]) -> float:
     """CHALLENGE OPCIONAL - Re-escribir utilizando reduce.
     Referencia: https://docs.python.org/3.8/library/functools.html#functools.reduce
     """
-    return reduce(lambda x, y : x * y, numeros, 1 if numeros else 0)
+    return reduce(lambda x, y: x * y, numeros, 1 if numeros else 0)
 
 
 # NO MODIFICAR - INICIO
