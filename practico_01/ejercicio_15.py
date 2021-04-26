@@ -187,6 +187,7 @@ sucesivas.
 """
 from math import factorial
 
+
 @medir_tiempo
 @memoized
 def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
