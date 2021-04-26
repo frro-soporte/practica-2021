@@ -23,7 +23,8 @@ def generar_pares_clousure(initial: int = 0) -> Callable[[], int]:
     """
     def aux(nro: int = initial):
         nonlocal initial
-        if nro%2:
+        nro=initial
+        if bool(nro%2):
             initial+=1
             return initial
         initial+=2
@@ -52,7 +53,11 @@ def generar_pares_generator(initial: int = 0) -> Iterator[int]:
     """Re-Escribir utilizando Generadores
     Referencia: https://docs.python.org/3/howto/functional.html?highlight=generator#generators
     """
-    pass # Completar
+    if initial%2:           #si es impar lo mueve al proximo par
+        initial+=1
+    while True:
+        yield initial       #interrumpe devolviendo valor y congelando func.
+        initial+=2          #cuando retorna genera el sigiente par
 
 
 # NO MODIFICAR - INICIO
@@ -68,7 +73,14 @@ assert next(generador_pares) == 4
 
 def generar_pares_generator_send(initial: int = 0) -> Iterator[int]:
     """CHALLENGE OPCIONAL: Re-Escribir utilizando send para saltear numeros"""
-    pass # Completar
+    initial-=2
+    if initial%2:
+        initial+=1  
+    while True:
+        initial+=2
+        val=(yield initial)     #se intrrumpe y luego val recibe los numeros enviados al momento de continuar la func
+        if val is not None:     #val recibe None si se retorna a la func con next() o con send(None)
+            initial=val-2       #cuando val no es None, recibe el proximo par a generar
 
 
 # NO MODIFICAR - INICIO
@@ -87,9 +99,19 @@ if __name__ == "__main__":
 ###############################################################################
 
 
-def generar_pares_delegados(initial: int = 0) -> Iterator[int]:
+def generar_pares_delegados(initial: int = 0) -> Iterator[int]: #esta corrutina se encarga de E/S y correccion
     """CHALLENGE OPCIONAL: Re-Escribir utilizando Generadores delegados (yield from)"""
-    pass # Completar
+    while True:
+        if initial%2:
+            initial+=1
+        val=yield from sig_pares(initial) #delega en el generador los cambios de valor
+        if val is not None:               #verifica si hay Entradas
+            initial=val                   
+
+def sig_pares(init: int)-> Iterator[int]:   #este generador se encarga de realizar incementos
+    while True:
+        yield init
+        init+=2
 
 
 # NO MODIFICAR - INICIO
