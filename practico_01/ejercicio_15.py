@@ -76,7 +76,13 @@ def medir_tiempo(func: Callable[[Sequence[int], int], int]) -> Callable[[Sequenc
     partial. En este caso se debe devolver una función que devuelva la tupla y
     tome una cantidad arbitraria de parámetros.
     """
-    pass # Completar
+    inicio:float=perf_counter()
+    def aplica_func(parametros:Sequence[int]=lista, detencion:int=limite ) ->Tuple[int,float] :
+        resultado=func(parametros,detencion)
+        fin:float=perf_counter()-inicio
+        return resultado,fin
+
+    return aplica_func
 
 
 # NO MODIFICAR - INICIO
