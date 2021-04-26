@@ -38,7 +38,7 @@ Referencia: https://docs.python.org/3/library/functools.html#functools.partial
 lista = [3, 4, 5, 6, 7, 8]
 min_ = 4
 max_ = 7
-nueva_funcion = Callable[[int], bool]=partial(esta_entre_valores,min_,max_)
+nueva_funcion : Callable[[int], bool]=partial(esta_entre_valores,min_=min_,max_=max_)
 apply(lista,nueva_funcion)
 
 
