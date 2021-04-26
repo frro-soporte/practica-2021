@@ -13,7 +13,7 @@ def superposicion_basico(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool
         for j in range(0, len(lista_2)):
             if lista_1[i] == lista_2[j]:
                 return True
-      
+
 
 # NO MODIFICAR - INICIO
 test_list = [1, "hello", 35.20]

@@ -32,7 +32,7 @@ def es_vocal_if_in(letra: str) -> bool:
     vocal = ['a', 'e', 'i', 'o', 'u']
     if letra.lower() in vocal:
         return True
-    else: 
+    else:
         return False
 
 

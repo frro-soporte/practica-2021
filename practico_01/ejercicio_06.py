@@ -9,14 +9,13 @@ def numeros_al_final_basico(lista: List[Union[float, str]]) -> List[Union[float,
     """
     numeros = []
     letras = []
-    for i in range(0,len(lista)):
+    for i in range(0, len(lista)):
         if type(lista[i]) == int:
             numeros.append(float(lista[i]))
-        else: 
+        else:
             letras.append(lista[i])
     letras.extend(numeros)
     return letras
-
 
 
 # NO MODIFICAR - INICIO
@@ -33,7 +32,6 @@ def numeros_al_final_comprension(lista: List[Union[float, str]]) -> List[Union[f
     letras = [letra for letra in lista if type(letra) == str]
     letras.extend(numeros)
     return letras
-
 
 
 # NO MODIFICAR - INICIO
@@ -56,6 +54,7 @@ def numeros_al_final_sorted(lista: List[Union[float, str]]) -> List[Union[float,
         return retorno
 
     return sorted(lista, key=compara)
+
 
 # NO MODIFICAR - INICIO
 assert numeros_al_final_sorted([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
@@ -94,7 +93,7 @@ if __name__ == "__main__":
 
 def numeros_al_final_recursivo(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     """CHALLENGE OPCIONAL - Re-escribir de forma recursiva."""
-    pass # Completar
+    pass  # Completar
 
 
 # NO MODIFICAR - INICIO
