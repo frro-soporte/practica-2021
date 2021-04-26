@@ -9,8 +9,8 @@ def es_palindromo(palabra: str) -> bool:
     Referencia: https://docs.python.org/3/tutorial/introduction.html#lists
     """
     mitad = len(palabra) // 2
-    palabrainvertida=palabra[::-1]
-    if (len(palabra)%2)==0: 
+    palabrainvertida = palabra[::-1]
+    if (len(palabra) % 2) == 0:
         if palabra[:mitad] == palabrainvertida[:mitad]:
             return True
         else:
