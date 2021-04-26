@@ -55,9 +55,9 @@ def medir_tiempo(func: Callable[[], int]) -> Tuple[int, float]:
     Restricción: La función no debe tomar parámetros y por lo tanto se
     recomienda usar partial.
     """
-    start= perf_counter()
-    resultado=func()
-    stop=perf_counter()-start
+    start= perf_counter()       #toma tiempo como punto de partida
+    resultado=func()            #como entra con partial solo hay que llamarla para que la ejecute
+    stop=perf_counter()-start   #toma tiempo como punto final y le resta el punto de partida
     return resultado, stop
 
 
@@ -78,11 +78,11 @@ def medir_tiempo(func: Callable[[Sequence[int], int], int]) -> Callable[[Sequenc
     """
     inicio:float=perf_counter()
     def aplica_func(parametros:Sequence[int]=lista, detencion:int=limite ) ->Tuple[int,float] :
-        resultado=func(parametros,detencion)
-        fin:float=perf_counter()-inicio
+        resultado=func(parametros,detencion)    #func es parametro en el closure
+        fin:float=perf_counter()-inicio         #inicio esta definido en el closure
         return resultado,fin
 
-    return aplica_func
+    return aplica_func      #devuelve una funcion que espera parametros para aplicar otra funcion[func]
 
 
 # NO MODIFICAR - INICIO
