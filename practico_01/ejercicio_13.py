@@ -29,7 +29,6 @@ def generar_pares_clousure(initial: int = 0) -> Callable[[], int]:
     return (proxPar)
 
 
-
 # NO MODIFICAR - INICIO
 generador_pares = generar_pares_clousure(0)
 assert generador_pares() == 0
@@ -53,8 +52,8 @@ def generar_pares_generator(initial: int = 0) -> Iterator[int]:
     """
     while True:
         yield initial
-        initial +=2
-         
+        initial += 2
+ 
 
 # NO MODIFICAR - INICIO
 generador_pares = generar_pares_generator()
@@ -100,7 +99,7 @@ def generar_pares_delegados(initial: int = 0) -> Iterator[int]:
         while True:
             nonlocal initial
             yield initial
-            initial +=2
+            initial += 2
     yield from pares()
 
 

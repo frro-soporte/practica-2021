@@ -38,7 +38,13 @@ Referencia: https://docs.python.org/3/library/functools.html#functools.partial
 lista = [3, 4, 5, 6, 7, 8]
 min_ = 4
 max_ = 7
-nueva_funcion = lambda x: True if x > min_ and x < max_ else False
+def nueva_funcion(x):
+    return True if x > min_ and x < max_ else False
+    """if x > min_ and x < max_:
+        return True
+    else:
+        return False"""
+
 
 
 # NO MODIFICAR - INICIO

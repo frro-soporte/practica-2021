@@ -25,8 +25,8 @@ assert maximo_encadenado(24, 9, 18) == 24
 
 
 def maximo_cuadruple(a: float, b: float, c: float, d: float) -> float:
-    l = [a, b, c, d]
-    return max (l)
+    lista = [a, b, c, d]
+    return max(lista)
 
 
 # NO MODIFICAR - INICIO
@@ -61,7 +61,7 @@ def maximo_recursivo(*args) -> float:
         return max(a, b)
     primero, *resto = args
     resto = maximo_recursivo(*resto)
-    return maximo_recursivo(primero,resto)
+    return maximo_recursivo(primero, resto)
 
 
 # NO MODIFICAR - INICIO
