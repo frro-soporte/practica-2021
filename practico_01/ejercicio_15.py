@@ -191,12 +191,12 @@ from math import factorial
 @memoized
 def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
     """Re-Escribir de manera recursiva"""
-    n=len(lista)
-    count=0
+    n = len(lista)
+    count = 0
     if limite > 0:
-        count=int((factorial(n)) / (factorial(n - range(limite)[-1])))
-        s, t= calcular_posibilidades_recursiva(lista, limite-1)
-        count= count + s
+        count = int((factorial(n)) / (factorial(n - range(limite)[-1])))
+        s, t = calcular_posibilidades_recursiva(lista, limite - 1)
+        count = count + s
     return (count)
 
 
