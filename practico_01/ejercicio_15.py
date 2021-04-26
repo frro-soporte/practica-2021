@@ -81,13 +81,14 @@ def medir_tiempo(func: Callable[[Sequence[int], int], int]) -> Callable[[Sequenc
     """
     def aplicarFuncion(*args):
         nonlocal func
-        tupla=[]
+        tupla = []
         start = perf_counter()
         tupla.append(func(*args))
         elapsed = perf_counter() - start
         tupla.append(elapsed)
         return tuple(tupla)
     return (aplicarFuncion)
+
 
 # NO MODIFICAR - INICIO
 calcular_posibilidades_nueva = medir_tiempo(calcular_posibilidades)
@@ -149,9 +150,6 @@ def memoized(func):
     return wrapper(func)
 
 
-
-
-
 @medir_tiempo
 @memoized
 def calcular_posibilidades(lista: Sequence[int], limite: int) -> int:
@@ -193,6 +191,7 @@ sucesivas.
 @memoized
 def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
     """Re-Escribir de manera recursiva"""
+<<<<<<< HEAD
     n=len(lista)
     count=0
     if limite > 0:
@@ -200,6 +199,9 @@ def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
         s, t= calcular_posibilidades_recursiva(lista, limite-1)       
         count= count + s
     return (count)
+=======
+    pass  # Completar
+>>>>>>> 6b9c196beb99cb7a6c6dd41e9982830d5d04d74e
 
 
 # NO MODIFICAR - INICIO

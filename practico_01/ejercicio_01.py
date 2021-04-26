@@ -24,7 +24,7 @@ def maximo_libreria(a: float, b: float) -> float:
     """Re-escribir utilizando el built-in max.
     Referencia: https://docs.python.org/3/library/functions.html#max
     """
-    return max(a,b)
+    return max(a, b)
 
 
 # NO MODIFICAR - INICIO
@@ -41,6 +41,7 @@ def maximo_ternario(a: float, b: float) -> float:
     Referencia: https://docs.python.org/3/reference/expressions.html#conditional-expressions
     """
     return a if a > b else b
+
 
 # NO MODIFICAR - INICIO
 assert maximo_ternario(10, 5) == 10

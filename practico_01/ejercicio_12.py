@@ -24,6 +24,7 @@ def combinar_basico(nombres: List[str], precios: List[float]) -> Tuple[Any]:
         duplas.append((nombre_articulos[i], precio_articulos[i]))
     return tuple(duplas)
 
+
 # NO MODIFICAR - INICIO
 respuesta = (
     ("ventana", 100.48),
@@ -45,7 +46,7 @@ def combinar_enumerate(nombres: List[str], precios: List[float], ids: List[int])
     """Re-Escribir utilizando enumerate y agregando un nuevo componente.
     Referencia: https://docs.python.org/3/library/functions.html#enumerate
     """
-    tupla=[]
+    tupla = []
     for indice, valor_nombre in enumerate(nombres):
         tupla.append((valor_nombre, precios[indice], ids[indice]))
     return tuple(tupla)

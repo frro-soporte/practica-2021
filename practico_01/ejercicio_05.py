@@ -13,11 +13,9 @@ def multiplicar_basico(numeros: Iterable[float]) -> float:
         return 0
     else:
         acum = numeros[0]
-        for i in range(1,len(numeros)):
+        for i in range(1, len(numeros)):
             acum = acum * numeros[i]
         return acum
-    
-
 
 
 # NO MODIFICAR - INICIO
