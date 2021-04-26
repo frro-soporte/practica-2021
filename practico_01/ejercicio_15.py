@@ -191,7 +191,7 @@ sucesivas.
 @memoized
 def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
     """Re-Escribir de manera recursiva"""
-    pass # Completar
+    pass  # Completar
 
 
 # NO MODIFICAR - INICIO
