@@ -185,7 +185,7 @@ tienen ventajas adicionales  ya que al utilizar el patrón memoized, las
 funciones recursivas permiten ejecuciones más rápidas para las llamadas
 sucesivas.
 """
-
+from math import factorial
 
 @medir_tiempo
 @memoized
