@@ -53,7 +53,7 @@ def generar_pares_generator(initial: int = 0) -> Iterator[int]:
     while True:
         yield initial
         initial += 2
- 
+
 
 # NO MODIFICAR - INICIO
 generador_pares = generar_pares_generator()

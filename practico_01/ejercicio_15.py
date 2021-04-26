@@ -81,13 +81,14 @@ def medir_tiempo(func: Callable[[Sequence[int], int], int]) -> Callable[[Sequenc
     """
     def aplicarFuncion(*args):
         nonlocal func
-        tupla=[]
+        tupla = []
         start = perf_counter()
         tupla.append(func(*args))
         elapsed = perf_counter() - start
         tupla.append(elapsed)
         return tuple(tupla)
     return (aplicarFuncion)
+
 
 # NO MODIFICAR - INICIO
 calcular_posibilidades_nueva = medir_tiempo(calcular_posibilidades)
@@ -147,9 +148,6 @@ def memoized(func):
             memory[n] = func
         return memory[n]
     return wrapper(func)
-
-
-
 
 
 @medir_tiempo
