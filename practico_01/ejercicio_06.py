@@ -83,17 +83,6 @@ def numeros_al_final_recursivo(lista: List[Union[float, str]]) -> List[Union[flo
         b.append(a)
         return numeros_al_final_recursivo(b)
     return [a] + numeros_al_final_recursivo(b)
-    
-    """def cargarLista(tipo: object, listaTotal: List[Union[float, str]]) -> List[Union[float, str]]:
-        for valor in lista:
-                if type(valor)==tipo:
-                    listaTotal.append(valor)
-        if tipo!=int:
-            cargarLista(int, listaTotal)
-        return listaTotal
-
-    listaTotal=[]
-    return cargarLista(str, listaTotal)"""
 
 # NO MODIFICAR - INICIO
 if __name__ == "__main__":

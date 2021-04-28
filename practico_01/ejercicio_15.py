@@ -16,6 +16,7 @@ y cuenta las permutaciones (una operación costosa computacionalmente).
 """
 
 from itertools import permutations
+from sys import exec_prefix
 from time import perf_counter
 from typing import Callable, Sequence, Tuple
 
@@ -55,8 +56,7 @@ def medir_tiempo(func: Callable[[], int]) -> Tuple[int, float]:
     Restricción: La función no debe tomar parámetros y por lo tanto se
     recomienda usar partial.
     """
-    pass # Completar
-
+    return func(), perf_counter() - elapsed
 
 # NO MODIFICAR - INICIO
 result, elapsed = medir_tiempo(partial(calcular_posibilidades, lista, limite))
