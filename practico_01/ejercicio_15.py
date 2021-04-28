@@ -76,8 +76,9 @@ def medir_tiempo(func: Callable[[Sequence[int], int], int]) -> Callable[[Sequenc
     partial. En este caso se debe devolver una función que devuelva la tupla y
     tome una cantidad arbitraria de parámetros.
     """
-    inicio:float=perf_counter()
+    
     def aplica_func(parametros:Sequence[int]=lista, detencion:int=limite ) ->Tuple[int,float] :
+        inicio:float=perf_counter()
         resultado=func(parametros,detencion)    #func es parametro en el closure
         fin:float=perf_counter()-inicio         #inicio esta definido en el closure
         return resultado,fin
@@ -191,7 +192,16 @@ sucesivas.
 @memoized
 def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
     """Re-Escribir de manera recursiva"""
-    pass
+    limite-=1
+    def cuenta(lista:Sequence[int],limite:int):
+        if limite==0:
+            return 1
+        cont=0
+        for _ in permutations(lista,limite):
+            cont+=1
+        cont=cont+cuenta(lista,limite-1)
+        return cont
+    return cuenta(lista,limite)
 
 
 # NO MODIFICAR - INICIO
@@ -200,6 +210,7 @@ if __name__ == "__main__":
 
     result, elapsed = calcular_posibilidades_recursiva(lista, limite)
     print(f"Tiempo: {elapsed:2.2f} segundos - Recursiva Memoized - 1ra Ejecución")
+    print(result)
     assert result == 28671512
 
     result, elapsed = calcular_posibilidades_recursiva(lista, limite)
