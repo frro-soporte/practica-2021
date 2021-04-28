@@ -136,7 +136,18 @@ def memoized(func):
     tiempo para la función calcular posibilidades. Prestar atención a los tiempo
     de ejecución
     """
-    pass # Completar
+    try:
+        len(ejecutadas) #Verifica existencia de diccionario de funciones
+    except NameError:
+        ejecutadas=dict() #Crea diccionario en caso de no existir
+    finally:
+        if func in ejecutadas:
+            return ejecutadas[func] #busca el resultado si la funcion ya fue ejecutada
+        else:
+            resultado=func #ejecuta si la funcion no ha sido ejecutada aun
+            ejecutadas.update({func:resultado}) #almacena resultado de la ejecucion
+        return resultado
+        
 
 
 @medir_tiempo
@@ -180,7 +191,7 @@ sucesivas.
 @memoized
 def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
     """Re-Escribir de manera recursiva"""
-    pass # Completar
+    pass
 
 
 # NO MODIFICAR - INICIO
