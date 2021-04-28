@@ -15,6 +15,7 @@ Para poder utilizar un ejemplo real, se utilizará una función que calcula
 y cuenta las permutaciones (una operación costosa computacionalmente).
 """
 
+from functools import partial
 from itertools import permutations
 from time import perf_counter
 from typing import Callable, Sequence, Tuple
@@ -45,9 +46,6 @@ assert result == 28671512
 ###############################################################################
 
 
-from functools import partial
-
-
 def medir_tiempo(func: Callable[[], int]) -> Tuple[int, float]:
     """Toma una función y devuelve una dupla conteniendo en su primer elemento
     el resultado de la función y en su segundo elemento el tiempo de ejecución.
@@ -55,9 +53,10 @@ def medir_tiempo(func: Callable[[], int]) -> Tuple[int, float]:
     Restricción: La función no debe tomar parámetros y por lo tanto se
     recomienda usar partial.
     """
-    start= perf_counter()       #toma tiempo como punto de partida
-    resultado=func()            #como entra con partial solo hay que llamarla para que la ejecute
-    stop=perf_counter()-start   #toma tiempo como punto final y le resta el punto de partida
+    start = perf_counter()  # toma tiempo como punto de partida
+    resultado = func()  # como entra con partial solo hay que llamarla para que la ejecute
+    # toma tiempo como punto final y le resta el punto de partida
+    stop = perf_counter() - start
     return resultado, stop
 
 
@@ -71,19 +70,24 @@ assert result == 28671512
 ###############################################################################
 
 
-def medir_tiempo(func: Callable[[Sequence[int], int], int]) -> Callable[[Sequence[int], int], Tuple[int, float]]:
+def medir_tiempo(func: Callable[[Sequence[int], int], int]
+                 ) -> Callable[[Sequence[int], int], Tuple[int, float]]:
     """Re-Escribir utilizando closures de forma tal que la función no requiera
     partial. En este caso se debe devolver una función que devuelva la tupla y
     tome una cantidad arbitraria de parámetros.
     """
-    
-    def aplica_func(parametros:Sequence[int]=lista, detencion:int=limite ) ->Tuple[int,float] :
-        inicio:float=perf_counter()
-        resultado=func(parametros,detencion)    #func es parametro en el closure
-        fin:float=perf_counter()-inicio         #inicio esta definido en el closure
-        return resultado,fin
 
-    return aplica_func      #devuelve una funcion que espera parametros para aplicar otra funcion[func]
+    def aplica_func(
+            parametros: Sequence[int] = lista, detencion: int = limite) -> Tuple[int, float]:
+        inicio: float = perf_counter()
+        # func es parametro en el closure
+        resultado = func(parametros, detencion)
+        fin: float = perf_counter() - inicio  # inicio esta definido en el closure
+        return resultado, fin
+
+    # devuelve una funcion que espera parametros para aplicar otra
+    # funcion[func]
+    return aplica_func
 
 
 # NO MODIFICAR - INICIO
@@ -138,17 +142,18 @@ def memoized(func):
     de ejecución
     """
     try:
-        len(ejecutadas) #Verifica existencia de diccionario de funciones
+        len(ejecutadas)  # Verifica existencia de diccionario de funciones
     except NameError:
-        ejecutadas=dict() #Crea diccionario en caso de no existir
+        ejecutadas = dict()  # Crea diccionario en caso de no existir
     finally:
         if func in ejecutadas:
-            return ejecutadas[func] #busca el resultado si la funcion ya fue ejecutada
+            # busca el resultado si la funcion ya fue ejecutada
+            return ejecutadas[func]
         else:
-            resultado=func #ejecuta si la funcion no ha sido ejecutada aun
-            ejecutadas.update({func:resultado}) #almacena resultado de la ejecucion
+            resultado = func  # ejecuta si la funcion no ha sido ejecutada aun
+            # almacena resultado de la ejecucion
+            ejecutadas.update({func: resultado})
         return resultado
-        
 
 
 @medir_tiempo
@@ -192,16 +197,17 @@ sucesivas.
 @memoized
 def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
     """Re-Escribir de manera recursiva"""
-    limite-=1
-    def cuenta(lista:Sequence[int],limite:int):
-        if limite==0:
+    limite -= 1
+
+    def cuenta(lista: Sequence[int], limite: int):
+        if limite == 0:
             return 1
-        cont=0
-        for _ in permutations(lista,limite):
-            cont+=1
-        cont=cont+cuenta(lista,limite-1)
+        cont = 0
+        for _ in permutations(lista, limite):
+            cont += 1
+        cont = cont + cuenta(lista, limite - 1)
         return cont
-    return cuenta(lista,limite)
+    return cuenta(lista, limite)
 
 
 # NO MODIFICAR - INICIO
@@ -209,12 +215,14 @@ if __name__ == "__main__":
     print()
 
     result, elapsed = calcular_posibilidades_recursiva(lista, limite)
-    print(f"Tiempo: {elapsed:2.2f} segundos - Recursiva Memoized - 1ra Ejecución")
+    print(
+        f"Tiempo: {elapsed:2.2f} segundos - Recursiva Memoized - 1ra Ejecución")
     print(result)
     assert result == 28671512
 
     result, elapsed = calcular_posibilidades_recursiva(lista, limite)
-    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - 2da Ejecución")
+    print(
+        f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - 2da Ejecución")
     assert result == 28671512
 
     print()
@@ -224,7 +232,8 @@ if __name__ == "__main__":
     assert result == 68588312
 
     result, elapsed = calcular_posibilidades_recursiva(lista, limite + 1)
-    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro + 1")
+    print(
+        f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro + 1")
     assert result == 68588312
 
     print()
@@ -234,7 +243,8 @@ if __name__ == "__main__":
     assert result == 108505112
 
     result, elapsed = calcular_posibilidades_recursiva(lista, limite + 2)
-    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro + 2")
+    print(
+        f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro + 2")
     assert result == 108505112
 
     print()
@@ -244,7 +254,8 @@ if __name__ == "__main__":
     assert result == 8713112
 
     result, elapsed = calcular_posibilidades_recursiva(lista, limite - 1)
-    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro - 1")
+    print(
+        f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro - 1")
     assert result == 8713112
 
     print()
@@ -254,6 +265,7 @@ if __name__ == "__main__":
     assert result == 2060312
 
     result, elapsed = calcular_posibilidades_recursiva(lista, limite - 2)
-    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro - 2")
+    print(
+        f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro - 2")
     assert result == 2060312
 # NO MODIFICAR - FIN
