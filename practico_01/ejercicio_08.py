@@ -15,6 +15,7 @@ def superposicion_basico(
         for j in lista_2:
             if i == j:
                 return True
+    return False
 
 
 # NO MODIFICAR - INICIO
