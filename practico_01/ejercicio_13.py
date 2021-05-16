@@ -21,7 +21,7 @@ def generar_pares_clousure(initial: int = 0) -> Callable[[], int]:
         - Usar closures
         - Usar el modificador nonlocal
     """
-    def aux(nro: int = initial):
+    def aux():
         nonlocal initial
         nro = initial
         if bool(nro % 2):
