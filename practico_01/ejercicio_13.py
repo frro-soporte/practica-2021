@@ -108,16 +108,9 @@ def generar_pares_delegados(initial: int = 0) -> Iterator[int]:
         if initial % 2:
             initial += 1
         # delega en el generador los cambios de valor
-        val = yield from sig_pares(initial)
+        val = yield from generar_pares_generator(initial)
         if val is not None:  # verifica si hay Entradas
             initial = val
-
-
-# este generador se encarga de realizar incementos
-def sig_pares(init: int) -> Iterator[int]:
-    while True:
-        yield init
-        init += 2
 
 
 # NO MODIFICAR - INICIO
