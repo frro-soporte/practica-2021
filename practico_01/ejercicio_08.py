@@ -34,6 +34,7 @@ def superposicion_in(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
     for i in lista_1:
         if i in lista_2:
             return True
+    return False
 
 
 # NO MODIFICAR - INICIO
