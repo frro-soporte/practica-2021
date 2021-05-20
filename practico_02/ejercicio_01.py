@@ -17,7 +17,9 @@ $PATH$/practico_02> python -m ejercicio_01
 Referencia: https://docs.python.org/3/reference/import.html#the-import-system
 """
 
-# Completar
+import main as main
+from source import util as util
+from source.controller import controller as controller
 
 
 # NO MODIFICAR - INICIO
