@@ -1,5 +1,3 @@
-from os import error
-from sqlite3.dbapi2 import Error
 import flask
 from flask import request
 from controllers import contacts
