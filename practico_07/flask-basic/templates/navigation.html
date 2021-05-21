@@ -1,0 +1,8 @@
+
+<header>
+   <nav>
+    {% for link in nav %}
+      <a href="{{ link.url }}">{{ link.name }}</a>
+    {% endfor %}
+  </nav>
+</header>
