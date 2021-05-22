@@ -13,36 +13,34 @@ hace de intermediario entre la ‘vista’ y el ‘modelo’.
     
     1 : 'El controlador no debe realizar llamadas a la base de datos ni participar en la visualización de datos.'
 
-
 """
 
 from typing import List
 
 from ..database import contact_db
-from ..helpers import helper
 from ..models.models import Contact
+from ..helpers import helper
 
 
 def create(contact_: Contact) -> Contact:
-    contact_new = contact_db.create(contact_)
-    return contact_new
+    contact = helper.format_name(contact_)
+    helper.validate_contact(contact)
+    return contact_db.create(contact)
 
 
-def update(contact_: Contact) -> Contact:
-    contact_new = contact_db.update(contact_)
-    return contact_new
+def update(contact: Contact) -> Contact:
+    contact = helper.format_name(contact)
+    helper.validate_contact(contact)
+    return contact_db.update(contact)
 
 
 def delete(contact: Contact) -> Contact:
-    contact_new = contact_db.delete(contact.id)
-    return contact_new
+    return contact_db.delete(contact.id)
 
 
 def lists() -> List[Contact]:
-    contacts = contact_db.list_all()
-    return contacts
+    return contact_db.list_all()
 
 
 def details(contact: Contact) -> Contact:
-    contact_new = contact_db.detail(contact)
-    return contact_new
+    return contact_db.detail(contact)

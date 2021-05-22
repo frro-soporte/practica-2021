@@ -17,7 +17,7 @@
 
 from typing import List
 
-from .connection import fetch_all, fetch_lastrow_id, fetch_none, fetch_one
+from .connection import _fetch_all, _fetch_lastrow_id, _fetch_none, _fetch_one
 from ..models.models import Contact
 from ..models.exceptions import UserAlreadyExists, UserNotFound
 
@@ -25,19 +25,17 @@ from ..models.exceptions import UserAlreadyExists, UserNotFound
 def create(contact: Contact) -> Contact:
     if user_exists("email", contact.email):
         raise UserAlreadyExists(f"Email {contact.email} is already used")
-    
+
     query = """INSERT INTO contacts VALUES (:first_name, :last_name, 
                                             :address, :city, :state, 
                                             :zip_code, :phone, :email)"""
 
     contact_dict = contact._asdict()
 
-    id_ = fetch_lastrow_id(query, contact_dict)
+    id_ = _fetch_lastrow_id(query, contact_dict)
 
     contact_dict["id"] = id_
-    contact_new = Contact(**contact_dict)
-
-    return contact_new
+    return Contact(**contact_dict)
 
 
 def update(contact: Contact) -> Contact:
@@ -51,7 +49,7 @@ def update(contact: Contact) -> Contact:
 
     parameters = contact._asdict()
 
-    fetch_none(query, parameters)
+    _fetch_none(query, parameters)
     
     return contact
 
@@ -63,14 +61,14 @@ def delete(contact: Contact) -> Contact:
     query = "DELETE FROM contacts WHERE oid = ?"
     parameters = [contact.id]
 
-    fetch_none(query, parameters)
+    _fetch_none(query, parameters)
 
     return contact
 
 
 def list_all() -> List[Contact]:
     query = "SELECT oid, * FROM contacts"
-    records = fetch_all(query)
+    records = _fetch_all(query)
 
     contacts = []
     for record in records:
@@ -86,7 +84,7 @@ def detail(contact: Contact) -> Contact:
     query = "SELECT oid, * FROM contacts WHERE oid=?"
     parameters = [contact.id]
 
-    record = fetch_one(query, parameters)
+    record = _fetch_one(query, parameters)
 
     if record is None:
         raise UserNotFound(f"No user with id: {contact.id}")
@@ -102,6 +100,6 @@ def user_exists(field: str, value: str) -> bool:
     query = f"SELECT oid, email FROM contacts WHERE {field}=?"
     parameters = [value]
 
-    record = fetch_one(query, parameters)
+    record = _fetch_one(query, parameters)
 
     return bool(record)
