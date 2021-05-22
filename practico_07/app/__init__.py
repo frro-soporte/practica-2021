@@ -1,6 +1,6 @@
 from flask import Flask
 from config import Config
-from .database.connection import reset_table
+from .database.contact_db import reset_table
 
 from .routes import global_scope, api_scope, errors_scope
 

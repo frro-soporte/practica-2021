@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, redirect, url_for
 
 from ..controller import contacts_controller
 from ..models.models import Contact
@@ -27,26 +27,27 @@ def get_details(id_):
 
 @api_scope.route('/contacts', methods=['POST'])
 def create():
-    data = request.json
-    contact = Contact(first_name=data["firstName"], last_name=data["lastName"], 
-                      address=data["address"], city=data["city"], state=data["state"], 
+    data = request.form
+    print(data)
+    contact = Contact(first_name=data["firstName"], last_name=data["lastName"],
+                      address=data["address"], city=data["city"], state=data["state"],
                       zip_code=data["zipCode"], phone=data["phone"], email=data["email"])
 
-    contact_new = contacts_controller.create(contact)
+    contacts_controller.create(contact)
 
-    return jsonify(contact_new._asdict())
+    return redirect(url_for('views.home'))
 
 
 @api_scope.route('/contacts/<id_>', methods=['PUT'])
 def update(id_):
     data = request.data
 
-    contact = Contact(id=id_, first_name=data["firstName"], last_name=data["lastName"], 
-                      address=data["address"], city=data["city"], state=data["state"], 
+    contact = Contact(id=id_, first_name=data["firstName"], last_name=data["lastName"],
+                      address=data["address"], city=data["city"], state=data["state"],
                       zip_code=data["zipCode"], phone=data["phone"], email=data["email"])
 
     contact_new = contacts_controller.update(contact)
-        
+
     return jsonify(contact_new._asdict())
 
 

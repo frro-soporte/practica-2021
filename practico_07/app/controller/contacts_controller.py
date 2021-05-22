@@ -1,5 +1,4 @@
 """
-    
 ### Controlador Socios
 
 Responde a eventos (usualmente acciones del usuario) e invoca peticiones al ‘modelo’ \n
@@ -10,9 +9,8 @@ hace de intermediario entre la ‘vista’ y el ‘modelo’.
 
     Restricciones ::
 
-    
-    1 : 'El controlador no debe realizar llamadas a la base de datos ni participar en la visualización de datos.'
 
+    1 : 'El controlador no debe realizar llamadas a la base de datos ni participar en la visualización de datos.'
 """
 
 from typing import List

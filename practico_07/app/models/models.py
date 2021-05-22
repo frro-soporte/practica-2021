@@ -1,5 +1,6 @@
 from typing import NamedTuple, Optional
 
+
 class Contact(NamedTuple):
     id: Optional[int] = None
     first_name: Optional[str] = None
