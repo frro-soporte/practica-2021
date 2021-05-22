@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+nav {
+    padding: 20px;
+    background: #e8e8e8;
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    margin-right: 30px;
+    color: #597a96;
+    text-decoration: none;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+.main {
+    text-align: center;
+}
+
+.main-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.form-input {
+    width: 50%;
+    text-align: left;
+}
+
+.form-row {
+    width: 400px;
+    margin: 0.5em
+}
+
+.form-label {
+    width: 30%;
+    text-align: end;
+    padding-right: 10px;
+}
+
+.form-submit {
+    width: 30%;
+    margin: 10px;
+}

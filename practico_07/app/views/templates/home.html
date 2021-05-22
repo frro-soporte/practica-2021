@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    <link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{{title}}</h1>
+    <p>{{description}}</p>
+</div>
+
+<div class="row justify-content-center main">
+    <h3 class="text-secondary fw-bolder">NUEVO SOCIO</h3>
+    <form class="main-form" method="POST" action="{{ url_for('api.create') }}" enctype="multipart/form-data">
+        <div class="form-row">
+            <label class="form-label">Nombre</label>
+            <input class="form-input" type="text" name="firstName" id="firstName" required />
+        </div>
+        <div class="form-row">
+            <label class="form-label">Apellido</label>
+            <input class="form-input" type="text" name="lastName" id="lastName" required />
+        </div>
+        <div class="form-row">
+            <label class="form-label">Direccion</label>
+            <input class="form-input" type="text" name="address" id="address" required />
+        </div>
+        <div class="form-row">
+            <label class="form-label">Ciudad</label>
+            <input class="form-input" type="text" name="city" id="city"/>
+        </div>
+        <div class="form-row">
+            <label class="form-label">Provincia</label>
+            <input class="form-input" type="text" name="state" id="state"/>
+        </div>
+        <div class="form-row">
+            <label class="form-label">Codigo Postal</label>
+            <input class="form-input" type="number" name="zipCode" id="zipCode" required />
+        </div>
+        <div class="form-row">
+            <label class="form-label">Telefono</label>
+            <input class="form-input" type="number" name="phone" id="phone" required />
+        </div>
+        <div class="form-row">
+            <label class="form-label">Email</label>
+            <input class="form-input" type="email" name="email" id="email" required />
+        </div>
+        <button class="form-submit" type="submit">Confirmar</button>
+    </form>
+</div>
+{% endblock %}

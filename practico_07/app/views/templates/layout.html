@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>{{ title }}</title>
+    <meta charset="utf-8">
+    <meta name="description" content="{{ description }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#5eb9d7" />
+
+
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+    {% block css %}{% endblock %}
+
+</head>
+
+<body>
+    {% include 'navigation.html' %}
+    {% block content %}{% endblock %}
+</body>
+
+</html>
