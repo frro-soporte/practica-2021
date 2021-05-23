@@ -10,8 +10,15 @@ Los imports deben hacerse de forma tal que funcionen con el siguiente
 comando (estando parados dentro de la carpeta practico_02):
 $PATH$/practico_02> python -m source.controller.ejercicio_03
 """
+import sys
+sys.path.append("C:/Users/USUARIO/Documents/frro-python-2021-03/practico_02")
 
-# Completar
+from source import util as util
+from config import test_config as test_config
+from source.data import database as database
+import main as main
+import controller as controller
+from config.ci_cd import deploy_travis
 
 # NO MODIFICAR - INICIO
 assert main.name == "main"
