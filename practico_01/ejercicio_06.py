@@ -69,6 +69,12 @@ if __name__ == "__main__":
     assert numeros_al_final_filter([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
 # NO MODIFICAR - FIN
 
+"""Solución alternativa, donde se utiliza la misma nomenclatura del ejercicio anterior
+def numeros_al_final_filter(lista: List[Union[float, str]]) -> List[Union[float, str]]:
+    todos=list(filter(lambda a: type(a)==str, lista))
+    todos.extend(list(filter(lambda x:  type(x)!=str, lista)))
+    return todos"""
+
 
 ###############################################################################
 
