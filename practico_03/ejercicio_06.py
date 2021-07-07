@@ -14,12 +14,13 @@ class Article:
     def __init__(self, name: str) -> None:
         self.name = name
 
-
-
     # NO MODIFICAR - FIN
 
     def __str__(self):
-        return f"{self.name}"
+        return self.name
+
+    def __repr__(self):
+        return f"Article('{self.name}')"
 
 
 # NO MODIFICAR - INICIO
@@ -34,7 +35,6 @@ class ShoppingCart:
             self.articles = []
         else:
             self.articles = articles
-
 
     def add(self, article: Article) -> ShoppingCart:
         self.articles.append(article)
@@ -54,7 +54,16 @@ class ShoppingCart:
     # NO MODIFICAR - FIN
 
     def __str__(self):
-        return f"{self.articles}"
+        return f"{str([str(art) for art in self.articles])}"
+
+    def __repr__(self) -> str:
+        return f"ShoppingCart({self.articles})"
+
+    def __eq__(self, other):
+        return self.articles == self.articles
+
+    def __add__(self, other: ShoppingCart):
+        return ShoppingCart(self.articles+other.articles)
 
 
 # NO MODIFICAR - INICIO
