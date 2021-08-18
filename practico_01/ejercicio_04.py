@@ -38,7 +38,6 @@ def es_vocal_if_in(letra: str) -> bool:
         return True
     return False
 
-
 # NO MODIFICAR - INICIO
 assert es_vocal_if_in("a")
 assert not es_vocal_if_in("b")

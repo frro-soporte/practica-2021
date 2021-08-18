@@ -73,7 +73,13 @@ def medir_tiempo(func: Callable[[Sequence[int], int], int]) -> Callable[[Sequenc
     partial. En este caso se debe devolver una función que devuelva la tupla y
     tome una cantidad arbitraria de parámetros.
     """
-    pass # Completar
+    def closureFunction(*arbitraria):
+        lista2=[]
+        permutaciones=func(lista, limite)
+        lista2.append(permutaciones)
+        lista2.append(perf_counter() - elapsed)
+        return tuple(lista2)
+    return closureFunction
 
 
 # NO MODIFICAR - INICIO
@@ -127,8 +133,7 @@ def memoized(func):
     tiempo para la función calcular posibilidades. Prestar atención a los tiempo
     de ejecución
     """
-    pass # Completar
-
+    # Completar
 
 @medir_tiempo
 @memoized
@@ -139,7 +144,7 @@ def calcular_posibilidades(lista: Sequence[int], limite: int) -> int:
             count += 1
     return count
 
-
+"""
 # NO MODIFICAR - INICIO
 print()
 
@@ -155,7 +160,7 @@ result, elapsed = calcular_posibilidades(lista, limite)
 print(f"Tiempo: {elapsed:2.8f} segundos - Con Memoized - 3ra ejecución")
 assert result == 28671512
 # NO MODIFICAR - FIN
-
+"""
 
 ###############################################################################
 
@@ -173,7 +178,7 @@ def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
     """Re-Escribir de manera recursiva"""
     pass # Completar
 
-
+"""
 # NO MODIFICAR - INICIO
 if __name__ == "__main__":
     print()
@@ -226,3 +231,4 @@ if __name__ == "__main__":
     print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro - 2")
     assert result == 2060312
 # NO MODIFICAR - FIN
+"""

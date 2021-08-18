@@ -81,11 +81,11 @@ def numeros_al_final_filter(lista: List[Union[float, str]]) -> List[Union[float,
 
 def numeros_al_final_recursivo(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     """CHALLENGE OPCIONAL - Re-escribir de forma recursiva."""
-    if all(type(i) == int for i in lista):
+    if all(type(i) != str for i in lista) or all(type(i) == str for i in lista):
         return lista
     
     a,*b=lista
-    if type(a) == int:
+    if type(a) != str:
         b.append(a)
         return numeros_al_final_recursivo(b)
     return [a] + numeros_al_final_recursivo(b)
