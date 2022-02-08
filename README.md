@@ -12,9 +12,10 @@ La referencia oficial será siempre la [documentación de Python](https://docs.p
 - Práctico 1: Lenguaje Python - Sintaxis y Elementos básicos y avanzados
 - Práctico 2: Módulos e Imports
 - Práctico 3: Paradigma Orientado a Objetos
-- Práctico 4: Bases de Datos con ORM (Capa de Datos)
-- Práctico 5: Lógica de Negocio (Capa de Negocio)
-- Práctico 6: Presentación con API (Capa de Presentación)
+- Práctico 4: Bases de Datos 
+- Práctico 5: Bases de Datos con ORM (Capa de Datos)
+- Práctico 6: Lógica de Negocio (Capa de Negocio)
+- Práctico 7: Presentación (Capa de Presentación)
 - [Trabajo Práctico Integrador (TPI): Desarrollo de una aplicación completa](TPI/README.md)
 
 # Aclaraciones
