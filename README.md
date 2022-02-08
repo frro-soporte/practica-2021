@@ -8,6 +8,7 @@ La referencia oficial será siempre la [documentación de Python](https://docs.p
 
 # Índice de Trabajo Prácticos
 
+- Práctico 0: Uso de Git y Github
 - Práctico 1: Lenguaje Python - Sintaxis y Elementos básicos y avanzados
 - Práctico 2: Módulos e Imports
 - Práctico 3: Paradigma Orientado a Objetos
