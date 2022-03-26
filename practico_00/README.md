@@ -44,22 +44,22 @@ Se realizarán 3 actividades donde se explorarán los conceptos básicos de Git 
 Las siguientes actividades serán grupales
 
 - **G1**: `Rojo` deberá crear un repositorio con el nombre 'mi-primer-repositorio-en-equipo'. Deberá inicializar con un `README.md`.
-- **G2**: `Rojo` deberá invitar a `Amarillo` y al usuario del docente como colaboradores.
-- **G3**: Los dos integrantes deberán clonar el repositorio.
-- **G4**: `Amarillo` modificará el `README.md` agregando el título "Trabajo en equipo" y en una nueva línea agregará su nombre y apellido.
-- **G5**: `Amarillo` hará un commit y un push.
+- **G2**: `Rojo` deberá invitar a `Amarillo`,`Azul` y `Verde`  y al usuario del docente como colaboradores.
+- **G3**: Todos los integrantes deberán clonar el repositorio.
+- **G4**: `Amarillo` modificará el `README.md` agregando el título "Trabajo en equipo". `Amarillo`,`Azul` y `Verde` en una nueva línea agregarán su nombre y apellido.
+- **G5**: Cada uno hará un commit y un push.
 - **G6**: `Rojo` modificará el `README.md` y pondrá el título "Trabajo colaborativo" y en una nueva línea agregará su nombre y apellido.
 - **G7**: `Rojo` hará commit y push, en este momento deberán surgir conflictos, `Rojo` deberá solucionarlos, realizar un nuevo commit y hacer push.
 - **G8**: `Amarillo` hará pull y creará un nuevo branch con el nombre 'prueba-de-formatos'.
-- **G9**: `Amarillo` deberá generar varios archivos de texto con distinto formato, cada uno con el contenido "Esto es una prueba". Los formatos a utilizar serán: .doc, .docx, .txt, .md, .pdf, .rtf - Nota: Puede requerirse distintos softwares para guardar en cada formato.
-- **G10**: `Amarillo` deberá hacer un commit con el nombre 'agregar-archivos-basicos' y hacer un push.
-- **G11**: `Rojo` deberá hacer un pull de ambos branches.
+- **G9**: `Amarillo`,`Azul` y `Verde` deberán generar varios archivos de texto con distinto formato, cada uno con el contenido "Esto es una prueba". Los formatos a utilizar serán: .doc, .docx, .txt, .md, .pdf, .rtf - Nota: Puede requerirse distintos softwares para guardar en cada formato -Nota2: cada uno se reparte los archivos a crear.
+- **G10**: `Amarillo`,`Azul` y `Verde` deberán hacer un commit con el nombre 'agregar-archivos-basicos(*)' y hacer un push. -Nota: reemplazar * con el color de cada uno
+- **G11**: `Rojo` deberá hacer un pull de todos los branches.
 - **G12**: Todos los integrantes deberán entrar al repositorio desde github y verificar cuales de los formatos puede visualizarse correctamente y cuales no.
 - **G13**: `Rojo` deberá agregar una imagen libre de derechos de autor a cada uno de los archivos (siempre que sea posible), hacer un commit y hacer un push.
-- **G14**: `Amarillo` deberá verificar que la imagen pueda verse en GitHub y realizará un Pull Request a master y pondrá a `Rojo` y al docente como revisores.
-- **G15**: `Rojo` verá la revisión y deberá solicitar desde la plataforma de Pull Request que se quiten los archivos que no pueden verse adecuadamente.
-- **G16**: `Rojo` solicitará en la PR que `Amarillo` haga los cambios.
-- **G17**: `Amarillo` realiza un pull, hace los cambios, realiza un commit, hace un push y notifica a `Rojo` desde la plataforma de los Pull Request con una mención (@) que los cambios necesarios fueron hechos.
+- **G14**: `Amarillo` deberá verificar que la imagen pueda verse en GitHub y realizará un Pull Request a master y pondrá a `Rojo`,`Azul` y `Verde` y al docente como revisores.
+- **G15**: `Verde` verá la revisión y deberá solicitar desde la plataforma de Pull Request que se quiten los archivos que no pueden verse adecuadamente.
+- **G16**: `Verde` solicitará en la PR que `Azul` haga los cambios.
+- **G17**: `Azul` realiza un pull, hace los cambios, realiza un commit, hace un push y notifica a `Rojo`,`Amarillo` y `Verde` desde la plataforma de los Pull Request con una mención (@) que los cambios necesarios fueron hechos.
 - **G18**: `Rojo` verifica que todo se pueda visualizar correctamente online y escribe una mención (@) en la plataforma del Pull Request hacia el docente para que haga la corrección de la actividad. En la descripción de este Pull Request se deberá aclarar que rol tenía cada usuario
 
 ### Actividad 3: Mi primer sitio web con GitHub Pages
