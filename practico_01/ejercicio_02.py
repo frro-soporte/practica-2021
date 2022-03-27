@@ -4,10 +4,25 @@
 def maximo_encadenado(a: float, b: float, c: float) -> float:
     """Toma 3 números y devuelve el máximo.
 
-    Restricción: Utilizar UNICAMENTE tres IFs y comparaciones encadenadas.
-    Referencia: https://docs.python.org/3/reference/expressions.html#comparisons
+    Args:
+        a (float): Primer nro a comparar
+        b(float): Segundo nro a comparar
+        c(float): Tercer nro a comparar
+    
+    Returns:
+        float: mayor de los tres numeros
     """
-    pass # Completar
+    if a > b or a == b:
+        if a > c or a == c:
+            return a
+        else:
+            return c
+    else:
+        if b > c or b == c:
+            return b
+        else:
+            return c
+
 
 
 # NO MODIFICAR - INICIO
