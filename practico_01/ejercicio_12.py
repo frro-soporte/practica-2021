@@ -19,7 +19,13 @@ def combinar_basico(nombres: List[str], precios: List[float]) -> Tuple[Any]:
 
     Restricción: Resolver utilizando un bucle for.
     """
-    pass # Completar
+    pares = []
+    for (nombre, precio) in zip(nombres,precios):
+        par = (nombre,precio)
+        pares.append(par)
+    
+    return tuple(pares)
+
 
 
 # NO MODIFICAR - INICIO
@@ -43,7 +49,7 @@ def combinar_enumerate(nombres: List[str], precios: List[float], ids: List[int])
     """Re-Escribir utilizando enumerate y agregando un nuevo componente.
     Referencia: https://docs.python.org/3/library/functions.html#enumerate
     """
-    pass # Completar
+    return tuple(enumerate(nombres,precios,id_articulos))
 
 
 # NO MODIFICAR - INICIO
