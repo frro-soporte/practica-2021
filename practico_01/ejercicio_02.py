@@ -104,11 +104,11 @@ def maximo_recursivo(*args) -> float:
                 c.insert(0,b)
                 maximo_recursivo(c)
         elif len(x)==1:
-            print(x[0])
+            return x[0]
     
-        
+# x vale el maximo pero retorna none
 
-maximo_recursivo(1, 10, 5, -5)
+print(maximo_recursivo(1, 10, 5, -5))
 maximo_recursivo(4, 9, 18, 6) 
 maximo_recursivo(24, 9, 18, 20)
 maximo_recursivo(24, 9, 18, 30)

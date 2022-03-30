@@ -24,6 +24,8 @@ def generar_pares_clousure(initial: int = 0) -> Callable[[], int]:
     def sig_par():
         nonlocal initial
         """print (initial)"""
+        if (initial==0):
+            return initial
         if (initial%2):
             initial+=1
             return initial
@@ -31,15 +33,10 @@ def generar_pares_clousure(initial: int = 0) -> Callable[[], int]:
             initial+=2
             return initial
     
-    
+    #no sé cómo devolver el primer numero mandado
     return sig_par
- 
-    pass # Completar
 
-generador_pares = generar_pares_clousure(0)
-print(generador_pares())
-print(generador_pares())
-print(generador_pares())
+
 # NO MODIFICAR - INICIO
 generador_pares = generar_pares_clousure(0)
 assert generador_pares() == 0
@@ -56,12 +53,23 @@ en Python son llamadas funciones generadoras y se caracterizan por utilizar el
 yield en lugar del return.
 """
 
-from typing import Iterator, Callable
+
 def generar_pares_generator(initial: int = 0) -> Iterator[int]:
     """Re-Escribir utilizando Generadores
     Referencia: https://docs.python.org/3/howto/functional.html?highlight=generator#generators
     """
-    pass # Completar
+
+    if (initial%2):
+        
+        for i in range(initial,100,2): 
+            print(i)
+            if initial==i:
+                yield i  
+            yield i+1  
+    else:
+        for j in range(initial,100,2):
+            yield j
+
 
 
 # NO MODIFICAR - INICIO
@@ -74,10 +82,19 @@ assert next(generador_pares) == 4
 
 ###############################################################################
 
-
+from typing import Iterator, Callable
 def generar_pares_generator_send(initial: int = 0) -> Iterator[int]:
     """CHALLENGE OPCIONAL: Re-Escribir utilizando send para saltear numeros"""
-    pass # Completar
+    if (initial%2):
+        
+        for i in range(initial,100,2): 
+            print(i)
+            if initial==i:
+                yield i  
+            yield i+1  
+    else:
+        for j in range(initial,100,2):
+            yield j
 
 
 # NO MODIFICAR - INICIO
@@ -86,7 +103,7 @@ if __name__ == "__main__":
     assert next(generador_pares) == 0
     assert next(generador_pares) == 2
     assert next(generador_pares) == 4
-    assert generador_pares.send(10) == 10
+    assert generador_pares.send(10) == 10 #no me ejecuta el send
     assert next(generador_pares) == 12
     assert next(generador_pares) == 14
     assert next(generador_pares) == 16
@@ -95,10 +112,9 @@ if __name__ == "__main__":
 
 ###############################################################################
 
-
 def generar_pares_delegados(initial: int = 0) -> Iterator[int]:
     """CHALLENGE OPCIONAL: Re-Escribir utilizando Generadores delegados (yield from)"""
-    pass # Completar
+    yield from generar_pares_generator(initial)
 
 
 # NO MODIFICAR - INICIO
