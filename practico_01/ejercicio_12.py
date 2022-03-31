@@ -49,7 +49,13 @@ def combinar_enumerate(nombres: List[str], precios: List[float], ids: List[int])
     """Re-Escribir utilizando enumerate y agregando un nuevo componente.
     Referencia: https://docs.python.org/3/library/functions.html#enumerate
     """
-    return tuple(enumerate(nombres,precios,id_articulos))
+    pares = []
+    for i in enumerate(range(0,len(nombres))):
+        n=nombres(i)
+        par=
+        pares.append(par)
+    
+    return tuple(pares)
 
 
 # NO MODIFICAR - INICIO
@@ -73,7 +79,12 @@ def combinar_zip(nombres: List[str], precios: List[float], ids: List[int]) -> Tu
     """Re-Escribir utilizando zip.
     Referencia: https://docs.python.org/3/library/functions.html#zip
     """
-    pass # Completar
+    pares = []
+    for (nombre, precio, id) in zip(nombres,precios, ids):
+        par = (nombre,precio,id)
+        pares.append(par)
+    
+    return tuple(pares)
 
 
 # NO MODIFICAR - INICIO

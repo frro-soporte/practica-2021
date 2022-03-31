@@ -15,15 +15,19 @@ from typing import Callable, Iterable
 def apply(lista: Iterable[int], func: Callable[[int], bool]) -> Iterable[bool]:
     """Toma una lista y una función que toma un parámetro y devuelve una lista
     con la función aplicada a todos los elementos."""
-    pass # Completar
+    resp=[]
+    for i in lista:
+        resp.append(func(i))
+    return resp
+    
 
 
 # NO MODIFICAR - INICIO
 def esta_entre_valores(x: int, min_: float, max_: float) -> bool:
     return min_ < x < max_
 # NO MODIFICAR - FIN
-
-
+valores=[10,20,30,40,50,200,400,1234]
+esta_entre_valores.apply(valores, esta_entre_valores)
 ###############################################################################
 
 

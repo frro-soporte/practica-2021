@@ -12,13 +12,14 @@ def suma_cubo_pares_for(numeros: Iterable[int]) -> int:
     """
     cubos = []
     suma = 0
+    
     for nro in numeros:
         cubos.append(nro**3)
     
     for nro in cubos:
         if nro % 2 == 0:
-            sum += nro
-    return sum
+            suma += nro
+    return suma
 
 
 
@@ -73,25 +74,27 @@ numeros = [1, 2, 3, 4, 5, 6]
 
 # Escribir una función lambda que eleve los elementos al cubo
 
-numeros_al_cubo = lambda nro: nro**3
+numeros_al_cubo = list(map(lambda x: x ** 3,numeros))
+
+
 
 
 # Escribir una función lambda que permita filtrar todos los elementos pares
 
-numeros_al_cubo_pares = lambda nro: nro % 2 == 0
+numeros_al_cubo_pares =list(filter(lambda nro: nro % 2 == 0,numeros_al_cubo))
 
 
 # Escribir una función Lambda que sume todos los elementos
 
 from functools import reduce
 
-suma_numeros_al_cubo_pares = # Completar
+suma_numeros_al_cubo_pares = reduce(lambda x,y: x+y,numeros_al_cubo_pares)
 
 
 # Escribir una función Lambda que permita ordenar los elementos de la numeros
 # en base a si son pares o impares
 
-numeros_ordenada = # Completar
+numeros_ordenada = sorted(numeros,key=lambda x:(x+1)%2)
 
 # NO MODIFICAR - INICIO
 assert numeros_al_cubo == [1, 8, 27, 64, 125, 216]

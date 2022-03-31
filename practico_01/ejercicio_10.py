@@ -45,13 +45,13 @@ assert tiene_pares_for_else([1, 3, 5, 600]) is True
 
 ###############################################################################
 
-
+from typing import Iterable
 def tiene_pares_any(numeros: Iterable[int]) -> bool:
     """Re-Escribir utilizando la función any, sin utilizar bucles.
     Referencia: https://docs.python.org/3/library/functions.html#any
     """
-    pass
-
+    x = [x%2 ==0 for x in numeros]
+    return any(x)
 
 # NO MODIFICAR - INICIO
 assert tiene_pares_any([1, 3, 5]) is False
