@@ -7,13 +7,18 @@ def sumatoria_basico(n: int) -> int:
     Restricción: Utilizar un bucle for.
     """
     pass # Completar
+    num = 0
+    for i in range(n+1):
+        num = num + i
+
+    return num
 
 
 # NO MODIFICAR - INICIO
 assert sumatoria_basico(1) == 1
 assert sumatoria_basico(100) == 5050
+# sumatoria_basico(100)
 # NO MODIFICAR - FIN
-
 
 ###############################################################################
 
@@ -23,12 +28,13 @@ def sumatoria_sum(n: int) -> int:
     Referencia: https://docs.python.org/3/library/functions.html#sum
     """
     pass # Completar
-
+    return sum(range(n+1))
 
 # NO MODIFICAR - INICIO
 assert sumatoria_sum(1) == 1
 assert sumatoria_sum(100) == 5050
 # NO MODIFICAR - FIN
+
 
 
 ###############################################################################
@@ -42,6 +48,7 @@ def sumatoria_reduce(n: int) -> int:
     Referencia: https://docs.python.org/3/library/functools.html#functools.reduce
     """
     pass # Completar
+    return reduce(lambda x, y: x + y, range(n + 1))
 
 
 # NO MODIFICAR - INICIO
