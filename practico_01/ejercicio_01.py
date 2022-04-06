@@ -2,11 +2,10 @@
 
 
 def maximo_basico(a: float, b: float) -> float:
-    """Toma dos números y devuelve el mayor.
-
-    Restricción: No utilizar la función max"""
+    #Toma dos números y devuelve el mayor.
+    return a if a>b else b
+    #Restricción: No utilizar la función max"""
     pass # Completar
-
 
 # NO MODIFICAR - INICIO
 assert maximo_basico(10, 5) == 10
