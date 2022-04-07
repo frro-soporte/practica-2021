@@ -14,7 +14,7 @@ def operacion_basica(a: float, b: float, multiplicar: bool) -> Union[float, str]
         - No utilizar AND ni OR.
     """
     pass # Completar
-
+    ''' Hola '''
 
 # NO MODIFICAR - INICIO
 assert operacion_basica(1, 1, True) == 1
