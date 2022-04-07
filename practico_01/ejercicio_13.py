@@ -26,7 +26,7 @@ def generar_pares_clousure(initial: int = 0) -> Callable[[], int]:
         """print (initial)"""
         if (initial==0):
             return initial
-        if (initial%2):
+        if (initial%2==0):
             initial+=1
             return initial
         else:

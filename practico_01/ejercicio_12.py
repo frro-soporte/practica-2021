@@ -41,7 +41,10 @@ assert combinar_basico(nombre_articulos, precio_articulos) == respuesta
 
 ###############################################################################
 
+from typing import Any, List, Tuple
 
+nombre_articulos = ["ventana", "lámpara", "shampoo"]
+precio_articulos = [100.48, 16.42, 5.20]
 id_articulos = [6852, 1459, 3578]
 
 
@@ -50,10 +53,11 @@ def combinar_enumerate(nombres: List[str], precios: List[float], ids: List[int])
     Referencia: https://docs.python.org/3/library/functions.html#enumerate
     """
     pares = []
-    for i in enumerate(range(0,len(nombres))):
-        n=nombres(i)
-        par=
-        pares.append(par)
+    f = enumerate(range(0,len(nombres)))
+    print(f)
+    for i in enumerate(nombres):
+        
+        pares.append(i[1:2]+ (precios[i[0]],ids[i[0]]))
     
     return tuple(pares)
 
@@ -71,6 +75,10 @@ assert combinar_enumerate(nombre_articulos, precio_articulos, id_articulos) == r
 
 ###############################################################################
 
+from typing import Any, List, Tuple
+
+nombre_articulos = ["ventana", "lámpara", "shampoo"]
+precio_articulos = [100.48, 16.42, 5.20]
 
 id_articulos = [6852, 1459, 3578]
 
@@ -86,7 +94,7 @@ def combinar_zip(nombres: List[str], precios: List[float], ids: List[int]) -> Tu
     
     return tuple(pares)
 
-
+print(combinar_zip(nombre_articulos, precio_articulos, id_articulos))
 # NO MODIFICAR - INICIO
 respuesta = (
     ("ventana", 100.48, 6852),
@@ -99,8 +107,9 @@ assert combinar_zip(nombre_articulos, precio_articulos, id_articulos) == respues
 
 
 ###############################################################################
-
-
+from typing import Any, List, Tuple
+nombre_articulos = ["ventana", "lámpara", "shampoo"]
+precio_articulos = [100.48, 16.42, 5.20]
 id_articulos = [6852, 1459, 3578]
 categoria_articulos = ["hogar", "libreria", "perfumeria"]
 importado_articulos = [True, False, True]
@@ -110,9 +119,28 @@ def combinar_zip_args(*args) -> Tuple[Any]:
     """Re-Escribir utilizando zip y una cantidad arbitraria de componentes.
     Referencia: https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists
     """
-    pass # Completar
+    pares=[]
+    b=args[0]
+    for k in range(len(b)):
+        pares.append([])
+    for i in range(len(args)):
+        a=args[i]
+            
+        for j in range(len(a)):
+            pares[j].append(a[j])
+   
+    
+    return tuple(pares)
 
+componentes = [
+    nombre_articulos,
+    precio_articulos,
+    id_articulos,
+    categoria_articulos,
+    importado_articulos,
+]
 
+print(combinar_zip_args(*componentes))
 # NO MODIFICAR - INICIO
 respuesta = (
     ("ventana", 100.48, 6852, "hogar", True),
