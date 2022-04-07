@@ -14,7 +14,6 @@ def operacion_basica(a: float, b: float, multiplicar: bool) -> Union[float, str]
         - No utilizar AND ni OR.
     """
     pass # Completar
-    ''' Hola '''
     if multiplicar:
         resultado=a*b
     else:
