@@ -11,12 +11,24 @@ def suma_cubo_pares_for(numeros: Iterable[int]) -> int:
     separar los pares.
     """
     pass # Completar
+    num = 0
+    lista = []
+    for x in numeros:
+        lista.append(pow(x, 3))
+
+    for y in lista:
+        if y % 2 == 0:
+            num = num + y
+
+    return num
+
+
 
 
 # NO MODIFICAR - INICIO
 assert suma_cubo_pares_for([1, 2, 3, 4, 5, 6]) == 288
 # NO MODIFICAR - FIN
-
+# suma_cubo_pares_for([1, 2, 3, 4, 5, 6])
 
 ###############################################################################
 
