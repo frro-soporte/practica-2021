@@ -26,8 +26,6 @@ def apply(lista: Iterable[int], func: Callable[[int], bool]) -> Iterable[bool]:
 def esta_entre_valores(x: int, min_: float, max_: float) -> bool:
     return min_ < x < max_
 # NO MODIFICAR - FIN
-valores=[10,20,30,40,50,200,400,1234]
-esta_entre_valores.apply(valores, esta_entre_valores)
 ###############################################################################
 
 
@@ -38,7 +36,7 @@ Referencia: https://docs.python.org/3/library/functools.html#functools.partial
 lista = [3, 4, 5, 6, 7, 8]
 min_ = 4
 max_ = 7
-nueva_funcion = # Completar
+nueva_funcion = partial(esta_entre_valores, min_=4, max_=7)
 
 # NO MODIFICAR - INICIO
 lista = [3, 4, 5, 6, 7, 8]
