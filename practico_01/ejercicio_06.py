@@ -39,16 +39,13 @@ assert numeros_al_final_comprension([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j"
 def numeros_al_final_sorted(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     #Re-escribir utilizando la función sorted con una custom key.
     #Referencia: https://docs.python.org/3/library/functions.html#sorted
-    def convertirLetra(el):
-        #if type(el) == int: return str(el)
-        #else: return el
-        return str(el)
+    def func(x):
+        esInt = type(x) == int
+        return 1 if esInt else 0
     
-    lista.sort(key=convertirLetra)
-    print('Log', lista)
+    return sorted(lista, key=func)
 
-numeros_al_final_sorted([3, "a", 1, "b", 10, "j"])
-"""
+
 # NO MODIFICAR - INICIO
 assert numeros_al_final_sorted([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
 # NO MODIFICAR - FIN
@@ -60,9 +57,9 @@ assert numeros_al_final_sorted([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 
 def numeros_al_final_filter(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     #CHALLENGE OPCIONAL - Re-escribir utilizando la función filter.
     #Referencia: https://docs.python.org/3/library/functions.html#filter
-
-    pass # Completar
-
+    def filtrarNumeros(x):return type(x) == int
+    def filtrarLetras(y): return type(y) == str
+    return[letra for letra in filter(filtrarLetras, lista)] + [numero for numero in filter(filtrarNumeros, lista)]
 
 # NO MODIFICAR - INICIO
 if __name__ == "__main__":
@@ -72,7 +69,7 @@ if __name__ == "__main__":
 
 ###############################################################################
 
-
+"""
 def numeros_al_final_recursivo(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     #CHALLENGE OPCIONAL - Re-escribir de forma recursiva.
     #pass # Completar
