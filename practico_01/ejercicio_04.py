@@ -58,6 +58,7 @@ assert es_vocal_if_in("A")
 
 def es_vocal_in(letra: str) -> bool:
     """Re-escribir utilizando el operador IN pero sin utilizar IF."""
+    return letra in ('A','a','E','e','I','i','O','o','U','u')
     pass # Completar
 
 
