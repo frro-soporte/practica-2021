@@ -9,7 +9,11 @@ def superposicion_basico(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool
 
     Restricción: Utilizar bucles anidados.
     """
-    pass # Completar
+      pass # Completar
+        for x in lista_1:
+            for y in lista_2:
+                if x == y:
+                    return True
 
 
 # NO MODIFICAR - INICIO
@@ -24,8 +28,11 @@ assert not superposicion_basico(test_list, (2, "world", 30.85))
 
 def superposicion_in(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
     """Re-Escribir utilizando un sólo bucle y el operador IN."""
-    pass # Completar
-
+      pass # Completar
+    for x in lista_1:
+        if x in lista_2:
+            return True
+    
 
 # NO MODIFICAR - INICIO
 test_list = [1, "hello", 35.20]

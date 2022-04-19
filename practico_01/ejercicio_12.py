@@ -59,7 +59,11 @@ assert combinar_enumerate(nombre_articulos, precio_articulos, id_articulos) == r
 
 ###############################################################################
 
+from typing import Any, List, Tuple
 
+
+nombre_articulos = ["ventana", "lámpara", "shampoo"]
+precio_articulos = [100.48, 16.42, 5.20]
 id_articulos = [6852, 1459, 3578]
 
 
@@ -68,7 +72,8 @@ def combinar_zip(nombres: List[str], precios: List[float], ids: List[int]) -> Tu
     Referencia: https://docs.python.org/3/library/functions.html#zip
     """
     pass # Completar
-
+    for item in zip(ids, nombres, precios):
+        print(item)
 
 # NO MODIFICAR - INICIO
 respuesta = (
@@ -79,7 +84,7 @@ respuesta = (
 
 assert combinar_zip(nombre_articulos, precio_articulos, id_articulos) == respuesta
 # NO MODIFICAR - FIN
-
+# combinar_zip(nombre_articulos, precio_articulos, id_articulos)
 
 ###############################################################################
 
