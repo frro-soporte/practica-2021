@@ -2,12 +2,17 @@
 
 from typing import Iterable
 
+from sqlalchemy import true
+
 
 def tiene_pares_basico(numeros: Iterable[int]) -> bool:
     """Toma una lista y devuelve un booleano en función si tiene al menos un
     número par."""
     pass # Completar
-
+    for i in numeros:
+        if i % 2 == 0:
+            return True
+    else: return False
 
 # NO MODIFICAR - INICIO
 assert tiene_pares_basico([1, 3, 5]) is False
@@ -24,7 +29,11 @@ def tiene_pares_for_else(numeros: Iterable[int]) -> bool:
     Referencia: https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops
     """
     pass # Completar
-
+    for i in numeros:
+        if i % 2 == 0:
+            return True
+            break
+    else: return False
 
 # NO MODIFICAR - INICIO
 assert tiene_pares_for_else([1, 3, 5]) is False
