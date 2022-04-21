@@ -13,16 +13,20 @@ from typing import Iterator, Callable
 
 
 def generar_pares_clousure(initial: int = 0) -> Callable[[], int]:
-    """Toma un número inicial y devuelve una función que cada vez que es
-    invocada devuelve el número par siguiente al devuelto la última vez que
-    fue invocada.
+    #Toma un número inicial y devuelve una función que cada vez que es
+    #invocada devuelve el número par siguiente al devuelto la última vez que
+    #fue invocada.
 
-    Restricciones:
-        - Usar closures
-        - Usar el modificador nonlocal
-    """
-    pass # Completar
+    #Restricciones:
+    #    - Usar closures
+    #    - Usar el modificador nonlocal
 
+    def obtener_siguiente_par():
+        nonlocal initial
+        initial += 2
+        return initial
+    initial -= 2
+    return obtener_siguiente_par
 
 # NO MODIFICAR - INICIO
 generador_pares = generar_pares_clousure(0)
@@ -37,16 +41,15 @@ assert generador_pares() == 4
 
 """Este tipo de comportamiento es conocido com semi-corutina, las semi-corutinas
 en Python son llamadas funciones generadoras y se caracterizan por utilizar el
-yield en lugar del return.
-"""
-
+yield en lugar del return."""
 
 def generar_pares_generator(initial: int = 0) -> Iterator[int]:
-    """Re-Escribir utilizando Generadores
-    Referencia: https://docs.python.org/3/howto/functional.html?highlight=generator#generators
-    """
-    pass # Completar
-
+    #Re-Escribir utilizando Generadores
+    #Referencia: https://docs.python.org/3/howto/functional.html?highlight=generator#generators
+    n = initial
+    while True:
+        yield n
+        n += 2
 
 # NO MODIFICAR - INICIO
 generador_pares = generar_pares_generator()
@@ -60,12 +63,12 @@ assert next(generador_pares) == 4
 
 
 def generar_pares_generator_send(initial: int = 0) -> Iterator[int]:
-    """CHALLENGE OPCIONAL: Re-Escribir utilizando send para saltear numeros"""
+    #CHALLENGE OPCIONAL: Re-Escribir utilizando send para saltear numeros
     pass # Completar
 
 
 # NO MODIFICAR - INICIO
-if __name__ == "__main__":
+"""if __name__ == "__main__":
     generador_pares = generar_pares_generator_send()
     assert next(generador_pares) == 0
     assert next(generador_pares) == 2
@@ -75,20 +78,21 @@ if __name__ == "__main__":
     assert next(generador_pares) == 14
     assert next(generador_pares) == 16
 # NO MODIFICAR - FIN
-
+"""
 
 ###############################################################################
 
 
 def generar_pares_delegados(initial: int = 0) -> Iterator[int]:
-    """CHALLENGE OPCIONAL: Re-Escribir utilizando Generadores delegados (yield from)"""
+    #CHALLENGE OPCIONAL: Re-Escribir utilizando Generadores delegados (yield from)
     pass # Completar
 
 
 # NO MODIFICAR - INICIO
-if __name__ == "__main__":
+"""if __name__ == "__main__":
     generador_pares = generar_pares_delegados()
     assert next(generador_pares) == 0
     assert next(generador_pares) == 2
     assert next(generador_pares) == 4
 # NO MODIFICAR - FIN
+"""
