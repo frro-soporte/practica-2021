@@ -50,7 +50,7 @@ def tiene_pares_any(numeros: Iterable[int]) -> bool:
     Referencia: https://docs.python.org/3/library/functions.html#any
     """
     pass # Completar
-
+    return (any([num for num in numeros if num % 2 == 0]))
 
 # NO MODIFICAR - INICIO
 assert tiene_pares_any([1, 3, 5]) is False

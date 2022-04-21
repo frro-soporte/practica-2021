@@ -2,6 +2,8 @@
 
 from typing import Any, Iterable
 
+from sqlalchemy import null
+
 
 def superposicion_basico(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
     """Toma dos listas y devuelve un booleano en base a si tienen al menos 1
@@ -50,7 +52,9 @@ def superposicion_any(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
     Referencia: https://docs.python.org/3/library/functions.html#any
     """
     pass # Completar
-
+    #lista_3 = list([lambda x:x in lista_1 & x in lista_2])
+    #return any(lista_3)
+    return any(item in lista_1 for item in lista_2)
 
 # NO MODIFICAR - INICIO
 test_list = [1, "hello", 35.20]
@@ -67,7 +71,10 @@ def superposicion_set(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
     Referencia: https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset
     """
     pass # Completar
-
+    lista_3 = []
+    if set.intersection(lista_1, lista_2) == lista_3:
+        return True
+    else: return False 
 
 # NO MODIFICAR - INICIO
 test_list = [1, "hello", 35.20]
