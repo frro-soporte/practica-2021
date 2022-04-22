@@ -55,8 +55,10 @@ def medir_tiempo(func: Callable[[], int]) -> Tuple[int, float]:
     Restricción: La función no debe tomar parámetros y por lo tanto se
     recomienda usar partial.
     """
-    pass # Completar
-
+    start = perf_counter()
+    res = func()
+    elapsed = perf_counter() - start
+    return res, elapsed
 
 # NO MODIFICAR - INICIO
 result, elapsed = medir_tiempo(partial(calcular_posibilidades, lista, limite))
@@ -67,14 +69,17 @@ assert result == 28671512
 
 ###############################################################################
 
-
 def medir_tiempo(func: Callable[[Sequence[int], int], int]) -> Callable[[Sequence[int], int], Tuple[int, float]]:
-    """Re-Escribir utilizando closures de forma tal que la función no requiera
-    partial. En este caso se debe devolver una función que devuelva la tupla y
-    tome una cantidad arbitraria de parámetros.
-    """
-    pass # Completar
+    #Re-Escribir utilizando closures de forma tal que la función no requiera
+    #partial. En este caso se debe devolver una función que devuelva la tupla y
+    #tome una cantidad arbitraria de parámetros.
+    def nfunc(lista, limite):
+        start = perf_counter()
+        result = func(lista, limite)
+        elapsed = perf_counter() - start
+        return result, elapsed
 
+    return nfunc
 
 # NO MODIFICAR - INICIO
 calcular_posibilidades_nueva = medir_tiempo(calcular_posibilidades)
@@ -82,7 +87,6 @@ result, elapsed = calcular_posibilidades_nueva(lista, limite)
 print(f"Tiempo: {elapsed:2.2f} segundos - Decorador")
 assert result == 28671512
 # NO MODIFICAR - FIN
-
 
 ###############################################################################
 
@@ -115,8 +119,8 @@ assert result == 28671512
 
 ###############################################################################
 
-
-"""Un caso real de este patrón es guardar en una memoria cache auxiliar
+"""
+Un caso real de este patrón es guardar en una memoria cache auxiliar
 resultados de funciones que son muy costosas computacionalmente. A este
 patrón se lo suele denominar memoized
 """
@@ -127,8 +131,9 @@ def memoized(func):
     tiempo para la función calcular posibilidades. Prestar atención a los tiempo
     de ejecución
     """
-    pass # Completar
-
+    def memo(*args):
+        return func(*args)
+    return memo
 
 @medir_tiempo
 @memoized
@@ -159,18 +164,18 @@ assert result == 28671512
 
 ###############################################################################
 
-
-"""CHALLENGE OPCIONAL: Esta es otra ocasión donde las funciones recursivas
+"""
+CHALLENGE OPCIONAL: Esta es otra ocasión donde las funciones recursivas
 tienen ventajas adicionales  ya que al utilizar el patrón memoized, las
 funciones recursivas permiten ejecuciones más rápidas para las llamadas
 sucesivas.
-"""
+
 
 
 @medir_tiempo
 @memoized
 def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
-    """Re-Escribir de manera recursiva"""
+    Re-Escribir de manera recursiva
     pass # Completar
 
 
@@ -226,3 +231,4 @@ if __name__ == "__main__":
     print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro - 2")
     assert result == 2060312
 # NO MODIFICAR - FIN
+"""
