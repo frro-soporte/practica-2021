@@ -27,7 +27,7 @@ def suma_cubo_pares_for(numeros: Iterable[int]) -> int:
     return sum(elevarCubos(separarPares()))
 
 # NO MODIFICAR - INICIO
-#assert suma_cubo_pares_for([1, 2, 3, 4, 5, 6]) == 288
+assert suma_cubo_pares_for([1, 2, 3, 4, 5, 6]) == 288
 # NO MODIFICAR - FIN
 
 
@@ -88,7 +88,6 @@ suma_numeros_al_cubo_pares = reduce(lambda x,y: x+y, numeros_al_cubo_pares)
 # en base a si son pares o impares
 numeros_ordenada = list(filter(lambda x: x % 2 == 1, numeros))
 
-print(numeros_ordenada)
 # NO MODIFICAR - INICIO
 assert numeros_al_cubo == [1, 8, 27, 64, 125, 216]
 assert numeros_al_cubo_pares == [8, 64, 216]

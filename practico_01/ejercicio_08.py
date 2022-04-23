@@ -1,6 +1,6 @@
 """Any y Sets."""
 
-from typing import Any, Iterable
+from typing import Any, Iterable, List
 
 
 def superposicion_basico(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
@@ -41,12 +41,22 @@ assert not superposicion_in(test_list, (2, "world", 30.85))
 def superposicion_any(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
     #Re-Escribir utilizando sin bucles, el operador in y la funcion any.
     #Referencia: https://docs.python.org/3/library/functions.html#any
-    pass
-    #CONSULTAR
+    booleanArray = []
+    def buildBooleanArray(arr: List[Any], lista):
+        if len(lista) > 0:
+            arr.append(lista[0] in lista_2)
+            buildBooleanArray(arr, lista[1:])
+    
+    buildBooleanArray(booleanArray, lista_1)
+
+    return any(booleanArray)
+
+
+#superposicion_any(test_list, (2, "world", 35.20))
 # NO MODIFICAR - INICIO
-#test_list = [1, "hello", 35.20]
-#assert superposicion_any(test_list, (2, "world", 35.20))
-#assert not superposicion_any(test_list, (2, "world", 30.85))
+test_list = [1, "hello", 35.20]
+assert superposicion_any(test_list, (2, "world", 35.20))
+assert not superposicion_any(test_list, (2, "world", 30.85))
 # NO MODIFICAR - FIN
 
 
