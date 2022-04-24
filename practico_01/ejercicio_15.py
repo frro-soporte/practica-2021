@@ -55,7 +55,12 @@ def medir_tiempo(func: Callable[[], int]) -> Tuple[int, float]:
     Restricción: La función no debe tomar parámetros y por lo tanto se
     recomienda usar partial.
     """
-    pass # Completar
+    start = perf_counter()
+    result = func()
+    elapsed = perf_counter() - start
+    (resultado,tiempo) = result,elapsed
+    return (resultado,tiempo)
+
 
 
 # NO MODIFICAR - INICIO
@@ -65,7 +70,7 @@ assert result == 28671512
 # NO MODIFICAR - FIN
 
 
-###############################################################################
+##############################################################################
 
 
 def medir_tiempo(func: Callable[[Sequence[int], int], int]) -> Callable[[Sequence[int], int], Tuple[int, float]]:
@@ -73,7 +78,16 @@ def medir_tiempo(func: Callable[[Sequence[int], int], int]) -> Callable[[Sequenc
     partial. En este caso se debe devolver una función que devuelva la tupla y
     tome una cantidad arbitraria de parámetros.
     """
-    pass # Completar
+    def nueva_func(*args, **kwargs) -> Tuple[int, float]:
+        start = perf_counter()
+        result = func(*args, **kwargs)
+        elapsed = perf_counter() - start
+        (resultado,tiempo) = result,elapsed
+        return (resultado,tiempo)
+
+    return nueva_func
+
+
 
 
 # NO MODIFICAR - INICIO
@@ -127,7 +141,12 @@ def memoized(func):
     tiempo para la función calcular posibilidades. Prestar atención a los tiempo
     de ejecución
     """
-    pass # Completar
+    memo = {}
+    def helper(*args):
+        if str(args) not in memo:
+            memo[str(args)] = func(*args)
+        return memo[str(args)]
+    return helper
 
 
 @medir_tiempo
@@ -157,72 +176,5 @@ assert result == 28671512
 # NO MODIFICAR - FIN
 
 
-###############################################################################
-
-
-"""CHALLENGE OPCIONAL: Esta es otra ocasión donde las funciones recursivas
-tienen ventajas adicionales  ya que al utilizar el patrón memoized, las
-funciones recursivas permiten ejecuciones más rápidas para las llamadas
-sucesivas.
-"""
-
-
-@medir_tiempo
-@memoized
-def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
-    """Re-Escribir de manera recursiva"""
-    pass # Completar
-
-
-# NO MODIFICAR - INICIO
-if __name__ == "__main__":
-    print()
-
-    result, elapsed = calcular_posibilidades_recursiva(lista, limite)
-    print(f"Tiempo: {elapsed:2.2f} segundos - Recursiva Memoized - 1ra Ejecución")
-    assert result == 28671512
-
-    result, elapsed = calcular_posibilidades_recursiva(lista, limite)
-    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - 2da Ejecución")
-    assert result == 28671512
-
-    print()
-
-    result, elapsed = calcular_posibilidades(lista, limite + 1)
-    print(f"Tiempo: {elapsed:2.2f} segundos - Bucles Memoized - Parametro + 1")
-    assert result == 68588312
-
-    result, elapsed = calcular_posibilidades_recursiva(lista, limite + 1)
-    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro + 1")
-    assert result == 68588312
-
-    print()
-
-    result, elapsed = calcular_posibilidades(lista, limite + 2)
-    print(f"Tiempo: {elapsed:2.2f} segundos - Bucles Memoized - Parametro + 2")
-    assert result == 108505112
-
-    result, elapsed = calcular_posibilidades_recursiva(lista, limite + 2)
-    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro + 2")
-    assert result == 108505112
-
-    print()
-
-    result, elapsed = calcular_posibilidades(lista, limite - 1)
-    print(f"Tiempo: {elapsed:2.2f} segundos - Bucles Memoized - Parametro - 1")
-    assert result == 8713112
-
-    result, elapsed = calcular_posibilidades_recursiva(lista, limite - 1)
-    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro - 1")
-    assert result == 8713112
-
-    print()
-
-    result, elapsed = calcular_posibilidades(lista, limite - 2)
-    print(f"Tiempo: {elapsed:2.2f} segundos - Bucles Memoized - Parametro - 2")
-    assert result == 2060312
-
-    result, elapsed = calcular_posibilidades_recursiva(lista, limite - 2)
-    print(f"Tiempo: {elapsed:2.8f} segundos - Recursiva Memoized - Parametro - 2")
-    assert result == 2060312
-# NO MODIFICAR - FIN
+# ###############################################################################
+#
