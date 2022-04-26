@@ -8,15 +8,11 @@ def numeros_al_final_basico(lista: List[Union[float, str]]) -> List[Union[float,
     """
     letras = []
     numeros = []
-    ordenados = []
     for elemento in lista:
-        tipo = type(elemento)
-        if tipo == str: letras.append(elemento)
-        elif tipo == int or tipo == float: numeros.append(elemento)
-    
-    for letra in letras: ordenados.append(letra)
-    for numero in numeros: ordenados.append(numero)
-    return ordenados
+        if type(elemento) == str: letras.append(elemento)
+        elif type(elemento) == int: numeros.append(elemento)
+
+    return letras + numeros
 
 # NO MODIFICAR - INICIO
 assert numeros_al_final_basico([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
@@ -27,8 +23,8 @@ assert numeros_al_final_basico([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 
 def numeros_al_final_comprension(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     #Re-escribir utilizando comprensión de listas.
     letras = [elemento for elemento in lista if type(elemento) == str]
-    numeros = [elemento for elemento in lista if type(elemento) == int or type(elemento) == float]
-    return [elemento for elemento in letras + numeros]
+    numeros = [elemento for elemento in lista if type(elemento) == int]
+    return letras + numeros
 
 # NO MODIFICAR - INICIO
 assert numeros_al_final_comprension([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
@@ -39,12 +35,7 @@ assert numeros_al_final_comprension([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j"
 def numeros_al_final_sorted(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     #Re-escribir utilizando la función sorted con una custom key.
     #Referencia: https://docs.python.org/3/library/functions.html#sorted
-    def func(x):
-        esInt = type(x) == int
-        return 1 if esInt else 0
-    
-    return sorted(lista, key=func)
-
+    return sorted(lista, key=lambda x: isinstance(x, int))
 
 # NO MODIFICAR - INICIO
 assert numeros_al_final_sorted([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]

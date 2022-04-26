@@ -1,12 +1,6 @@
 def maximo_basico(a: float, b: float):
-    if a > b:
-        return a
-    elif b > a:
-        return b
-    elif a == b:
-        return a
-    else:
-        return b
+    if a > b: return a
+    return b
 
 # NO MODIFICAR - INICIO
 assert maximo_basico(10, 5) == 10

@@ -8,13 +8,7 @@ def es_palindromo(palabra: str) -> bool:
     Restricción: No utilizar bucles - Usar Slices de listas.
     Referencia: https://docs.python.org/3/tutorial/introduction.html#lists
     """
-    invertir = lambda x: x[::-1]
-
-    centro = int(len(palabra) / 2)
-    primerParte = palabra[:centro]
-    segundaParte = palabra[centro + 1:]
-
-    return primerParte == invertir(segundaParte)
+    return palabra==palabra[::-1]
 
 # NO MODIFICAR - INICIO
 assert not es_palindromo("amor")

@@ -9,23 +9,13 @@ def multiplicar_basico(numeros: Iterable[float]) -> float:
     #Restricciones: No usar bibliotecas auxiliares (Numpy, math, pandas).
 
     def calcularProducto(lista: Iterable[float]) -> float:
-        primerElemento = lista[0]
-        total = primerElemento
-        for numero in lista:
-            total = total * numero
-            print(total)
+        acum = 1
+        for x in lista:
+           acum = acum * x
+        return acum
 
-        if primerElemento != 1:
-            total = total / primerElemento #Deshace producto repetido del primer elemento siempre que no sea 1
-
-        return total
-
-    if len(numeros) == 0:
-        return 0
-    else:
-        resp = calcularProducto(numeros)
-        print(resp)
-        return resp
+    if numeros: return calcularProducto(numeros)
+    else: return 0
 
 
 # NO MODIFICAR - INICIO
@@ -45,7 +35,7 @@ def multiplicar_reduce(numeros: Iterable[float]) -> float:
     #CHALLENGE OPCIONAL - Re-escribir utilizando reduce.
     #Referencia: https://docs.python.org/3.8/library/functools.html#functools.reduce
     multipilcar = lambda x, y: x * y
-    return 0 if len(numeros) == 0 else reduce(multipilcar, numeros, 1)
+    return 0 if not numeros else reduce(multipilcar, numeros, 1)
 
 
 # NO MODIFICAR - INICIO

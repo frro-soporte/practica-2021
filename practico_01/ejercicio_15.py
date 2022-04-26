@@ -110,7 +110,6 @@ def calcular_posibilidades(lista: Sequence[int], limite: int) -> int:
             count += 1
     return count
 
-
 result, elapsed = calcular_posibilidades(lista, limite)
 print(f"Tiempo: {elapsed:2.2f} segundos - Decorador con sintaxis especial")
 assert result == 28671512

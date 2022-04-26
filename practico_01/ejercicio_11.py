@@ -11,20 +11,20 @@ def suma_cubo_pares_for(numeros: Iterable[int]) -> int:
     separar los pares.
     """
 
-    def separarPares():
+    def separarPares(lista):
         pares = []
-        for numero in numeros:
+        for numero in lista:
             if numero % 2 == 0: pares.append(numero)
 
         return pares
 
     def elevarCubos(lista):
         cubos = []
-        for numero in lista: cubos.append(numero * numero * numero) 
+        for numero in lista: cubos.append(numero**3) 
 
         return cubos
     
-    return sum(elevarCubos(separarPares()))
+    return sum(elevarCubos(separarPares(numeros)))
 
 # NO MODIFICAR - INICIO
 assert suma_cubo_pares_for([1, 2, 3, 4, 5, 6]) == 288
@@ -39,7 +39,7 @@ def suma_cubo_pares_sum_list(numeros: Iterable[int]) -> int:
     #Referencia: https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
     #Referencia: https://docs.python.org/3/library/functions.html#sum
 
-    return sum([(elemento * elemento * elemento) for elemento in numeros if elemento % 2 == 0])
+    return sum([(elemento**3) for elemento in numeros if elemento % 2 == 0])
 
 # NO MODIFICAR - INICIO
 assert suma_cubo_pares_sum_list([1, 2, 3, 4, 5, 6]) == 288
@@ -54,7 +54,7 @@ def suma_cubo_pares_sum_gen(numeros: Iterable[int]) -> int:
     #y la función sum.
     #Referencia: https://docs.python.org/3/reference/expressions.html#generator-expressions
 
-    return sum((n * n * n for n in numeros if n % 2 == 0))
+    return sum((n**3 for n in numeros if n % 2 == 0))
 
 # NO MODIFICAR - INICIO
 assert suma_cubo_pares_sum_gen([1, 2, 3, 4, 5, 6]) == 288
@@ -86,11 +86,11 @@ suma_numeros_al_cubo_pares = reduce(lambda x,y: x+y, numeros_al_cubo_pares)
 
 # Escribir una función Lambda que permita ordenar los elementos de la numeros
 # en base a si son pares o impares
-numeros_ordenada = list(filter(lambda x: x % 2 == 1, numeros))
+numeros_ordenada = sorted(numeros, key=lambda x: (x+1) % 2)
 
 # NO MODIFICAR - INICIO
 assert numeros_al_cubo == [1, 8, 27, 64, 125, 216]
 assert numeros_al_cubo_pares == [8, 64, 216]
 assert suma_numeros_al_cubo_pares == 288
-#assert numeros_ordenada == [1, 3, 5, 2, 4, 6]
+assert numeros_ordenada == [1, 3, 5, 2, 4, 6]
 # NO MODIFICAR - FIN

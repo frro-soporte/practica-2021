@@ -17,9 +17,7 @@ precio_articulos = [100.48, 16.42, 5.20]
 def combinar_basico(nombres: List[str], precios: List[float]) -> Tuple[Any]:
     #Toma dos listas y devuelve una tupla de duplas con los componentes de
     #las listas. Restricción: Resolver utilizando un bucle for.
-    pass # Completar
     res = []
-
     for idx in range(len(nombres)):
         res.append((nombres[idx], precios[idx]))
         
@@ -32,10 +30,8 @@ respuesta = (
     ("shampoo", 5.20),
 )
 
-combinar_basico(nombre_articulos, precio_articulos)
 assert combinar_basico(nombre_articulos, precio_articulos) == respuesta
 # NO MODIFICAR - FIN
-
 
 ###############################################################################
 
@@ -46,6 +42,8 @@ id_articulos = [6852, 1459, 3578]
 def combinar_enumerate(nombres: List[str], precios: List[float], ids: List[int]) -> Tuple[Any]:
     #Re-Escribir utilizando enumerate y agregando un nuevo componente.
     #Referencia: https://docs.python.org/3/library/functions.html#enumerate
+    # Alternativa: return tuple((p1, p2, p3) for idx1, p1 in enumerate(nombres) for idx2, p2 in enumerate(precios)for idx3, p3 in enumerate(ids) if idx1 == idx2 == idx3)
+
     lista = []
     for idx, id in enumerate(ids):
         lista.append((nombres[idx], precios[idx], id))
@@ -96,7 +94,7 @@ importado_articulos = [True, False, True]
 def combinar_zip_args(*args) -> Tuple[Any]:
     #Re-Escribir utilizando zip y una cantidad arbitraria de componentes.
     #Referencia: https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists
-    return tuple(list(zip(*args)))
+    return tuple(zip(*args))
 
 # NO MODIFICAR - INICIO
 respuesta = (

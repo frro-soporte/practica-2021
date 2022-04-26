@@ -15,11 +15,7 @@ from typing import Callable, Iterable
 def apply(lista: Iterable[int], func: Callable[[int], bool]) -> Iterable[bool]:
     """Toma una lista y una función que toma un parámetro y devuelve una lista
     con la función aplicada a todos los elementos."""
-    res = []
-    for element in lista:
-        res.append(func(element))
-    return res
-
+    return [func(el) for el in lista]
 
 # NO MODIFICAR - INICIO
 def esta_entre_valores(x: int, min_: float, max_: float) -> bool:

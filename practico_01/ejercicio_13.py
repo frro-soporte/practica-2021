@@ -23,9 +23,9 @@ def generar_pares_clousure(initial: int = 0) -> Callable[[], int]:
 
     def obtener_siguiente_par():
         nonlocal initial
+        siguiente = initial
         initial += 2
-        return initial
-    initial -= 2
+        return siguiente
     return obtener_siguiente_par
 
 # NO MODIFICAR - INICIO
