@@ -12,6 +12,7 @@ def sumatoria_basico(n: int) -> int:
         suma=suma+i
     return suma
 
+
 # NO MODIFICAR - INICIO
 assert sumatoria_basico(1) == 1
 assert sumatoria_basico(100) == 5050
@@ -26,7 +27,8 @@ def sumatoria_sum(n: int) -> int:
     Referencia: https://docs.python.org/3/library/functions.html#sum
     """
     pass # Completar
-    return (sum(range(n, n+1)))
+    return sum(range(n+1), 0)
+
 
 # NO MODIFICAR - INICIO
 assert sumatoria_sum(1) == 1
@@ -47,6 +49,7 @@ def sumatoria_reduce(n: int) -> int:
     pass # Completar
     return (reduce(lambda a, b:a+b, range(1, n+1)))
 
+
 # NO MODIFICAR - INICIO
 if __name__ == "__main__":
     assert sumatoria_reduce(1) == 1
@@ -62,8 +65,9 @@ def sumatoria_gauss(n: int) -> int:
     Referencia: https://es.wikipedia.org/wiki/1_%2B_2_%2B_3_%2B_4_%2B_%E2%8B%AF
     """
     pass # Completar
-    suma=n*(n+1)/2
+    suma = n*(n+1)/2
     return suma
+
 
 # NO MODIFICAR - INICIO
 if __name__ == "__main__":

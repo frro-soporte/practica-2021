@@ -71,10 +71,12 @@ def superposicion_set(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
     Referencia: https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset
     """
     pass # Completar
-    lista_3 = []
-    if set.intersection(lista_1, lista_2) == lista_3:
+
+    if set(lista_1) & set(lista_2) == set():
+        return False
+    else:
         return True
-    else: return False 
+
 
 # NO MODIFICAR - INICIO
 test_list = [1, "hello", 35.20]
