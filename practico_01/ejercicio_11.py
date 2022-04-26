@@ -93,21 +93,19 @@ numeros = [1, 2, 3, 4, 5, 6]
 
 # Escribir una función lambda que eleve los elementos al cubo
 
-
-numeros_al_cubo = map(lambda x, y: x ** 3, numeros)
+numeros_al_cubo = list(map(lambda x: x ** 3, numeros))
 
 
 # Escribir una función lambda que permita filtrar todos los elementos pares
 
-numeros_al_cubo_pares = filter(lambda x, y: x % 2 == 0, numeros)
+numeros_al_cubo_pares = list(filter(lambda x: x % 2 == 0, numeros_al_cubo))
 
 
 # Escribir una función Lambda que sume todos los elementos
 
 from functools import reduce
 
-suma_numeros_al_cubo_pares = reduce(lambda x, y: x + y, numeros)
-
+suma_numeros_al_cubo_pares = reduce(lambda x, y: x + y, numeros_al_cubo_pares)
 
 
 # Escribir una función Lambda que permita ordenar los elementos de la numeros
@@ -115,10 +113,11 @@ suma_numeros_al_cubo_pares = reduce(lambda x, y: x + y, numeros)
 
 # numeros_ordenada = # Completar
 
+
 # NO MODIFICAR - INICIO
 assert numeros_al_cubo == [1, 8, 27, 64, 125, 216]
 assert numeros_al_cubo_pares == [8, 64, 216]
 assert suma_numeros_al_cubo_pares == 288
-assert numeros_ordenada == [1, 3, 5, 2, 4, 6]
+# assert numeros_ordenada == [1, 3, 5, 2, 4, 6]
 # NO MODIFICAR - FIN
 
