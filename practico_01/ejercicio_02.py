@@ -79,39 +79,14 @@ assert maximo_arbitrario(24, 9, 18, 30) == 30
 def maximo_recursivo(*args) -> float:
     """Re-Escribir de forma recursiva."""
     
-    
-    if len(args)!=1:
-        a,b, *c = args 
-            
-        if a>b: 
-               
-            c.insert(0,a)
-            maximo_recursivo(c)
+    def getMax(lista):
+        if len(lista) == 1:
+            return lista[0]
         else:
-            c.insert(0,b)
-            maximo_recursivo(c)
-    else:
-        x=args[0]
-        
-        if len(x)!=1:
-            a,b, *c = x 
+            m = getMax(lista[1:])
+            return m if m > lista[0] else lista[0]
+    return getMax(args)
             
-            if a>b: 
-               
-                c.insert(0,a)
-                maximo_recursivo(c)
-            else:
-                c.insert(0,b)
-                maximo_recursivo(c)
-        elif len(x)==1:
-            return x[0]
-    
-# x vale el maximo pero retorna none
-
-print(maximo_recursivo(1, 10, 5, -5))
-maximo_recursivo(4, 9, 18, 6) 
-maximo_recursivo(24, 9, 18, 20)
-maximo_recursivo(24, 9, 18, 30)
 # NO MODIFICAR - INICIO
 assert maximo_recursivo(1, 10, 5, -5) == 10
 assert maximo_recursivo(4, 9, 18, 6) == 18
