@@ -79,37 +79,37 @@ assert next(generador_pares) == 4
 # NO MODIFICAR - FIN
 
 
-###############################################################################
-from typing import Iterator, Callable
+
 def generar_pares_generator_send(initial: int = 0) -> Iterator[int]:
     """CHALLENGE OPCIONAL: Re-Escribir utilizando send para saltear numeros"""
-    pass
+    pass # Completar
 
 
 # NO MODIFICAR - INICIO
-if __name__ == "__main__":
+"""if __name__ == "__main__":
     generador_pares = generar_pares_generator_send()
     assert next(generador_pares) == 0
     assert next(generador_pares) == 2
     assert next(generador_pares) == 4
-    assert generador_pares.send(10) == 10 
+    assert generador_pares.send(10) == 10
     assert next(generador_pares) == 12
     assert next(generador_pares) == 14
-    assert next(generador_pares) == 16
+    assert next(generador_pares) == 16"""
 # NO MODIFICAR - FIN
 
 
 ###############################################################################
 
+
 def generar_pares_delegados(initial: int = 0) -> Iterator[int]:
     """CHALLENGE OPCIONAL: Re-Escribir utilizando Generadores delegados (yield from)"""
-    yield from generar_pares_generator(initial)
+    pass # Completar
 
 
 # NO MODIFICAR - INICIO
-if __name__ == "__main__":
-    generador_pares = generar_pares_delegados()
-    assert next(generador_pares) == 0
-    assert next(generador_pares) == 2
-    assert next(generador_pares) == 4
+#if __name__ == "__main__":
+   # generador_pares = generar_pares_delegados()
+    #assert next(generador_pares) == 0
+    #assert next(generador_pares) == 2
+    #assert next(generador_pares) == 4
 # NO MODIFICAR - FIN
