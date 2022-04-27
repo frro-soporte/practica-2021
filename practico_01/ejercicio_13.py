@@ -1,3 +1,39 @@
+intento de pablo
+pag: 
+https://techvidvan.com/tutorials/closures-in-python/#:~:text=Python%20Closures%20are%20these%20inner,function%20has%20completed%20its%20execution.
+https://www.studytonight.com/post/python-nonlocal-keyword-with-examples
+from typing import Iterator, Callable
+
+
+def generar_pares_clousure(initial: int = 0):
+    """Toma un número inicial y devuelve una función que cada vez que es
+    invocada devuelve el número par siguiente al devuelto la última vez que
+    fue invocada.
+
+    Restricciones:
+        - Usar closures
+        - Usar el modificador nonlocal
+    """
+    var = initial
+    var = var + 2
+    pass # Completar
+    def inner():
+        nonlocal var
+        return initial
+
+    return inner
+
+
+# NO MODIFICAR - INICIO
+generador_pares = generar_pares_clousure(0)
+# assert generador_pares() == 0
+# assert generador_pares() == 2
+# assert generador_pares() == 4
+# NO MODIFICAR - FIN
+print(generador_pares())
+print(generador_pares())
+
+
 """Clousures, Generadores, Generadores Delegados
 
 Esta guia muestra uno de los patrones avanzados de programación para evitar
