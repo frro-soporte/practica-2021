@@ -9,6 +9,7 @@ otra manera.
 """
 
 
+from mimetypes import init
 from typing import Iterator, Callable
 
 
@@ -23,17 +24,15 @@ def generar_pares_clousure(initial: int = 0) -> Callable[[], int]:
     """
     def sig_par():
         nonlocal initial
-        """print (initial)"""
-        if (initial==0):
-            return initial
-        if (initial%2==0):
-            initial+=1
-            return initial
-        else:
+        
+        numero = initial
+        if(initial%2==0):
             initial+=2
-            return initial
+            return numero
+        else:
+            initial+=1
+            return numero
     
-    #no sé cómo devolver el primer numero mandado
     return sig_par
 
 
@@ -81,20 +80,10 @@ assert next(generador_pares) == 4
 
 
 ###############################################################################
-
 from typing import Iterator, Callable
 def generar_pares_generator_send(initial: int = 0) -> Iterator[int]:
     """CHALLENGE OPCIONAL: Re-Escribir utilizando send para saltear numeros"""
-    if (initial%2):
-        
-        for i in range(initial,100,2): 
-            print(i)
-            if initial==i:
-                yield i  
-            yield i+1  
-    else:
-        for j in range(initial,100,2):
-            yield j
+    pass
 
 
 # NO MODIFICAR - INICIO
@@ -103,7 +92,7 @@ if __name__ == "__main__":
     assert next(generador_pares) == 0
     assert next(generador_pares) == 2
     assert next(generador_pares) == 4
-    assert generador_pares.send(10) == 10 #no me ejecuta el send
+    assert generador_pares.send(10) == 10 
     assert next(generador_pares) == 12
     assert next(generador_pares) == 14
     assert next(generador_pares) == 16
