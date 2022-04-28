@@ -1,5 +1,6 @@
 """Sum, Compresión de Listas, Map, Filter, Reduce."""
 
+from ast import parse
 from typing import Iterable
 
 
@@ -112,6 +113,20 @@ suma_numeros_al_cubo_pares = reduce(lambda x, y: x + y, numeros_al_cubo_pares)
 # en base a si son pares o impares
 
 # numeros_ordenada = # Completar
+def ordenar(numeros: list[int]):
+    pares = []
+    impares = []
+    orden = []
+    for x in numeros:
+        if x % 2 == 0:
+            pares.append(x)
+        else:
+            impares.append(x)
+
+    orden = impares + pares
+    print(orden)
+
+ordenar(numeros)
 
 
 # NO MODIFICAR - INICIO
