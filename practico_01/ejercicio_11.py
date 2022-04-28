@@ -113,26 +113,14 @@ suma_numeros_al_cubo_pares = reduce(lambda x, y: x + y, numeros_al_cubo_pares)
 # en base a si son pares o impares
 
 # numeros_ordenada = # Completar
-def ordenar(numeros: list[int]):
-    pares = []
-    impares = []
-    orden = []
-    for x in numeros:
-        if x % 2 == 0:
-            pares.append(x)
-        else:
-            impares.append(x)
 
-    orden = impares + pares
-    print(orden)
-
-ordenar(numeros)
+numeros_ordenada = sorted(numeros, key=lambda x: x % 2 != 0, reverse=True)
 
 
 # NO MODIFICAR - INICIO
 assert numeros_al_cubo == [1, 8, 27, 64, 125, 216]
 assert numeros_al_cubo_pares == [8, 64, 216]
 assert suma_numeros_al_cubo_pares == 288
-# assert numeros_ordenada == [1, 3, 5, 2, 4, 6]
+assert numeros_ordenada == [1, 3, 5, 2, 4, 6]
 # NO MODIFICAR - FIN
 

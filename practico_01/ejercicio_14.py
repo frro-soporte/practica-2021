@@ -9,13 +9,21 @@ debe hacerse uso de la función partial.
 """
 
 from functools import partial
+import functools
 from typing import Callable, Iterable
 
 
 def apply(lista: Iterable[int], func: Callable[[int], bool]) -> Iterable[bool]:
     """Toma una lista y una función que toma un parámetro y devuelve una lista
     con la función aplicada a todos los elementos."""
+
+
     pass # Completar
+    lista_boolean = []
+    for x in lista:
+        lista_boolean.append(func(x))
+    return lista_boolean
+
 
 
 # NO MODIFICAR - INICIO
@@ -34,7 +42,9 @@ Referencia: https://docs.python.org/3/library/functools.html#functools.partial
 lista = [3, 4, 5, 6, 7, 8]
 min_ = 4
 max_ = 7
-nueva_funcion = # Completar
+
+nueva_funcion =  partial(esta_entre_valores, min_=min_, max_=max_)
+
 
 # NO MODIFICAR - INICIO
 lista = [3, 4, 5, 6, 7, 8]
