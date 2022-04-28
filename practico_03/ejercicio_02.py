@@ -9,7 +9,18 @@ class Articulo:
         - Utilizar sólamente el constructor (__init__) y un método de
           clase (@classmethod) con una variable de clase
     """
-
+    id_ = 0
+    _last_id = 0
+    def __init__(self, nombre = None, id_ = 0):
+        self.nombre = nombre
+        self.id_ = self.metodoDeClase(id_)
+    
+    @classmethod
+    def metodoDeClase(cls, id_):
+        cls.id_ = cls.id_ + 1
+        cls._last_id = cls.id_
+        return cls.id_
+        
     # Completar
 
 
