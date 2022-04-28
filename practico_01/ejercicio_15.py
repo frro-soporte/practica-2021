@@ -57,6 +57,7 @@ def medir_tiempo(func: Callable[[], int]) -> Tuple[int, float]:
     """
     pass # Completar
 
+    return func(), perf_counter() - elapsed
 
 # NO MODIFICAR - INICIO
 result, elapsed = medir_tiempo(partial(calcular_posibilidades, lista, limite))
@@ -74,6 +75,14 @@ def medir_tiempo(func: Callable[[Sequence[int], int], int]) -> Callable[[Sequenc
     tome una cantidad arbitraria de parámetros.
     """
     pass # Completar
+
+    def closureFunction(*argumentos):
+        lista2 = []
+        permutaciones = func(lista,limite)
+        lista2.append(permutaciones)
+        lista2.append(perf_counter() - elapsed)
+        return tuple(lista2)
+    return closureFunction
 
 
 # NO MODIFICAR - INICIO
@@ -128,7 +137,7 @@ def memoized(func):
     de ejecución
     """
     pass # Completar
-
+    
 
 @medir_tiempo
 @memoized
