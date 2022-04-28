@@ -1,5 +1,6 @@
 """Type, Comprensión de Listas, Sorted y Filter."""
 
+from curses.ascii import isdigit
 from typing import List, Union
 
 
@@ -8,6 +9,10 @@ def numeros_al_final_basico(lista: List[Union[float, str]]) -> List[Union[float,
     elementos numéricos al final.
     """
     pass # Completar
+    for elemento in lista:
+        if type(elemento)==float:                   #NO FUNCIONA, PREGUNTAR
+            lista.remove(elemento)
+            lista.append(elemento)
 
 
 # NO MODIFICAR - INICIO
