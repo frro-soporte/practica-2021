@@ -132,10 +132,13 @@ def memoized(func):
     tiempo para la función calcular posibilidades. Prestar atención a los tiempo
     de ejecución
     """
+    cache=[]
     def inner(lista, limite):
-        global cache
-        cache=cache+func(lista, limite)
-
+        nonlocal cache
+        res=func(lista, limite)
+        cache.append(func(lista, limite))
+        return res
+    return inner
 
 
 @medir_tiempo
@@ -149,7 +152,6 @@ def calcular_posibilidades(lista: Sequence[int], limite: int) -> int:
 
 
 # NO MODIFICAR - INICIO
-print()
 
 result, elapsed = calcular_posibilidades(lista, limite)
 print(f"Tiempo: {elapsed:2.2f} segundos - Con Memoized - 1ra ejecución")
@@ -164,7 +166,7 @@ print(f"Tiempo: {elapsed:2.8f} segundos - Con Memoized - 3ra ejecución")
 assert result == 28671512
 # NO MODIFICAR - FIN
 
-
+exit()
 ###############################################################################
 
 
