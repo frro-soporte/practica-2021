@@ -17,6 +17,24 @@ class Article:
     # NO MODIFICAR - FIN
 
     # Completar
+    def hola():
+        return "hola"
+
+    def __str__(self) -> str:
+        return self.name.capitalize()
+
+    def __repr__(self) -> str:
+        return f'Article("{self.name}")'
+
+    def __eq__(self, other: object) -> bool:
+        pass
+        if(type(self) != type(other)):
+            return False
+        else:
+            return self.name == other.name
+
+    def __lt__(self, other: Article) -> bool:
+        return self.name < other.name
 
 
 # NO MODIFICAR - INICIO
@@ -51,6 +69,27 @@ class ShoppingCart:
 
     # Completar
 
+    def __str__(self) -> str:
+        articles_str = []
+        for a in self.articles:
+            articles_str.append(str(a))
+        return str(articles_str)
+
+    def __repr__(self) -> str:
+        return f"ShoppingCart({self.articles})"
+
+    def __eq__(self, other: object) -> bool:
+        if (type(self) != type(other)):
+            return False
+        else:
+            for i,a in enumerate(sorted(self.articles)):
+                if a != sorted(other.articles)[i]:
+                    return False
+            return True
+
+    def __add__(self, other: ShoppingCart) -> ShoppingCart:
+        add_list = self.articles.extend(other.articles)
+        return ShoppingCart(add_list)
 
 # NO MODIFICAR - INICIO
 

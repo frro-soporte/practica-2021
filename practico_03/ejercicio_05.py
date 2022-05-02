@@ -13,6 +13,21 @@ class Auto:
 
     # Completar
 
+    def __init__(self, nombre, precio):
+      self._nombre = nombre
+      self._precio = precio
+
+    def getNombre(self):
+      return self._nombre.capitalize()
+    
+    def getPrecio(self):
+      return round(self._precio, 2)
+
+    def setPrecio(self, precio):
+      self._precio = precio
+
+    nombre = property(getNombre)
+    precio = property(getPrecio, setPrecio)
 
 # NO MODIFICAR - INICIO
 auto = Auto("Ford", 12_875.456)
@@ -41,6 +56,20 @@ class Auto:
 
     # Completar
 
+    _nombre : str
+    _precio : float
+
+    def getNombre(self):
+      return self._nombre.capitalize()
+    
+    def getPrecio(self):
+      return round(self._precio, 2)
+
+    def setPrecio(self, precio):
+      self._precio = precio
+
+    nombre = property(getNombre)
+    precio = property(getPrecio, setPrecio)
 
 # NO MODIFICAR - INICIO
 auto = Auto("Ford", 12_875.456)
