@@ -11,7 +11,11 @@ $PATH$/practico_02> python -m source.ejercicio_02
 """
 
 # Completar
-
+from .. import main
+import util
+import data.database
+from ..config import test_config
+from ..config.db_config import migrations
 
 # NO MODIFICAR - INICIO
 assert main.name == "main"
