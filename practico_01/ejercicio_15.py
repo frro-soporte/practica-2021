@@ -137,7 +137,13 @@ def memoized(func):
     de ejecución
     """
     pass # Completar
-    
+
+    def memf(*x):
+        if x not in cache:
+            cache[x] = func(*x)
+        return cache[x]
+    cache = {}
+    return memf
 
 @medir_tiempo
 @memoized
