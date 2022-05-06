@@ -57,9 +57,9 @@ def medir_tiempo(func: Callable[[], int]) -> Tuple[int, float]:
     """
     pass # Completar
     start = perf_counter()
-    result = func()
+    resultado=func()
     elapsed = perf_counter() - start
-    return result, elapsed
+    return [resultado,elapsed]
 
 # NO MODIFICAR - INICIO
 result, elapsed = medir_tiempo(partial(calcular_posibilidades, lista, limite))
@@ -192,12 +192,11 @@ sucesivas.
 def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
     """Re-Escribir de manera recursiva"""
     pass # Completar
-    count = 0
-    if limite == 0:
-        return 0
-    for _ in permutations(lista, limite):
-        count += 1
-    return count + calcular_posibilidades_recursiva(lista, limite-1)
+    cont = 0
+    for i in range(limite):
+        for _ in permutations(lista, i):
+            cont += 1
+    return cont
 
 
 # NO MODIFICAR - INICIO
