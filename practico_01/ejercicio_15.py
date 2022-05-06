@@ -198,7 +198,6 @@ def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
             cont += 1
     return cont
 
-
 # NO MODIFICAR - INICIO
 if __name__ == "__main__":
     print()
