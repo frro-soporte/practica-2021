@@ -20,7 +20,7 @@ Referencia: https://docs.python.org/3/reference/import.html#the-import-system
 # Completar
 import main as main
 from source import util
-from source.controller import controller as controller
+from source.controller import controller
 
 
 
