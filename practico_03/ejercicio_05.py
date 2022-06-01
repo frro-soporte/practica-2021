@@ -1,5 +1,5 @@
 """Propiedades"""
-
+import string
 
 class Auto:
     """La clase auto tiene dos propiedades, precio y marca. La marca se define
@@ -12,6 +12,23 @@ class Auto:
     Referencia: https://docs.python.org/3/library/functions.html#property"""
 
     # Completar
+    _nombre:str
+    _precio:float
+    def __init__(self,paramnombre:str,precio):
+        self._nombre:str=paramnombre
+        self._precio=precio
+
+    @property 
+    def nombre(self):
+        return self._nombre.capitalize()
+
+
+    @property
+    def precio(self):
+        return round(self._precio,2)
+    @precio.setter
+    def precio(self,value:str):
+        self._precio=value
 
 
 # NO MODIFICAR - INICIO
@@ -38,8 +55,20 @@ from dataclasses import dataclass
 @dataclass
 class Auto:
     """Re-Escribir utilizando DataClasses"""
-
     # Completar
+    _nombre:str
+    _precio:float
+
+    @property 
+    def nombre(self):
+        return self._nombre.capitalize()
+
+    @property
+    def precio(self):
+        return round(self._precio,2)
+    @precio.setter
+    def precio(self,value:str):
+        self._precio=value
 
 
 # NO MODIFICAR - INICIO

@@ -9,8 +9,18 @@ class Articulo:
         - Utilizar sólamente el constructor (__init__) y un método de
           clase (@classmethod) con una variable de clase
     """
-
     # Completar
+    _last_id: int =0
+
+    def __init__(self,nombreParam=None):
+        self.nombre=nombreParam
+        self.id_=self._get_next_id()
+
+    @classmethod
+    def _get_next_id(cls):
+        cls._last_id +=1
+        return cls._last_id
+    
 
 
 # NO MODIFICAR - INICIO

@@ -1,6 +1,9 @@
 """Dataclasses"""
 
 
+from sqlalchemy import true
+
+
 class Persona:
     """Clase con los siguientes miembros:
 
@@ -14,8 +17,17 @@ class Persona:
     Métodos:
     - es_mayor_edad(): indica si es mayor de edad, devuelve un booleano.
     """
-
     # Completar
+    
+    def __init__(self,nombre:str, edad:int , sexo:str, peso: float, altura: float):
+        self.nombre=nombre
+        self.edad=edad
+        self.sexo=sexo
+        self.peso=peso
+        self.altura=altura
+
+    def es_mayor_edad(self):
+        return self.edad>17
 
 
 # NO MODIFICAR - INICIO
@@ -32,8 +44,16 @@ from dataclasses import dataclass
 @dataclass
 class Persona:
     """Re-Escribir utilizando DataClasses"""
-
     # Completar
+    nombre: str
+    edad: int
+    sexo: str
+    peso: float
+    altura: float
+
+    def es_mayor_edad(self):
+        return self.edad>17
+
 
 
 # NO MODIFICAR - INICIO
