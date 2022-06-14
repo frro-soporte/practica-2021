@@ -90,8 +90,15 @@ if __name__ == "__main__":
 def numeros_al_final_recursivo(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     """CHALLENGE OPCIONAL - Re-escribir de forma recursiva."""
     pass # Completar
-    "Una función recursiva debe llamarse a sí misma, falta realizar"
-    return numeros_al_final_sorted(lista)
+
+    if all(type(item) == int for item in lista):  # Verificar que la lista tenga solo int
+        return lista
+
+    a, *b = lista  # guarda el primer elemento en a
+    if type(a) == int:
+        b.append(a)
+        return numeros_al_final_recursivo(b)
+    return [a] + numeros_al_final_recursivo(b)
 
 # NO MODIFICAR - INICIO
 if __name__ == "__main__":

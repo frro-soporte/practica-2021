@@ -138,10 +138,10 @@ def memoized(func):
     """
     pass # Completar
 
-    def memf(*x):
-        if x not in cache:
-            cache[x] = func(*x)
-        return cache[x]
+    def memf(lista, limite):
+        if limite not in cache:
+            cache[limite] = func(lista, limite)
+        return cache[limite]
     cache = {}
     return memf
 
@@ -187,6 +187,12 @@ sucesivas.
 def calcular_posibilidades_recursiva(lista: Sequence[int], limite: int) -> int:
     """Re-Escribir de manera recursiva"""
     pass # Completar
+
+    count = 0
+    for i in range(limite):
+        for _ in permutations(lista, i):
+            count += 1
+    return count
 
 
 # NO MODIFICAR - INICIO
