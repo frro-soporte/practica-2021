@@ -12,6 +12,21 @@ class Auto:
     Referencia: https://docs.python.org/3/library/functions.html#property"""
 
     # Completar
+    def __init__(self, marca: str, precio: float) -> None:
+        self.marca: str = marca
+        self.precio: float = precio
+
+        @property
+        def marca(self) -> None:
+            return self.nombre.capitalize()
+        
+        @property
+        def precio(self) -> None:
+            return round(self.precio, 2)
+        
+        @precio.setter
+        def precio(self, value: float) -> None:
+            self.precio = value
 
 
 # NO MODIFICAR - INICIO
