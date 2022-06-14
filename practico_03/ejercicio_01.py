@@ -9,7 +9,15 @@ class Rectangulo:
     método area.
     """
     # Completar
-
+    def __init__(self, base: float = None, altura: float = None) -> None:
+        self.base : float = base
+        self.altura : float = altura
+        
+    def area(self) -> float:
+        if self.base != None and self.altura != None:
+            return self.base * self.altura
+        else:
+            return 0
 
 # NO MODIFICAR - INICIO
 
