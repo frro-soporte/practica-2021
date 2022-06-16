@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from typing import List
+from typing_extensions import Self
 
 
 # NO MODIFICAR - INICIO
@@ -17,6 +18,7 @@ class Article:
     # NO MODIFICAR - FIN
 
     # Completar
+
 
 
 # NO MODIFICAR - INICIO
@@ -50,7 +52,8 @@ class ShoppingCart:
     # NO MODIFICAR - FIN
 
     # Completar
-
+    def __new__(cls: type[ShoppingCart]) -> Self:
+        return Self
 
 # NO MODIFICAR - INICIO
 

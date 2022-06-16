@@ -12,8 +12,6 @@ class Auto:
     Referencia: https://docs.python.org/3/library/functions.html#property"""
 
     # Completar
-    _nombre:str
-    _precio:float
     def __init__(self,paramnombre:str,precio):
         self._nombre:str=paramnombre
         self._precio=precio
