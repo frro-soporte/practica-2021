@@ -20,12 +20,16 @@ def actualizar_precio(articulos: List[Articulo], porcentaje: float) -> List[Arti
     """Toma una lista de articulos y un porcentaje, al precio de cada articulo
     le suma un porcentaje. Devuelve una lista con los precios actualizados.
 
-    Restricción: NO se debe modificar la clase ni los tests.
+    RestricciÃ³n: NO se debe modificar la clase ni los tests.
     Hint: Usar deepcopy (https://docs.python.org/3/library/copy.html#copy.deepcopy)
     """
     
-    # Completar
-
+    actualizados = []
+    for art in articulos:
+        act = deepcopy(art)
+        act.precio = art.precio * (1 + porcentaje/100)
+        actualizados.append(act)
+    return actualizados
 
 # NO MODIFICAR - INICIO
 nombres = ["sabana", "parlante", "computadora", "tasa", "botella", "celular"]

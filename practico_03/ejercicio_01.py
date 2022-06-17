@@ -8,7 +8,12 @@ class Rectangulo:
     Implementar la clase Rectangulo que contiene una base y una altura, y el
     método area.
     """
-    # Completar
+    def __init__(self, base=None, altura=None):
+        self.base=base
+        self.altura=altura
+
+    def area(self):
+        return (self.base*self.altura) if (self.base!=None and self.altura!=None) else 0
 
 
 # NO MODIFICAR - INICIO
@@ -35,4 +40,3 @@ assert rec.area() == 100
 assert Rectangulo(10, 10).area() == 100
 assert Rectangulo(10, 0).area() == 0
 assert Rectangulo(0, 10).area() == 0
-# NO MODIFICAR - FIN

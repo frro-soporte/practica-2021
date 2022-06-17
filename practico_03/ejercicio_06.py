@@ -1,6 +1,7 @@
 """Magic Methods"""
 
 from __future__ import annotations
+from lib2to3.pgen2.token import EQUAL
 from typing import List
 
 
@@ -16,7 +17,8 @@ class Article:
 
     # NO MODIFICAR - FIN
 
-    # Completar
+    def __str__(self) -> str:
+        return self.name
 
 
 # NO MODIFICAR - INICIO
@@ -49,9 +51,26 @@ class ShoppingCart:
 
     # NO MODIFICAR - FIN
 
-    # Completar
+    def __str__(self) -> str:
+        lista = []
+        for art in self.articles:
+            lista.append(str(art))
+        lista.sort()
+        return str(lista)
 
+    def __repr__(self) -> str:
+        lista = str(self)
+        return "ShoppingCart(" + lista + ")"
 
+    def __eq__(self, otro):
+        if isinstance(otro, ShoppingCart) and (str(otro) == str(self)):
+            return True
+        return False
+
+    def __add__(self, otro):
+        self.articles.extend(otro.articles)
+        return self
+        
 # NO MODIFICAR - INICIO
 
 manzana = Article("Manzana")
@@ -60,6 +79,7 @@ tv = Article("Television")
 
 # Test de conversión a String
 assert str(ShoppingCart().add(manzana).add(pera)) == "['Manzana', 'Pera']"
+
 
 # Test de reproducibilidad
 carrito = ShoppingCart().add(manzana).add(pera)
