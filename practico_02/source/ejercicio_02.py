@@ -10,7 +10,12 @@ comando (estando parados dentro de la carpeta practico_02):
 $PATH$/practico_02> python -m source.ejercicio_02
 """
 
-# Completar
+
+import main
+import source.util as util
+from source.data import database 
+import config.test_config as test_config
+import config.db_config.migrations as migrations
 
 
 # NO MODIFICAR - INICIO
@@ -20,6 +25,7 @@ assert database.name == "database"
 assert test_config.name == "test_config"
 assert migrations.name == "migrations"
 # NO MODIFICAR - FIN
+
 
 
 # El siguiente ejercicio se encuentra en source/controller/ejercicio_03.py
