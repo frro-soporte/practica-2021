@@ -10,22 +10,27 @@ class DatosSocio():
 
     def __init__(self):
         pass # Completar
+        return'{} {} {} {}'.format(self.id_socio,self.dni, self.nombre, self.apellido)
 
     def buscar(self, id_socio: int) -> Optional[Socio]:
         """Devuelve la instancia del socio, dado su id. Devuelve None si no 
         encuentra nada.
         """
         pass # Completar
+        return print("Socio", session.query(Socio).filter(Socio.id_socio == id_socio).all())
+
 
     def buscar_dni(self, dni_socio: int) -> Optional[Socio]:
         """Devuelve la instancia del socio, dado su dni. Devuelve None si no 
         encuentra nada.
         """
         pass # Completar
+        # Igual a arriba
         
     def todos(self) -> List[Socio]:
         """Devuelve listado de todos los socios en la base de datos."""
         pass # Completar
+        return print("Socios ", session.query(Socio).all())
 
     def borrar_todos(self) -> bool:
         """Borra todos los socios de la base de datos. Devuelve True si el 
@@ -42,6 +47,7 @@ class DatosSocio():
         fue exitoso.
         """
         pass # Completar
+        # session.query(Socio).filter(Socio.id_socio == id_socio).delete() NO SE SI ESTA BIEN
 
     def modificacion(self, socio: Socio) -> Socio:
         """Guarda un socio con sus datos modificados. Devuelve el Socio 
@@ -52,7 +58,7 @@ class DatosSocio():
     def contarSocios(self) -> int:
         """Devuelve el total de socios que existen en la tabla"""
         pass # Completar
-
+        return print("Cantidad de socios: ", session.query(Persona).count())
 
 
 # NO MODIFICAR - INICIO

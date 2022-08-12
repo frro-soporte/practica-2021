@@ -1,6 +1,7 @@
 """Base de Datos - Creación de Clase en ORM"""
 
 
+from mailbox import NoSuchMailboxError
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
 
@@ -16,4 +17,7 @@ class Socio(Base):
     __tablename__ = 'socios'
 
     # Completar
-
+    id_socio= Column(Integer, primary_key=True, autoincrement=True, unique=True)
+    dni= Column(Integer, unique=True)
+    nombre= Column(String(250))
+    apellido= Column(String(250))
