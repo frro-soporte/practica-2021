@@ -12,6 +12,16 @@ def actualizar_persona(id_persona, nombre, nacimiento, dni, altura):
     una persona basado en su id. Devuelve un booleano en base a si encontro el
     registro y lo actualizo o no."""
     pass # Completar
+    conn = sqlite3.connect('persona.db')
+    c = conn.cursor()
+    c.execute("UPDATE persona SET Nombre=?, FechaNacimiento=?, DNI=?, Altura=? WHERE IdPersona=?", (nombre, nacimiento, dni, altura, id_persona))
+    count = c.rowcount
+    conn.commit()
+    conn.close()
+    if count == None:
+        return False
+    else: 
+        return True
 
 # NO MODIFICAR - INICIO
 @reset_tabla

@@ -12,7 +12,16 @@ def buscar_persona(id_persona):
     id, nombre, nacimiento, dni y altura. Si no encuentra ningun registro, 
     devuelve False."""
     pass # Completar
-
+    conn = sqlite3.connect('persona.db')
+    c = conn.cursor()
+    c.execute("SELECT FROM persona WHERE IdPersona=?", (id_persona))
+    persona = c.fetchone()
+    conn.commit()
+    conn.close()
+    if persona == None:
+        return False
+    else: 
+        return print(c.IdPersona, c.Nombre, c.FechaNacimiento, c.DNI, c.Altura)
 
 # NO MODIFICAR - INICIO
 @reset_tabla
