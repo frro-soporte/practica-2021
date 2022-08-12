@@ -58,7 +58,7 @@ class DatosSocio():
     def contarSocios(self) -> int:
         """Devuelve el total de socios que existen en la tabla"""
         pass # Completar
-        return print("Cantidad de socios: ", session.query(Persona).count())
+        return print("Cantidad de socios: ", session.query(Socio).count())
 
 
 # NO MODIFICAR - INICIO
