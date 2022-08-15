@@ -25,7 +25,7 @@ class DatosSocio():
         encuentra nada.
         """
         pass # Completar
-        # Igual a arriba
+        return print("Socio", session.query(Socio).filter(Socio.dni == dni_socio).all())
         
     def todos(self) -> List[Socio]:
         """Devuelve listado de todos los socios en la base de datos."""
