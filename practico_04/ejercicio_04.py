@@ -1,7 +1,7 @@
 """Base de Datos SQL - Búsqueda"""
 
 import datetime
-
+import sqlite3
 from practico_04.ejercicio_01 import reset_tabla
 from practico_04.ejercicio_02 import agregar_persona
 
@@ -12,16 +12,20 @@ def buscar_persona(id_persona):
     id, nombre, nacimiento, dni y altura. Si no encuentra ningun registro, 
     devuelve False."""
     pass # Completar
+
     conn = sqlite3.connect('persona.db')
     c = conn.cursor()
-    c.execute("SELECT FROM persona WHERE IdPersona=?", (id_persona))
+    c.execute("SELECT * FROM persona WHERE IdPersona = ?", (id_persona, ))
     persona = c.fetchone()
     conn.commit()
     conn.close()
-    if persona == None:
+    if persona is None:
         return False
-    else: 
-        return print(c.IdPersona, c.Nombre, c.FechaNacimiento, c.DNI, c.Altura)
+    else:
+        persona_list = list(persona)
+        persona_list[2] = datetime.datetime.strptime(persona[2][0:10], '%Y-%m-%d')
+        return tuple(persona_list)
+
 
 # NO MODIFICAR - INICIO
 @reset_tabla

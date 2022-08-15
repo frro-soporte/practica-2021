@@ -1,7 +1,7 @@
 """Base de Datos SQL - Modificación"""
 
 import datetime
-
+import sqlite3
 from practico_04.ejercicio_01 import reset_tabla
 from practico_04.ejercicio_02 import agregar_persona
 from practico_04.ejercicio_04 import buscar_persona
@@ -18,7 +18,7 @@ def actualizar_persona(id_persona, nombre, nacimiento, dni, altura):
     count = c.rowcount
     conn.commit()
     conn.close()
-    if count == None:
+    if count == 0:
         return False
     else: 
         return True

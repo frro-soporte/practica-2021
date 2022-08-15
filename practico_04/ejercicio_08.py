@@ -1,10 +1,11 @@
 """Base de datos SQL - Listar"""
 
 import datetime
-
+import sqlite3
 from practico_04.ejercicio_02 import agregar_persona
 from practico_04.ejercicio_06 import reset_tabla
 from practico_04.ejercicio_07 import agregar_peso
+from practico_04.ejercicio_04 import buscar_persona
 
 
 def listar_pesos(id_persona):
@@ -30,8 +31,25 @@ def listar_pesos(id_persona):
 
     - False en caso de no cumplir con alguna validacion.
     """
-    return []
+    pass  # Completar
 
+    persona = buscar_persona(id_persona)
+    if not persona:
+        return False
+
+    lista_pesos = []
+
+    conn = sqlite3.connect('personapeso.db')
+    c = conn.cursor()
+    c.execute("SELECT * FROM personapeso WHERE IdPersona=?", (id_persona,))
+    persona_pesos = c.fetchall()
+
+    if persona_pesos is not None:
+        for i in range(len(persona_pesos)):
+            lista_pesos.append((persona_pesos[i][1][0:10], persona_pesos[i][2]))
+        return lista_pesos
+    else:
+        return False
 
 # NO MODIFICAR - INICIO
 @reset_tabla
