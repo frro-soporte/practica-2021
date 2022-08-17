@@ -2,11 +2,11 @@
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from practico_05.ejercicio_01 import Base, Socio
+from ..practico_05.ejercicio_01 import Base, Socio
 
 from typing import List, Optional
 
-engine = create_engine('sqlite:///socios.db')
+engine = create_engine('sqlite:///socios.db?check_same_thread=False')
 Base.metadata.bind = engine
 Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
