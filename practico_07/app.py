@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
-from practico_05.ejercicio_01 import Base, Socio
-#from practico_06.capa_negocio import NegocioSocio
+from ..practico_05.ejercicio_01 import Base, Socio
+from ..practico_05.ejercicio_02 import DatosSocio
+from ..practico_06.capa_negocio import NegocioSocio
 
 
 app = Flask(__name__)
@@ -8,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    socios = Socio.todos()    
+    socios = DatosSocio().todos()    
     return render_template('index.html', socios = socios)
 
 ''' @app.route('/create-socio')
