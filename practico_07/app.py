@@ -12,23 +12,35 @@ def home():
     socios = DatosSocio().todos()    
     return render_template('index.html', socios = socios)
 
-''' @app.route('/create-socio')
+@app.route('/create-socio')
 def create_socio():
-    return render_template('create.html') '''
+    return render_template('create.html')
 
-''' @app.route('/save-socio', methods=['POST'])
+@app.route('/save-socio', methods=['POST'])
 def save_socio():
-    socio = Socio(nombre=request.form['nombre'], pais=request.form['pais'])
-    db.session.add(socio)
-    db.session.commit()
-    return 'Guardado'
+    socio = Socio(nombre=request.form['nombre'], apellido=request.form['apellido'], dni=request.form['dni'])
+    DatosSocio().alta(socio)
+    socios = DatosSocio().todos()    
+    return redirect('/')
+
+@app.route('/edit-socio/<id>')
+def edit_socio(id):
+    socio = DatosSocio().buscar(id)
+    return render_template('edit.html', socio = socio)
+
+@app.route('/update-socio/<id>', methods=['POST'])
+def update(id):
+    socio = DatosSocio().buscar(id)
+    socio.nombre = request.form['nombre']
+    socio.apellido = request.form['apellido']
+    socio.dni = request.form['dni']
+    DatosSocio().modificacion(socio)
+    return redirect('/')
 
 @app.route('/eliminar-socio/<id>')
-def delete(id):
-    #socio = socio.query.filter_by(id=int(id)).first()
-    Socio.query.filter_by(id=int(id)).delete()
-    db.session.commit()
-    return redirect(request.referrer) '''
+def delete(id, methods=['DELETE']):
+    DatosSocio().baja(id)
+    return redirect(request.referrer)
 
 #Para editar se le le asigna por ej socio.nombre = request.form['nombre'] y después db.session.commit() y listo
 

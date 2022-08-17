@@ -26,7 +26,7 @@
                     <div class="card-body">
                         <div class="div">
                             <div class="button-group">
-                                <a href="/create-equipo" class="btn btn-primary mb-3">Agregar Socio</a>
+                                <a href="/create-socio" class="btn btn-primary mb-3">Agregar Socio</a>
                             </div>
                         </div>
                         <table class="table table-striped">
@@ -43,7 +43,7 @@
                                     <td>{{socio.apellido}}</td>
                                     <td>{{socio.dni}}</td>
                                     <td>
-                                        <a href="/editar-socio" class="btn btn-sm btn-primary">Editar</a>
+                                        <a href="/edit-socio/{{socio.id}}" class="btn btn-sm btn-primary">Editar</a>
                                         <a href="/eliminar-socio/{{socio.id}}" class="btn btn-sm btn-danger">Eliminar</a>
                                     </td>
                                 </tr>
