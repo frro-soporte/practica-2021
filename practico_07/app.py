@@ -42,8 +42,6 @@ def delete(id, methods=['DELETE']):
     DatosSocio().baja(id)
     return redirect(request.referrer)
 
-#Para editar se le le asigna por ej socio.nombre = request.form['nombre'] y después db.session.commit() y listo
-
 
 if __name__ == '__main__':
     app.run(debug=True)
