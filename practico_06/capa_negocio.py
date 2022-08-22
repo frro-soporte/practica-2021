@@ -1,7 +1,7 @@
 # Implementar los metodos de la capa de negocio de socios.
 
-from ..practico_05.ejercicio_01 import Socio
-from ..practico_05.ejercicio_02 import DatosSocio
+from practico_05.ejercicio_01 import Socio
+from practico_05.ejercicio_02 import DatosSocio
 
 
 class DniRepetido(Exception):
@@ -30,7 +30,7 @@ class NegocioSocio(object):
         Devuelve None si no encuentra nada.
         :rtype: Socio
         """
-        socio = DatosSocio.buscar(id_socio)
+        socio = DatosSocio.buscar(self, id_socio)
         return socio
 
     def buscar_dni(self, dni_socio):
@@ -69,7 +69,7 @@ class NegocioSocio(object):
         Devuelve True si el borrado fue exitoso.
         :rtype: bool
         """
-        if DatosSocio.baja(id_socio):
+        if DatosSocio.baja(self, id_socio):
             return True
         return False
 
