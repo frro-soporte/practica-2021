@@ -27,6 +27,11 @@ Pasos a Seguir:
     - [ ] [Checklist de Capas](checklist_capas.md)
     - [ ] [Checklist General](checklist_general.md)
 
+# Entrega al finalizar 
+
+Impresion por duplicado con caratula con las participantes del grupo . 
+Tiene conteneer el Modelo del Dominio del Sistema , las Reglas Negocio del Sistema ( minimo 3 reglas de calculo ) , Caso de Uso Principal , Link al Git Hub que tiene los programas del proyecto 
+
 
 
 # Puntos de Control de Avance 
