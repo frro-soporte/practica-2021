@@ -10,13 +10,32 @@ def crear_tabla():
         - DNI: Int()
         - Altura: Int()
     """
-    pass # Completar
+    conexion=sqlite3.connect("ejercicio12dointento.db")
+    try:
+        conexion.execute("""create table Persona (
+                              IdPersona integer primary key autoincrement,
+                              Nombre varchar(30),
+                              FechaNacimiento date,
+                              DNI integer,
+                              Altura integer
+                        )""")
+        print("se creo la tabla Persona")
+    except sqlite3.OperationalError:
+        print("La tabla Persona ya existe")                    
+        conexion.close()
 
 
 def borrar_tabla():
     """Implementar la funcion borrar_tabla, que borra la tabla creada 
     anteriormente."""
-    pass # Completar
+    conexion=sqlite3.connect("ejercicio12dointento.sql")
+    try:
+        conexion.execute("""drop table if exists Persona
+                        """)
+        print("se borro la tabla Persona")                        
+    except sqlite3.OperationalError:
+        print("No anduvo")                    
+        conexion.close()
 
 
 # NO MODIFICAR - INICIO
@@ -27,3 +46,6 @@ def reset_tabla(func):
         borrar_tabla()
     return func_wrapper
 # NO MODIFICAR - FIN
+
+crear_tabla()
+borrar_tabla()

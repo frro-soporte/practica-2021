@@ -17,6 +17,12 @@ class Perro(Animal):
     sobrecargar el método descripción para que devuelva:
     "Soy un perro y" + método descripción del padre
     """
+    def __init__(self, edad: int = 0,raza = ""):
+        super().__init__(edad)
+        self.raza = raza
+
+    def descripcion(self) -> str:
+        return f"Soy un perro y {super().descripcion()}"
     # Completar
 
 
@@ -26,9 +32,9 @@ cachorro = Perro(edad=1)
 dogo = Perro(raza="Dogo")
 
 assert Animal(10).descripcion() == "Tengo 10 años"
-assert terrier.descripcion() == "Soy un perro y tengo 8 años"
-assert dogo.descripcion() == "Soy un perro y tengo 0 años"
-assert cachorro.descripcion() == "Soy un perro y tengo 1 años"
+assert terrier.descripcion() == "Soy un perro y Tengo 8 años"
+assert dogo.descripcion() == "Soy un perro y Tengo 0 años"
+assert cachorro.descripcion() == "Soy un perro y Tengo 1 años"
 # NO MODIFICAR - FIN
 
 
@@ -39,11 +45,19 @@ from dataclasses import dataclass
 
 @dataclass
 class Animal:
+    edad : int = 0
+
+    def descripcion(self) -> str:
+        return f"Tengo {self.edad} años"
     pass # Completar
 
 
 @dataclass
 class Perro(Animal):
+    raza : str = ""
+
+    def descripcion(self) -> str:
+        return f"Soy un perro y {super().descripcion()}"
     pass # Completar
 
 
@@ -53,7 +67,7 @@ cachorro = Perro(edad=1)
 dogo = Perro(raza="Dogo")
 
 assert Animal(10).descripcion() == "Tengo 10 años"
-assert terrier.descripcion() == "Soy un perro y tengo 8 años"
-assert dogo.descripcion() == "Soy un perro y tengo 0 años"
-assert cachorro.descripcion() == "Soy un perro y tengo 1 años"
+assert terrier.descripcion() == "Soy un perro y Tengo 8 años"
+assert dogo.descripcion() == "Soy un perro y Tengo 0 años"
+assert cachorro.descripcion() == "Soy un perro y Tengo 1 años"
 # NO MODIFICAR - FIN
