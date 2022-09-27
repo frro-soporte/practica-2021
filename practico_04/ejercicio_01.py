@@ -28,6 +28,11 @@ def borrar_tabla():
     """Implementar la funcion borrar_tabla, que borra la tabla creada 
     anteriormente."""
     pass # Completar
+    conn=sqlite3.connect('basededatos.db')
+    cursor=conn.cursor()
+    cursor.execute('''DROP TABLE persona''')
+    conn.commit()
+    conn.close()
 
 
 # NO MODIFICAR - INICIO
