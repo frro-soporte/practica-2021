@@ -18,6 +18,7 @@ def borrar_persona(id_persona):
     conn.commit()
     conn.close()
     
+    
 # NO MODIFICAR - INICIO
 @reset_tabla
 def pruebas():
