@@ -11,7 +11,13 @@ def borrar_persona(id_persona):
     tabla Persona. Devuelve un booleano en base a si encontro el registro y lo 
     borro o no."""
     pass # Completar
-
+    conn=sqlite3.connect('basededatos.db')
+    cursor=conn.cursor()
+    query=f"DELETE FROM persona WHERE id_persona={id_persona}"
+    cursor.execute(query)
+    conn.commit()
+    conn.close()
+    
 # NO MODIFICAR - INICIO
 @reset_tabla
 def pruebas():
