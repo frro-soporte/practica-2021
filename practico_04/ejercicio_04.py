@@ -26,9 +26,7 @@ def buscar_persona(id_persona):
         return False
     else:
         return datos
-   
-from ejercicio_01 import borrar_tabla
-borrar_tabla()
+
 
 # NO MODIFICAR - INICIO
 @reset_tabla
