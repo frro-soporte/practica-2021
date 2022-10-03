@@ -13,7 +13,8 @@ def crear_tabla_peso():
     conn=sqlite3.connect('basededatos.db')
     cursor=conn.cursor()
     cursor.execute('''CREATE TABLE IF NOT EXISTS personapeso (
-                    id_persona INTEGER PRIMARY KEY AUTOINCREMENT,
+                    nro INTEGER PRIMARY KEY AUTOINCREMENT,
+                    id_persona INTEGER,
                     fecha TIMESTAMP NOT NULL,
                     peso INTEGER NOT NULL,
                     FOREIGN KEY (id_persona) REFERENCES persona(id_persona)
