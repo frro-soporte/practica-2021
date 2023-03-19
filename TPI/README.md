@@ -30,7 +30,24 @@ Pasos a Seguir:
 # Entrega al finalizar 
 
 Impresion por duplicado con caratula con las participantes del grupo . 
-Tiene conteneer el Modelo del Dominio del Sistema , las Reglas Negocio del Sistema ( minimo 3 reglas de calculo ) , Caso de Uso Principal , Link al Git Hub que tiene los programas del proyecto 
+Tiene conteneer el Modelo del Dominio del Sistema , las Reglas Negocio del Sistema  , Caso de Uso Principal , Link al Git Hub que tiene los programas del proyecto.
+Debe contener los siguientes puntos . 
+Narrativa 
+Abstract 
+Requerimientos Funcionales
+Requerimientos No funcionales 2
+Stack tecnológico 
+Reglas de negocio 
+Caso de uso Principales
+Modelo de dominio 
+Imágenes 
+Bibliografía 
+Documentación de Librerías 
+Modelo de reconocimiento de humo 
+Instalacion de modulos 
+Link Código fuente
+
+
 
 
 
