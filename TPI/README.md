@@ -35,8 +35,9 @@ Tiene conteneer el Modelo del Dominio del Sistema , las Reglas Negocio del Siste
 
 
 # Puntos de Control de Avance 
-	
-- Agosto 		Narrativa y Abstract. Casos de uso a implementar. 
+
+- Mayo 	                Narrativa 
+- Agosto 		Abstract. Casos de uso a implementar. 
 - Septiembre 	Modelo de Dominio y Regla Negocio / Prototipo de Acceso a Servicios 
 - Octubre 	    Prototipo de Capa Datos / Capa Negocio 
 - Noviembre 	Sistema cumple Requisitos 
