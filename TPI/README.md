@@ -31,21 +31,22 @@ Pasos a Seguir:
 
 Impresion por duplicado con caratula con las participantes del grupo . 
 Tiene conteneer el Modelo del Dominio del Sistema , las Reglas Negocio del Sistema  , Caso de Uso Principal , Link al Git Hub que tiene los programas del proyecto.
+
 Debe contener los siguientes puntos . 
-Narrativa 
-Abstract 
-Requerimientos Funcionales
-Requerimientos No funcionales 2
-Stack tecnológico 
-Reglas de negocio 
-Caso de uso Principales
-Modelo de dominio 
-Imágenes 
-Bibliografía 
-Documentación de Librerías 
-Modelo de reconocimiento de humo 
-Instalacion de modulos 
-Link Código fuente
+
+- [ ] Caratula Materia / Nro Grupo / Integrantes 
+- [ ] Narrativa 
+- [ ] Abstract 
+- [ ] Requerimientos Funcionales
+- [ ] Requerimientos No funcionales 2
+- [ ] Stack tecnológico 
+- [ ] Reglas de negocio 
+- [ ] Caso de uso Principales
+- [ ] Modelo de dominio 
+- [ ] Imágenes 
+- [ ] Bibliografía 
+- [ ] Documentación de Librerías 
+- [ ] Link Código fuente
 
 
 
