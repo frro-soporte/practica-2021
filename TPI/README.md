@@ -43,8 +43,25 @@ Tiene conteneer el Modelo del Dominio del Sistema , las Reglas Negocio del Siste
 - Noviembre 	Sistema cumple Requisitos 
 
 
-# Trabajo 2022
+# Ejemplos de Trabajos presentados en el  2022
 
 Utilizando la biblioteca de Python ‘BeautifulSoup’ se realiza scraping de la página de
 'Argenprop' (sitio de alquiler y venta de propiedades) para obtener datos de interés.
 https://github.com/lucasscarano/frro-python-2022-04/tree/TPI-Scraping 
+
+Un ecommerce es un sitio web que permite a los usuarios
+comprar productos o servicios en línea a través de Internet
+https://github.com/facuso162/ecommerce
+
+Se ha desarrollado un sistema que cumple en parte, las funcionalidades
+básicas de un sistema de ventas
+https://github.com/MarcosLeones/TPI-Soporte
+
+un sistema de detección automática capaz de detectar las columnas de humo
+https://github.com/IvoDur/deteccion-humo-rosario
+
+
+
+
+
+
