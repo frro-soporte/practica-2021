@@ -41,3 +41,10 @@ Tiene conteneer el Modelo del Dominio del Sistema , las Reglas Negocio del Siste
 - Septiembre 	Modelo de Dominio y Regla Negocio / Prototipo de Acceso a Servicios 
 - Octubre 	    Prototipo de Capa Datos / Capa Negocio 
 - Noviembre 	Sistema cumple Requisitos 
+
+
+# Trabajo 2022
+
+Utilizando la biblioteca de Python ‘BeautifulSoup’ se realiza scraping de la página de
+'Argenprop' (sitio de alquiler y venta de propiedades) para obtener datos de interés.
+https://github.com/lucasscarano/frro-python-2022-04/tree/TPI-Scraping 
