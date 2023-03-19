@@ -57,9 +57,14 @@ Se ha desarrollado un sistema que cumple en parte, las funcionalidades
 básicas de un sistema de ventas
 https://github.com/MarcosLeones/TPI-Soporte
 
-un sistema de detección automática capaz de detectar las columnas de humo
+Un sistema de detección automática capaz de detectar las columnas de humo
 https://github.com/IvoDur/deteccion-humo-rosario
 
+Sistema que permite al usuario buscar y visualizar información de diferentes empresas.
+https://github.com/ginoagostinelli/TPI
+
+Sistema para un Estacionamiento situado en el centro de la ciudad de Rosario
+https://github.com/juanicampora/FRRO_SOPORTE_TPI
 
 
 
