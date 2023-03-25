@@ -15,7 +15,11 @@ from typing import Callable, Iterable
 def apply(lista: Iterable[int], func: Callable[[int], bool]) -> Iterable[bool]:
     """Toma una lista y una función que toma un parámetro y devuelve una lista
     con la función aplicada a todos los elementos."""
-    pass # Completar
+    nueva_lista = []
+    for l in lista:
+        nueva_lista.append(func(l))
+    return nueva_lista
+
 
 
 # NO MODIFICAR - INICIO
@@ -34,7 +38,8 @@ Referencia: https://docs.python.org/3/library/functools.html#functools.partial
 lista = [3, 4, 5, 6, 7, 8]
 min_ = 4
 max_ = 7
-nueva_funcion = # Completar
+nueva_funcion = partial(esta_entre_valores,min_=4,max_=7)
+
 
 # NO MODIFICAR - INICIO
 lista = [3, 4, 5, 6, 7, 8]

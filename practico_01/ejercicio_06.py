@@ -7,13 +7,21 @@ def numeros_al_final_basico(lista: List[Union[float, str]]) -> List[Union[float,
     """Toma una lista de enteros y strings y devuelve una lista con todos los
     elementos numéricos al final.
     """
-    pass # Completar
+    numbers = []
+    letters = []
+    for i in lista:
+        if type(i) == float or type(i) == int :
+            numbers.append(i)
+        else: 
+            letters.append(i)
+    lista = letters + numbers
+    return lista
+
 
 
 # NO MODIFICAR - INICIO
 assert numeros_al_final_basico([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
 # NO MODIFICAR - FIN
-
 
 ###############################################################################
 

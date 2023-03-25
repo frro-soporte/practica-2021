@@ -1,5 +1,6 @@
 """Bucle FOR y Reduce."""
 
+from tkinter import X
 from typing import Iterable
 
 
@@ -9,7 +10,14 @@ def multiplicar_basico(numeros: Iterable[float]) -> float:
 
     Restricciones: No usar bibliotecas auxiliares (Numpy, math, pandas).
     """
-    pass # Completar
+    total = 1
+    if numeros == []:
+        total= 0
+    else: 
+        for i in numeros:
+            total *= i
+    return total
+
 
 
 # NO MODIFICAR - INICIO
@@ -31,6 +39,8 @@ def multiplicar_reduce(numeros: Iterable[float]) -> float:
     """CHALLENGE OPCIONAL - Re-escribir utilizando reduce.
     Referencia: https://docs.python.org/3.8/library/functools.html#functools.reduce
     """
+    return reduce(lambda x, y: x*y, numeros)
+    # NO ANDA NO SE PQ, es un error del '*', pq la suma anda bien...
     pass # Completar
 
 
