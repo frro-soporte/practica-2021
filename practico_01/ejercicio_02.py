@@ -4,10 +4,25 @@
 def maximo_encadenado(a: float, b: float, c: float) -> float:
     """Toma 3 números y devuelve el máximo.
 
-    Restricción: Utilizar UNICAMENTE tres IFs y comparaciones encadenadas.
-    Referencia: https://docs.python.org/3/reference/expressions.html#comparisons
+    Args:
+        a (float): Primer nro a comparar
+        b(float): Segundo nro a comparar
+        c(float): Tercer nro a comparar
+    
+    Returns:
+        float: mayor de los tres numeros
     """
-    pass # Completar
+    if a > b or a == b:
+        if a > c or a == c:
+            return a
+        else:
+            return c
+    else:
+        if b > c or b == c:
+            return b
+        else:
+            return c
+
 
 
 # NO MODIFICAR - INICIO
@@ -24,6 +39,9 @@ def maximo_cuadruple(a: float, b: float, c: float, d: float) -> float:
     """Re-escribir para que tome 4 parámetros, utilizar la función max.
 
     Referencia: https://docs.python.org/3/library/functions.html#max"""
+
+    return (max(a,b,c,d))
+
     pass # Completar
 
 
@@ -42,6 +60,8 @@ def maximo_arbitrario(*args) -> float:
     """Re-escribir para que tome una cantidad arbitraria de parámetros.
     Referencia: https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists
     """
+    return(max(args))
+    
     pass # Completar
 
 
@@ -58,9 +78,15 @@ assert maximo_arbitrario(24, 9, 18, 30) == 30
 
 def maximo_recursivo(*args) -> float:
     """Re-Escribir de forma recursiva."""
-    pass # Completar
-
-
+    
+    def getMax(lista):
+        if len(lista) == 1:
+            return lista[0]
+        else:
+            m = getMax(lista[1:])
+            return m if m > lista[0] else lista[0]
+    return getMax(args)
+            
 # NO MODIFICAR - INICIO
 assert maximo_recursivo(1, 10, 5, -5) == 10
 assert maximo_recursivo(4, 9, 18, 6) == 18

@@ -6,7 +6,10 @@ def sumatoria_basico(n: int) -> int:
 
     Restricción: Utilizar un bucle for.
     """
-    pass # Completar
+    total = 1
+    for i in range(n):
+        total +=i
+    return total
 
 
 # NO MODIFICAR - INICIO
@@ -22,7 +25,9 @@ def sumatoria_sum(n: int) -> int:
     """Re-Escribir utilizando la función sum y sin usar bucles.
     Referencia: https://docs.python.org/3/library/functions.html#sum
     """
-    pass # Completar
+    suma = sum(range(n + 1))
+
+    return suma
 
 
 # NO MODIFICAR - INICIO
@@ -66,3 +71,5 @@ if __name__ == "__main__":
     assert sumatoria_gauss(1) == 1
     assert sumatoria_gauss(100) == 5050
 # NO MODIFICAR - FIN
+
+
