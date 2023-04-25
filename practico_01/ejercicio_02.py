@@ -7,9 +7,16 @@ def maximo_encadenado(a: float, b: float, c: float) -> float:
     Restricción: Utilizar UNICAMENTE tres IFs y comparaciones encadenadas.
     Referencia: https://docs.python.org/3/reference/expressions.html#comparisons
     """
+    if a > b and a > c:
+        return a
+    elif b > a and b > c:
+        return b
+    else:
+        return c;
     pass # Completar
 
 
+print("El valor maximo con de tres numero con if es: ",maximo_encadenado(1, 10, 5))
 # NO MODIFICAR - INICIO
 assert maximo_encadenado(1, 10, 5) == 10
 assert maximo_encadenado(4, 9, 18) == 18
@@ -24,9 +31,10 @@ def maximo_cuadruple(a: float, b: float, c: float, d: float) -> float:
     """Re-escribir para que tome 4 parámetros, utilizar la función max.
 
     Referencia: https://docs.python.org/3/library/functions.html#max"""
+    return max(a, b,c,d)
     pass # Completar
 
-
+print("El valor maximo con de de un cuadruple con max  es: ",maximo_cuadruple(1, 10, 5, -5))
 # NO MODIFICAR - INICIO
 assert maximo_cuadruple(1, 10, 5, -5) == 10
 assert maximo_cuadruple(4, 9, 18, 6) == 18
@@ -42,9 +50,10 @@ def maximo_arbitrario(*args) -> float:
     """Re-escribir para que tome una cantidad arbitraria de parámetros.
     Referencia: https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists
     """
+    return max(args)
     pass # Completar
 
-
+print("El valor maximo con de  un arbitrario con max  es: ",maximo_arbitrario(1, 10, 5, -5))
 # NO MODIFICAR - INICIO
 assert maximo_arbitrario(1, 10, 5, -5) == 10
 assert maximo_arbitrario(4, 9, 18, 6) == 18
@@ -58,9 +67,23 @@ assert maximo_arbitrario(24, 9, 18, 30) == 30
 
 def maximo_recursivo(*args) -> float:
     """Re-Escribir de forma recursiva."""
+    return max(*args)
+
     pass # Completar
 
+def factorial(n):
+    if type(n) != int or n < 0:
+        print('Argumento inválido, la operación factorial debe ser un entero positivo.')
+        return -1
+    fact = 1
+    while n > 0:
+        fact *= n
+        n -= 1
+    return fact
 
+print("El factorial del maximo recursiva es: ")
+for p in range(maximo_recursivo(1, 10, 5, -5)):
+    print('%d! = %d' % (p, factorial(p)))
 # NO MODIFICAR - INICIO
 assert maximo_recursivo(1, 10, 5, -5) == 10
 assert maximo_recursivo(4, 9, 18, 6) == 18
