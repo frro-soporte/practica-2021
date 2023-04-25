@@ -1,92 +1,56 @@
-"""Comparaciones Encadenadas, Cantidad Arbitraria de Parámetros, Recursividad."""
+"""Bloque IF, operadores lógicos, función max y operador ternario."""
 
 
-def maximo_encadenado(a: float, b: float, c: float) -> float:
-    """Toma 3 números y devuelve el máximo.
+def maximo_basico(a: float, b: float) -> float:
+    """Toma dos números y devuelve el mayor.
+    Restricción: No utilizar la función max"""
 
-    Restricción: Utilizar UNICAMENTE tres IFs y comparaciones encadenadas.
-    Referencia: https://docs.python.org/3/reference/expressions.html#comparisons
-    """
-    if a > b and a > c:
+    if a > b:
         return a
-    elif b > a and b > c:
-        return b
     else:
-        return c;
+         return b
+
     pass # Completar
 
 
-print("El valor maximo con de tres numero con if es: ",maximo_encadenado(1, 10, 5))
 # NO MODIFICAR - INICIO
-assert maximo_encadenado(1, 10, 5) == 10
-assert maximo_encadenado(4, 9, 18) == 18
-assert maximo_encadenado(24, 9, 18) == 24
+print("El valor maximo con if es: ",maximo_basico(10, 5))
+assert maximo_basico(10, 5) == 10
+assert maximo_basico(9, 18) == 18
 # NO MODIFICAR - FIN
 
 
 ###############################################################################
 
 
-def maximo_cuadruple(a: float, b: float, c: float, d: float) -> float:
-    """Re-escribir para que tome 4 parámetros, utilizar la función max.
-
-    Referencia: https://docs.python.org/3/library/functions.html#max"""
-    return max(a, b,c,d)
-    pass # Completar
-
-print("El valor maximo con de de un cuadruple con max  es: ",maximo_cuadruple(1, 10, 5, -5))
-# NO MODIFICAR - INICIO
-assert maximo_cuadruple(1, 10, 5, -5) == 10
-assert maximo_cuadruple(4, 9, 18, 6) == 18
-assert maximo_cuadruple(24, 9, 18, 20) == 24
-assert maximo_cuadruple(24, 9, 18, 30) == 30
-# NO MODIFICAR - FIN
-
-
-###############################################################################
-
-
-def maximo_arbitrario(*args) -> float:
-    """Re-escribir para que tome una cantidad arbitraria de parámetros.
-    Referencia: https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists
+def maximo_libreria(a: float, b: float) -> float:
+    """Re-escribir utilizando el built-in max.
+    Referencia: https://docs.python.org/3/library/functions.html#max
     """
-    return max(args)
+    return max(a,b)
     pass # Completar
 
-print("El valor maximo con de  un arbitrario con max  es: ",maximo_arbitrario(1, 10, 5, -5))
+
 # NO MODIFICAR - INICIO
-assert maximo_arbitrario(1, 10, 5, -5) == 10
-assert maximo_arbitrario(4, 9, 18, 6) == 18
-assert maximo_arbitrario(24, 9, 18, 20) == 24
-assert maximo_arbitrario(24, 9, 18, 30) == 30
+print("El valor maximo con funcion de python es: ",maximo_libreria(10, 5))
+assert maximo_libreria(10, 5) == 10
+assert maximo_libreria(9, 18) == 18
 # NO MODIFICAR - FIN
 
 
 ###############################################################################
 
 
-def maximo_recursivo(*args) -> float:
-    """Re-Escribir de forma recursiva."""
-    return max(*args)
-
+def maximo_ternario(a: float, b: float) -> float:
+    """Re-escribir utilizando el operador ternario.
+    Referencia: https://docs.python.org/3/reference/expressions.html#conditional-expressions
+    """
+    return a if a > b else b
     pass # Completar
 
-def factorial(n):
-    if type(n) != int or n < 0:
-        print('Argumento inválido, la operación factorial debe ser un entero positivo.')
-        return -1
-    fact = 1
-    while n > 0:
-        fact *= n
-        n -= 1
-    return fact
 
-print("El factorial del maximo recursiva es: ")
-for p in range(maximo_recursivo(1, 10, 5, -5)):
-    print('%d! = %d' % (p, factorial(p)))
 # NO MODIFICAR - INICIO
-assert maximo_recursivo(1, 10, 5, -5) == 10
-assert maximo_recursivo(4, 9, 18, 6) == 18
-assert maximo_recursivo(24, 9, 18, 20) == 24
-assert maximo_recursivo(24, 9, 18, 30) == 30
+print("El valor maximo con ternerio es: ",maximo_basico(10, 5))
+assert maximo_ternario(10, 5) == 10
+assert maximo_ternario(9, 18) == 18
 # NO MODIFICAR - FIN

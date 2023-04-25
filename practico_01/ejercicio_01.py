@@ -54,4 +54,3 @@ print("El valor maximo con ternerio es: ",maximo_basico(10, 5))
 assert maximo_ternario(10, 5) == 10
 assert maximo_ternario(9, 18) == 18
 # NO MODIFICAR - FIN
-

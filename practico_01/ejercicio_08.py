@@ -29,6 +29,7 @@ assert not superposicion_basico(test_list, (2, "world", 30.85))
 
 def superposicion_in(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
     """Re-Escribir utilizando un sólo bucle y el operador IN."""
+
     common = [x for x in lista_1 if x in lista_2]
     if len(common):
         return True
