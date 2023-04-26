@@ -65,9 +65,7 @@ assert superposicion_any(test_list, (2, "world", 35.20))
 assert not superposicion_any(test_list, (2, "world", 30.85))
 # NO MODIFICAR - FIN
 
-
 ###############################################################################
-
 
 def superposicion_set(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
     """Re-Escribir utilizando conjuntos (sets).

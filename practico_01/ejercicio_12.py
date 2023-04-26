@@ -127,7 +127,6 @@ def combinar_zip_args(*args) -> Tuple[Any]:
     return tuple(dupla)
     pass # Completar
 
-
 # NO MODIFICAR - INICIO
 respuesta = (
     ("ventana", 100.48, 6852, "hogar", True),

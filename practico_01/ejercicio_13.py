@@ -55,7 +55,6 @@ def generar_pares_generator(initial: int = 0) -> Iterator[int]:
         yield i
     pass # Completar
 
-
 # NO MODIFICAR - INICIO
 generador_pares = generar_pares_generator()
 print("generar_pares_generator: ", generador_pares)
@@ -63,7 +62,6 @@ assert next(generador_pares) == 0
 assert next(generador_pares) == 2
 assert next(generador_pares) == 4
 # NO MODIFICAR - FIN
-
 
 ###############################################################################
 

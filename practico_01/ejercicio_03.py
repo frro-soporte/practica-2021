@@ -21,8 +21,7 @@ def operacion_basica(a: float, b: float, multiplicar: bool) -> Union[float, str]
             valreturn = (a / b)
         else:
             valreturn = "Operación no válida"
-
-    return valreturn;
+    return valreturn
     pass  # Completar
 
 

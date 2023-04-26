@@ -24,9 +24,7 @@ def esta_entre_valores(x: int, min_: float, max_: float) -> bool:
     return min_ < x < max_
 # NO MODIFICAR - FIN
 
-
 ###############################################################################
-
 
 """Utilizar partial para que pueda pasarse como parámetro a la función apply
 Referencia: https://docs.python.org/3/library/functools.html#functools.partial

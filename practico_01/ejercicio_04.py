@@ -39,8 +39,6 @@ assert operacion_basica(1, 0, False) == "Operación no válida"
 
 
 # NO MODIFICAR - FIN
-
-
 ###############################################################################
 
 
@@ -53,7 +51,6 @@ def operacion_multiple(a: float, b: float, multiplicar: bool) -> Union[float, st
     else:
         return "Operación no válida"
     pass  # Completar
-
 
 print("Operacion multiple con varios return: ", operacion_multiple(25, 0, False))
 # NO MODIFICAR - INICIO

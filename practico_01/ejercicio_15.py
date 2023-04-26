@@ -176,9 +176,7 @@ print(f"Tiempo: {elapsed:2.8f} segundos - Con Memoized - 3ra ejecución")
 assert result == 28671512
 # NO MODIFICAR - FIN
 
-
 ###############################################################################
-
 
 """CHALLENGE OPCIONAL: Esta es otra ocasión donde las funciones recursivas
 tienen ventajas adicionales  ya que al utilizar el patrón memoized, las

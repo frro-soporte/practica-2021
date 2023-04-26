@@ -20,9 +20,7 @@ assert tiene_pares_basico([1, 3, 5, 6]) is True
 assert tiene_pares_basico([1, 3, 5, 600]) is True
 # NO MODIFICAR - FIN
 
-
 ###############################################################################
-
 
 def tiene_pares_for_else(numeros: Iterable[int]) -> bool:
     """Re-Escribir utilizando for-else con dos return y un break.

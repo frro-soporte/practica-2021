@@ -29,11 +29,7 @@ assert multiplicar_basico([1, 2, 3, 0, 4, 5]) == 0
 assert multiplicar_basico(range(1, 20)) == 121_645_100_408_832_000
 # NO MODIFICAR - FIN
 
-
 ###############################################################################
-
-
-
 
 def multiplicar_reduce(numeros: Iterable[float]) -> float:
     """CHALLENGE OPCIONAL - Re-escribir utilizando reduce.

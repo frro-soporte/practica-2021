@@ -24,9 +24,7 @@ assert es_palindromo("radar")
 #assert es_palindromo("")
 # NO MODIFICAR - FIN
 
-
 ###############################################################################
-
 
 def mitad(palabra: str) -> str:
     """Toma un string y devuelve la mitad. Si la longitud es impar, redondear
