@@ -1,22 +1,26 @@
 """Bucle FOR y Reduce."""
 
 from typing import Iterable
+from functools import reduce
 
 
 def multiplicar_basico(numeros: Iterable[float]) -> float:
     """Toma un lista de números y devuelve el producto todos los númreos. Si
     la lista está vacia debe devolver 0.
 
+
     Restricciones: No usar bibliotecas auxiliares (Numpy, math, pandas).
     """
-    if(len(numeros) == 0): ## Si pongo if not numeros: funciona tambien
+    prod = 1
+    if len(numeros) == 0:
         return 0
-    resultado = 1
-    for numero in numeros:
-        resultado = resultado * numero
-    return resultado
+    for i in numeros:
+        prod *= i
+    return prod
+    pass # Completar
 
 
+print("multiplicar basico sin usar biblioteca: ",multiplicar_basico([1, 2, 3, 4]))
 # NO MODIFICAR - INICIO
 assert multiplicar_basico([1, 2, 3, 4]) == 24
 assert multiplicar_basico([2, 5]) == 10
@@ -25,23 +29,21 @@ assert multiplicar_basico([1, 2, 3, 0, 4, 5]) == 0
 assert multiplicar_basico(range(1, 20)) == 121_645_100_408_832_000
 # NO MODIFICAR - FIN
 
-
 ###############################################################################
-
-
-from functools import reduce
-
 
 def multiplicar_reduce(numeros: Iterable[float]) -> float:
     """CHALLENGE OPCIONAL - Re-escribir utilizando reduce.
     Referencia: https://docs.python.org/3.8/library/functools.html#functools.reduce
     """
-    if(len(numeros) == 0):
+    if len(numeros) == 0:
         return 0
-    return reduce(lambda x, y: x * y, numeros)
+    result = reduce(lambda a, b: a*b, numeros)
+    return result
+    pass # Completar
 
 
 # NO MODIFICAR - INICIO
+print("multiplicar basico usar biblioteca reduce: ",multiplicar_reduce([1, 2, 3, 0, 4, 5]))
 if __name__ == "__main__":
     assert multiplicar_reduce([1, 2, 3, 4]) == 24
     assert multiplicar_reduce([2, 5]) == 10

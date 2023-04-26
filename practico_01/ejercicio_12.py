@@ -19,10 +19,19 @@ def combinar_basico(nombres: List[str], precios: List[float]) -> Tuple[Any]:
 
     Restricción: Resolver utilizando un bucle for.
     """
+    tupla = []
+    dupla = []
+    if len(nombres) != len(precios):
+        return "Lista incompatible"
+
+    for i in range(len(nombres)):
+        dupla.append((nombres[i], precios[i]))
+    return tuple(dupla)
     pass # Completar
 
 
 # NO MODIFICAR - INICIO
+print("combinar basico dupla tupla: ",combinar_basico(nombre_articulos, precio_articulos))
 respuesta = (
     ("ventana", 100.48),
     ("lámpara", 16.42),
@@ -43,10 +52,18 @@ def combinar_enumerate(nombres: List[str], precios: List[float], ids: List[int])
     """Re-Escribir utilizando enumerate y agregando un nuevo componente.
     Referencia: https://docs.python.org/3/library/functions.html#enumerate
     """
+    dupla = []
+    if len(nombres) != len(precios) or len(nombres) != len(ids) or len(precios) != len(ids):
+        return "Lista incompatible"
+
+    for i, x in enumerate(nombres):
+        dupla.append((x, precios[i], ids[i]))
+    return tuple(dupla)
     pass # Completar
 
 
 # NO MODIFICAR - INICIO
+print("combinar combinar_enumerate dupla tupla: ",combinar_enumerate(nombre_articulos, precio_articulos, id_articulos))
 respuesta = (
     ("ventana", 100.48, 6852),
     ("lámpara", 16.42, 1459),
@@ -67,10 +84,18 @@ def combinar_zip(nombres: List[str], precios: List[float], ids: List[int]) -> Tu
     """Re-Escribir utilizando zip.
     Referencia: https://docs.python.org/3/library/functions.html#zip
     """
+    dupla = []
+    if len(nombres) != len(precios) or len(nombres) != len(ids) or len(precios) != len(ids):
+        return "Lista incompatible"
+
+    for i, x, p in zip(nombres, precios, ids):
+        dupla.append((i, x, p))
+    return tuple(dupla)
     pass # Completar
 
 
 # NO MODIFICAR - INICIO
+print("combinar combinar_zip dupla tupla: ",combinar_zip(nombre_articulos, precio_articulos, id_articulos))
 respuesta = (
     ("ventana", 100.48, 6852),
     ("lámpara", 16.42, 1459),
@@ -93,8 +118,14 @@ def combinar_zip_args(*args) -> Tuple[Any]:
     """Re-Escribir utilizando zip y una cantidad arbitraria de componentes.
     Referencia: https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists
     """
-    pass # Completar
+    dupla = []
+    if len(args) == 0:
+        return "Lista incompatible"
 
+    for p in zip(*args):
+        dupla.append(p)
+    return tuple(dupla)
+    pass # Completar
 
 # NO MODIFICAR - INICIO
 respuesta = (
@@ -110,6 +141,7 @@ componentes = [
     categoria_articulos,
     importado_articulos,
 ]
+print("combinar combinar_zip-arg dupla tupla: ", combinar_zip_args(*componentes))
 
 assert combinar_zip_args(*componentes) == respuesta
 # NO MODIFICAR - FIN

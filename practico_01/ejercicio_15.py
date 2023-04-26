@@ -55,6 +55,12 @@ def medir_tiempo(func: Callable[[], int]) -> Tuple[int, float]:
     Restricción: La función no debe tomar parámetros y por lo tanto se
     recomienda usar partial.
     """
+
+    start = perf_counter()
+    result = func()
+    elapsed = perf_counter() - start
+    return result, elapsed
+
     pass # Completar
 
 
@@ -73,6 +79,14 @@ def medir_tiempo(func: Callable[[Sequence[int], int], int]) -> Callable[[Sequenc
     partial. En este caso se debe devolver una función que devuelva la tupla y
     tome una cantidad arbitraria de parámetros.
     """
+
+    def helper(*x, **y):
+        start = perf_counter()
+        result = func(*x, **y)
+        elapsed = perf_counter() - start
+        return result, elapsed
+
+    return helper
     pass # Completar
 
 
@@ -127,6 +141,12 @@ def memoized(func):
     tiempo para la función calcular posibilidades. Prestar atención a los tiempo
     de ejecución
     """
+    memo = {}
+    def helper(*x):
+        if x not in memo:
+            memo[x] = func(*x)
+        return memo[x]
+    return helper
     pass # Completar
 
 
@@ -156,9 +176,7 @@ print(f"Tiempo: {elapsed:2.8f} segundos - Con Memoized - 3ra ejecución")
 assert result == 28671512
 # NO MODIFICAR - FIN
 
-
 ###############################################################################
-
 
 """CHALLENGE OPCIONAL: Esta es otra ocasión donde las funciones recursivas
 tienen ventajas adicionales  ya que al utilizar el patrón memoized, las
