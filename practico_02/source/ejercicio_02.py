@@ -14,11 +14,13 @@ $PATH$/practico_02> python -m source.ejercicio_02
 
 
 # NO MODIFICAR - INICIO
-assert main.name == "main"
-assert util.name == "util"
-assert database.name == "database"
-assert test_config.name == "test_config"
-assert migrations.name == "migrations"
+import source
+
+assert source.main.name == "main"
+assert source.util.name == "util"
+assert source.database.name == "database"
+assert source.test_config.name == "test_config"
+assert source.migrations.name == "migrations"
 # NO MODIFICAR - FIN
 
 
