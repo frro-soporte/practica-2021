@@ -17,7 +17,11 @@ class Article:
     # NO MODIFICAR - FIN
 
     # Completar
+    def __eq__(self, other: Article) -> bool:
+        return self.name == other.name
 
+    def __repr__(self):
+        return f"Article('{self.name}')"
 
 # NO MODIFICAR - INICIO
 class ShoppingCart:
@@ -50,6 +54,25 @@ class ShoppingCart:
     # NO MODIFICAR - FIN
 
     # Completar
+    def __add__(self, other: ShoppingCart) -> ShoppingCart:
+        nuevo_carrito = self.articles + other.articles
+        return ShoppingCart(articles=nuevo_carrito)
+
+    def __str__(self) -> str:
+        return str([article.name for article in self.articles])
+
+    def __eq__(self, other: ShoppingCart) -> bool:
+        if len(self.articles) != len(other.articles):
+            return False
+
+        for article in self.articles:
+            if article not in other.articles:
+                return False
+
+        return True
+
+    def __repr__(self):
+        return f"ShoppingCart({self.articles!r})"
 
 
 # NO MODIFICAR - INICIO
