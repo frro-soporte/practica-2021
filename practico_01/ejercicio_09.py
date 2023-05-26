@@ -12,9 +12,7 @@ def sumatoria_basico(n: int) -> int:
     for i in range(1, n + 1):
         suma+= i
     return suma
-    pass # Completar
-
-
+    
 # NO MODIFICAR - INICIO
 print("sumatoria basico: ",sumatoria_basico(1))
 assert sumatoria_basico(1) == 1
@@ -32,18 +30,14 @@ def sumatoria_sum(n: int) -> int:
         return suma
     suma = sum(range(1, n + 1))
     return suma
-    pass # Completar
-
-
+   
 # NO MODIFICAR - INICIO
 print("sumatoria con funcion sum: ",sumatoria_basico(1))
 assert sumatoria_sum(1) == 1
 assert sumatoria_sum(100) == 5050
 # NO MODIFICAR - FIN
 
-
 ###############################################################################
-
 
 from functools import reduce
 
@@ -57,9 +51,7 @@ def sumatoria_reduce(n: int) -> int:
         return suma
     suma = reduce(lambda x, y: x + y, range(1, n + 1))
     return suma
-    pass # Completar
-
-
+  
 # NO MODIFICAR - INICIO
 print("sumatoria con funcion reduce: ",sumatoria_reduce(1))
 if __name__ == "__main__":
@@ -80,9 +72,7 @@ def sumatoria_gauss(n: int) -> int:
         return suma
     suma = int(n * (n + 1) / 2)
     return suma
-    pass # Completar
-
-
+  
 # NO MODIFICAR - INICIO
 print("sumatoria con funcion gauss: ",sumatoria_gauss(1))
 if __name__ == "__main__":

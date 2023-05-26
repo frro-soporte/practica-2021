@@ -22,8 +22,8 @@ def operacion_basica(a: float, b: float, multiplicar: bool) -> Union[float, str]
         else:
             valreturn = "Operación no válida"
 
-    return valreturn;
-    pass  # Completar
+    return valreturn
+   
 
 
 print("Operacion basico sin usar ni And, ni OR con un solo return: ", operacion_basica(25, 0, False))
@@ -50,8 +50,7 @@ def operacion_multiple(a: float, b: float, multiplicar: bool) -> Union[float, st
         return a / b
     else:
         return "Operación no válida"
-    pass  # Completar
-
+  
 print("Operacion multiple con varios return: ", operacion_multiple(25, 0, False))
 # NO MODIFICAR - INICIO
 assert operacion_multiple(1, 1, True) == 1
