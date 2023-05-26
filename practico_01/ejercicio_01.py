@@ -10,9 +10,6 @@ def maximo_basico(a: float, b: float) -> float:
     else:
          return b
 
-    pass # Completar
-
-
 # NO MODIFICAR - INICIO
 print("El valor maximo con if es: ",maximo_basico(10, 5))
 assert maximo_basico(10, 5) == 10
@@ -28,15 +25,12 @@ def maximo_libreria(a: float, b: float) -> float:
     Referencia: https://docs.python.org/3/library/functions.html#max
     """
     return max(a, b)
-    pass # Completar
-
-
+   
 # NO MODIFICAR - INICIO
 print("El valor maximo con funcion de python es: ",maximo_libreria(10, 5))
 assert maximo_libreria(10, 5) == 10
 assert maximo_libreria(9, 18) == 18
 # NO MODIFICAR - FIN
-
 
 ###############################################################################
 
@@ -46,9 +40,7 @@ def maximo_ternario(a: float, b: float) -> float:
     Referencia: https://docs.python.org/3/reference/expressions.html#conditional-expressions
     """
     return a if a > b else b
-    pass # Completar
-
-
+   
 # NO MODIFICAR - INICIO
 print("El valor maximo con ternerio es: ",maximo_basico(10, 5))
 assert maximo_ternario(10, 5) == 10
