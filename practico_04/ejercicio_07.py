@@ -4,6 +4,8 @@ import datetime
 
 from practico_04.ejercicio_02 import agregar_persona
 from practico_04.ejercicio_06 import reset_tabla
+from practico_04.ejercicio_01 import cursor, conn
+from practico_04.ejercicio_04 import buscar_persona
 
 
 def agregar_peso(id_persona, fecha, peso):
@@ -19,7 +21,18 @@ def agregar_peso(id_persona, fecha, peso):
     Debe devolver:
     - ID del peso registrado.
     - False en caso de no cumplir con alguna validacion."""
-
+    search = buscar_persona(id_persona)
+    if not search:
+        print("La persona buscada no esta encontrado")
+        return False
+    else:
+        cursor.execute("SELECT * FROM PersonaPesos WHERE IdPersona = ? AND Fecha > ?", (id_persona, fecha))
+        result = cursor.fetchone()
+        if result is None:
+            cursor.execute("INSERT INTO PersonaPesos(IdPersona,Fecha,Peso) VALUES(?,?,?)",(id_persona, fecha, peso))
+            return cursor.lastrowid
+        else:
+            return False
     pass # Completar
 
 

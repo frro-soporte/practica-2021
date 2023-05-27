@@ -5,6 +5,8 @@ import datetime
 from practico_04.ejercicio_02 import agregar_persona
 from practico_04.ejercicio_06 import reset_tabla
 from practico_04.ejercicio_07 import agregar_peso
+from practico_04.ejercicio_01 import cursor, conn
+from practico_04.ejercicio_04 import buscar_persona
 
 
 def listar_pesos(id_persona):
@@ -30,7 +32,25 @@ def listar_pesos(id_persona):
 
     - False en caso de no cumplir con alguna validacion.
     """
-    return []
+    search = buscar_persona(id_persona)
+    if not search:
+        print("La persona buscada no esta encontrado")
+        return False
+    else:
+        cursor.execute("SELECT Fecha, Peso FROM PersonaPesos WHERE IdPersona = ? ", (id_persona, ))
+        result = cursor.fetchall()
+
+        """
+            Es 10 de la fecha, significa toma los 10 primeros caratecteres de la fecha
+            para no mostrar la hora (2018-01-01) 
+        """
+        result = [(Fecha[:10], Peso) for Fecha, Peso in result]
+        print('Pesos :: ',result)
+
+        if result is not None:
+            return result
+        else:
+            return False
 
 
 # NO MODIFICAR - INICIO

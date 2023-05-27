@@ -4,6 +4,7 @@ import datetime
 
 from practico_04.ejercicio_01 import reset_tabla
 from practico_04.ejercicio_02 import agregar_persona
+from practico_04.ejercicio_01 import  cursor, conn
 
 
 def buscar_persona(id_persona):
@@ -11,6 +12,13 @@ def buscar_persona(id_persona):
     persona basado en su id. El return es una tupla que contiene sus campos: 
     id, nombre, nacimiento, dni y altura. Si no encuentra ningun registro, 
     devuelve False."""
+    cursor.execute("SELECT * FROM Personas WHERE IdPersona = ?", (id_persona,))
+    result = cursor.fetchone()
+    print(result)
+    if result is None:
+        return False
+    else:
+        return result
     pass # Completar
 
 
