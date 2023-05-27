@@ -45,7 +45,6 @@ def listar_pesos(id_persona):
             para no mostrar la hora (2018-01-01) 
         """
         result = [(Fecha[:10], Peso) for Fecha, Peso in result]
-        print('Pesos :: ',result)
 
         if result is not None:
             return result
