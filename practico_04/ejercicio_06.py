@@ -1,3 +1,7 @@
+"""Base de Datos SQL - Creación de tablas auxiliares"""
+
+from practico_04.ejercicio_01 import borrar_tabla, crear_tabla
+
 def crear_tabla_peso():
     conexion = sqlite3.connect('mi_base_de_datos.db')
     cursor = conexion.cursor()
