@@ -8,6 +8,23 @@ from practico_04.ejercicio_07 import agregar_peso
 
 
 def listar_pesos(id_persona):
+
+    conexion = sqlite3.connect('mi_base_de_datos.db')
+    cursor = conexion.cursor()
+
+    persona = buscar_persona(id_persona)
+    if not persona:
+        conexion.close()
+        return False
+
+    consulta_sql = '''SELECT Fecha, Peso FROM PersonaPeso WHERE IdPersona = ?'''
+    cursor.execute(consulta_sql, (id_persona,))
+    resultado = cursor.fetchall()
+    conexion.close()
+    if resultado is None:
+        return False
+    return [(str(fecha), peso) for fecha, peso in resultado]
+
     """Implementar la funcion listar_pesos, que devuelva el historial de pesos 
     para una persona dada.
 
@@ -30,15 +47,13 @@ def listar_pesos(id_persona):
 
     - False en caso de no cumplir con alguna validacion.
     """
-    return []
-
 
 # NO MODIFICAR - INICIO
 @reset_tabla
 def pruebas():
-    id_juan = agregar_persona('juan perez', datetime.datetime(1988, 5, 15), 32165498, 180)
-    agregar_peso(id_juan, datetime.datetime(2018, 5, 1), 80)
-    agregar_peso(id_juan, datetime.datetime(2018, 6, 1), 85)
+    id_juan = agregar_persona('juan perez','1988-05-15', 32165498, 180)
+    agregar_peso(id_juan, '2018-05-01', 80)
+    agregar_peso(id_juan, '2018-06-01', 85)
     pesos_juan = listar_pesos(id_juan)
     pesos_esperados = [
         ('2018-05-01', 80),
