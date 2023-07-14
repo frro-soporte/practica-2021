@@ -1,0 +1,375 @@
+#:kivy 2.1
+
+ScreenManager:
+    id: screen_manager
+
+    HomeScreen:
+        id: home
+        name: 'home'
+        manager: 'screen_manager'
+
+
+    CreateScreen:
+        id: create
+        name: 'create'
+        manager: 'screen_manager'
+
+
+    UpdateScreen:
+        id: update
+        name: 'update'
+        manager: 'screen_manager'
+
+    DeleteScreen:
+        id: delete
+        name: 'delete'
+        manager: 'screen_manager'
+
+
+<HomeScreen>:
+    GridLayout:
+        cols: 1
+        spacing:30
+        padding:40
+        canvas:
+            Color:
+                rgba: 0.961, 0.961, 0.863, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            text:'Bienvenido'
+            font_size: 35
+            color: 0, 0, 0, 1
+
+
+        Button:
+            text:'Crear nuevo usuario'
+            on_release: app.root.current = 'create'
+            color: 1, 1, 1, 1
+            font_size: 25
+            background_color: 0.529, 0.812, 0.980, 1
+            size_hint: .2,.2
+
+
+        Button:
+            text:'Actualizar usuario'
+            on_release: app.root.current = 'update'
+            color: 1, 1, 1, 1
+            font_size: 25
+            background_color: 0.529, 0.812, 0.980, 1
+            size_hint: .2,.2
+
+        Button:
+            text:'Eliminar usuario'
+            on_release: app.root.current = 'delete'
+            color: 1, 1, 1, 1
+            font_size: 25
+            background_color: 0.529, 0.812, 0.980, 1
+            size_hint: .2,.2
+
+<CreateScreen>:
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+        spacing: 30
+        padding: 40
+        canvas:
+            Color:
+                rgba: 0.961, 0.961, 0.863, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        GridLayout:
+            cols: 2
+            spacing:10
+
+            canvas:
+                Color:
+                    rgba: 0.961, 0.961, 0.863, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: 'Usuario'
+                font_size:25
+                color: 0,0,0,1
+            TextInput:
+                id: user
+                multiline:False
+
+                on_text:
+                    if len(self.text)!=0 and root.estadoUser == False:\
+                    progress.value +=.25; root.estadoUser = True
+                    elif len(self.text) == 0:\
+                    progress.value -=.25 ; root.estadoUser = False
+
+            Label:
+                text: 'Email'
+                font_size:25
+                color: 0,0,0,1
+            TextInput:
+                id: email
+                multiline:False
+                on_text:
+                    if len(self.text) !=0 and root.estadoEmail == False:\
+                    progress.value +=.25; root.estadoEmail = True
+                    elif len(self.text) == 0:\
+                    progress.value -=.25 ; root.estadoEmail = False
+
+            Label:
+                text: 'Contraseña'
+                font_size:25
+                color: 0,0,0,1
+            TextInput:
+                id: password
+                multiline:False
+                on_text:
+                    if len(self.text) !=0 and root.estadoPass == False:\
+                    progress.value +=.25; root.estadoPass = True
+                    elif len(self.text) == 0:\
+                    progress.value -=.25 ; root.estadoPass = False
+
+
+            Label:
+                text: 'Confirmar Contraseña'
+                font_size:25
+                color: 0,0,0,1
+            TextInput:
+                id: confirm_password
+                multiline:False
+                on_focus:
+                    if root.estadoConfirm == False and password.text == self.text:\
+                    progress.value +=.25; root.estadoConfirm = True
+                    elif root.estadoConfirm == True and password.text != self.text:\
+                    progress.value -=.25 ; root.estadoConfirm = False
+
+        ProgressBar:
+            id: progress
+                #Default value
+                #value: 0.25
+            min: 0
+            max: 1
+            color: 1, 0, 0, 1
+            pos_hint: {'x':.1}
+            size_hint_x: 0.8
+
+
+        Button:
+            text: "Enviar"
+            color: 1, 1, 1, 1
+            font_size: 25
+            background_color: 0.529, 0.812, 0.980, 1
+            size_hint: .2,.3
+            on_release:
+                if root.valido():\
+                root.changeScreen() ; password.text = "" ; user.text=""; email.text=""; confirm_password.text=""; progress.value = 0; app.root.current = 'home'
+
+        Button:
+            text:'Volver'
+            color: 1, 1, 1, 1
+            font_size: 25
+            background_color: 0.529, 0.812, 0.980, 1
+            size_hint: .2,.3
+            on_release: app.root.current = 'home'
+
+<UpdateScreen>:
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+        spacing: 20
+        padding: 40
+
+        canvas:
+            Color:
+                rgba: 0.961, 0.961, 0.863, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            id: per_label
+            text:"Hello"
+            color: 0,0,0,1
+            size_hint: 0.1, 0.1
+
+
+        GridLayout:
+            cols: 2
+            spacing: 5
+
+            canvas:
+                Color:
+                    rgba: 0.961, 0.961, 0.863, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text:'ID'
+                font_size:20
+                color: 0,0,0,1
+            TextInput:
+                id: user_id
+                multiline:False
+                font_size: 14
+                color: 0,0,0,1
+                
+                on_focus:
+                    if len(self.text)!=0 and root.estadoId == False and root.validarId():\
+                    progress.value +=.20 ; root.estadoId = True
+                    elif len(self.text) == 0:\
+                    progress.value -=.20 ; root.estadoId = False
+
+            Label:
+                text: 'Usuario'
+                size_hint: .1,.1
+                font_size:20
+                color: 0,0,0,1
+            TextInput:
+                id: user
+                multiline:False
+                font_size: 14
+                on_text:
+                    if len(self.text)!=0 and root.estadoUser == False:\
+                    progress.value +=.20; root.estadoUser = True
+                    elif len(self.text) == 0:\
+                    progress.value -=.20 ; root.estadoUser = False
+
+            Label:
+                text: 'Email'
+                font_size:20
+                color: 0,0,0,1
+            TextInput:
+                id: email
+                multiline:False
+                font_size: 14
+                on_text:
+                    if len(self.text) !=0 and root.estadoEmail == False:\
+                    progress.value +=.20; root.estadoEmail = True
+                    elif len(self.text) == 0:\
+                    progress.value -=.20 ; root.estadoEmail = False
+
+            Label:
+                text: 'Contraseña'
+                font_size:20
+                color: 0,0,0,1
+            TextInput:
+                id: password
+                multiline:False
+                font_size: 14
+                on_text:
+                    if len(self.text) !=0 and root.estadoPass == False:\
+                    progress.value +=.20; root.estadoPass = True
+                    elif len(self.text) == 0:\
+                    progress.value -=.20 ; root.estadoPass = False
+
+
+            Label:
+                text: 'Confirmar Contraseña'
+                font_size:20
+                color: 0,0,0,1
+            TextInput:
+                id: confirm
+                multiline:False
+                font_size: 14
+                on_focus:
+                    if root.estadoConfirm == False and password.text == self.text:\
+                    progress.value +=.20; root.estadoConfirm = True
+                    elif root.estadoConfirm == True and password.text != self.text:\
+                    progress.value -=.20 ; root.estadoConfirm = False
+
+        ProgressBar:
+            id: progress
+            # Default value
+            # value: 0.25
+            min: 0
+            max: 1
+            pos_hint: {'x': .1}
+            size_hint_x: .8
+            size_hint_y: 0.02
+
+
+
+
+        Button:
+            text:'Mostrar Personas'
+            on_release: root.mostrarListado()
+            size_hint: .2,.3
+            color: 1, 1, 1, 1
+            font_size: 25
+            background_color: 0.529, 0.812, 0.980, 1
+
+        Button:
+            text:'Modificar'
+            size_hint: .2,.3
+            color: 1, 1, 1, 1
+            font_size: 25
+            background_color: 0.529, 0.812, 0.980, 1
+            on_release:
+                if root.valido():\
+                root.updatePersona() ;  password.text = "" ; user.text=""; email.text=""; confirm.text=""; user_id.text=""; progress.value = 0; app.root.current = 'home'
+        Button:
+            text:'Volver'
+            size_hint: .2,.3
+            color: 1, 1, 1, 1
+            font_size: 25
+            background_color: 0.529, 0.812, 0.980, 1
+            on_release: app.root.current = 'home'
+
+
+
+
+<DeleteScreen>:
+    GridLayout:
+        cols:1
+        spacing: 40
+        padding: 20
+        size: root.width, root.height
+        canvas:
+            Color:
+                rgba: 0.961, 0.961, 0.863, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            id: per_label
+            text:"Elimina el registro que desees"
+            color: 0, 0, 0, 1
+            font_size: 20
+        GridLayout:
+            cols: 3
+            rows: 2
+            spacing: 40
+
+            Label:
+                text:'Ingresa un ID'
+                color: 0, 0, 0, 1
+                font_size: 18
+            TextInput:
+                id: user_id
+                multiline:False
+
+        Button:
+            text:'Mostrar Personas'
+            color: 1, 1, 1, 1
+            font_size: 25
+            background_color: 0.529, 0.812, 0.980, 1
+            on_release: root.mostrarListado()
+        Button:
+            text:'Borrar'
+            color: 1, 1, 1, 1
+            font_size: 25
+            background_color: 0.529, 0.812, 0.980, 1
+            on_release: root.eliminarPersona() ; user_id.text=""; app.root.current = 'home'
+
+        Button:
+            text:'Volver'
+            color: 1, 1, 1, 1
+            font_size: 25
+            background_color: 0.529, 0.812, 0.980, 1
+            on_release: app.root.current = 'home'
+
+
+
