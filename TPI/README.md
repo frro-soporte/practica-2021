@@ -6,7 +6,7 @@ Condiciones del trabajo. Hacer un  sistema que cumpla las siguientes condiciones
 	Que cumpla la arquitectura de capas.  
 	 
 Para la Capa de Datos se tienen las siguientes condiciones:
-	Que haga uso de una Base de Datos (MySQL, Mongo, SQLite), mediante acceso directo o por medio de un ORM (Alchemy, Django) 
+	Que haga uso de una Base de Datos (MySQL,SQLite), mediante acceso directo o por medio de un ORM (Alchemy, Django) 
 	Documentación del Modelo del Dominio  
 
 Para la Capa de Negocios se tienen las Siguientes Condiciones
@@ -14,7 +14,7 @@ Para la Capa de Negocios se tienen las Siguientes Condiciones
 	Test que evalúe que se cumplan las reglas de negocio en los Métodos de la Clase de Negocio 
 
 Interfaz de usuario:
--	Puede ser de escritorio o web, mediante Flask o Django, por ej.
+-	Puede ser de escritorio o web, mediante Flask / Django / Kviy, por ej.
 
 En este documento se describe el enunciado y pasos a seguir para TPI.
 
