@@ -27,7 +27,7 @@ def combinar_basico(nombres: List[str], precios: List[float]) -> Tuple[Any]:
     for i in range(len(nombres)):
         dupla.append((nombres[i], precios[i]))
     return tuple(dupla)
-    pass # Completar
+    
 
 
 # NO MODIFICAR - INICIO
@@ -59,9 +59,7 @@ def combinar_enumerate(nombres: List[str], precios: List[float], ids: List[int])
     for i, x in enumerate(nombres):
         dupla.append((x, precios[i], ids[i]))
     return tuple(dupla)
-    pass # Completar
-
-
+    
 # NO MODIFICAR - INICIO
 print("combinar combinar_enumerate dupla tupla: ",combinar_enumerate(nombre_articulos, precio_articulos, id_articulos))
 respuesta = (
@@ -91,8 +89,7 @@ def combinar_zip(nombres: List[str], precios: List[float], ids: List[int]) -> Tu
     for i, x, p in zip(nombres, precios, ids):
         dupla.append((i, x, p))
     return tuple(dupla)
-    pass # Completar
-
+   
 
 # NO MODIFICAR - INICIO
 print("combinar combinar_zip dupla tupla: ",combinar_zip(nombre_articulos, precio_articulos, id_articulos))
@@ -125,7 +122,6 @@ def combinar_zip_args(*args) -> Tuple[Any]:
     for p in zip(*args):
         dupla.append(p)
     return tuple(dupla)
-    pass # Completar
 
 # NO MODIFICAR - INICIO
 respuesta = (

@@ -17,9 +17,7 @@ def multiplicar_basico(numeros: Iterable[float]) -> float:
     for i in numeros:
         prod *= i
     return prod
-    pass # Completar
-
-
+    
 print("multiplicar basico sin usar biblioteca: ",multiplicar_basico([1, 2, 3, 4]))
 # NO MODIFICAR - INICIO
 assert multiplicar_basico([1, 2, 3, 4]) == 24
@@ -39,9 +37,7 @@ def multiplicar_reduce(numeros: Iterable[float]) -> float:
         return 0
     result = reduce(lambda a, b: a*b, numeros)
     return result
-    pass # Completar
-
-
+  
 # NO MODIFICAR - INICIO
 print("multiplicar basico usar biblioteca reduce: ",multiplicar_reduce([1, 2, 3, 0, 4, 5]))
 if __name__ == "__main__":

@@ -10,30 +10,27 @@ class Auto:
     Restricción: Usar Properties
     
     Referencia: https://docs.python.org/3/library/functions.html#property"""
-
-    def __init__(self, marca:str, precio):
+    def __init__(self, nombre, precio):
+        self._marca = nombre
         self._precio = precio
-        self._marca = marca
+
+    @property
+    def nombre(self):
+        """Marca"""  
+        return self._marca
 
     @property
     def precio(self):
-        return f"{self._precio:.2f}"
-
+        """Precio"""
+        return round(self._precio, 2)
     @precio.setter
     def precio(self, value):
         self._precio = value
 
-    @property
-    def nombre(self):
-        return self._marca
-
-    # Completar
-
 
 # NO MODIFICAR - INICIO
 auto = Auto("Ford", 12_875.456)
-print("auto.nombre: ",auto.nombre)
-print("auto.precio: ",auto.precio)
+
 assert auto.nombre == "Ford"
 assert auto.precio == 12_875.46
 auto.precio = 13_874.349
@@ -56,19 +53,23 @@ from dataclasses import dataclass
 class Auto:
     """Re-Escribir utilizando DataClasses"""
     marca: str
-    precio: float
-    # Completar
-    @property
-    def precio(self):
-        return self._precio
-
-    @precio.setter
-    def precio(self, value):
-        self._precio = value
+    precio: int
+    def __init__(self, marca: str, precio: int):
+        self._marca = marca
+        self._precio = precio
 
     @property
     def nombre(self):
+        """Marca"""
         return self._marca
+
+    @property
+    def precio(self):
+        """Precio"""
+        return round(self._precio, 2)
+    @precio.setter
+    def precio(self, value):
+        self._precio = value
 
 
 # NO MODIFICAR - INICIO
