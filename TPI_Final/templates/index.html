@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}   
+{% block body %}
+   
+    <form action="/create" method="post">
+        <!-- <input type="text" name="name" placeholder="Ingrese el nombre del rol"/>
+        <textarea type="text" name="description" placeholder="Ingrese la description"></textarea>
+
+        <button>Save</button> -->
+        <!-- <section id="cover" class="min-vh-100"> -->
+            <div id="cover-caption">
+                <div class="container">
+                    <div class="row text-white">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mx-auto text-center form">
+                            <h1 class="display-4 py-2 text-truncate">Crear</h1>
+                            <div class="px-4">
+                                <form class="justify-content-center">
+                                    <div class="form-row">
+                                      <div class="form-group col-md-12">
+                                        <label for="inputfirstName">Nombre</label>
+                                        <input type="text" class="form-control" id="inputfirstName" name="name"
+                                        name="name" placeholder="Nombre">                                            
+                                      </div>
+                                    </div>
+                                    <div class="form-row">
+                                      <div class="form-group col-md-12">
+                                        <label for="inputtextarea">Descripcion</label>
+                                        <textarea class="form-control" rows="7"  id="inputtextarea" name="description"
+                                        name="description" placeholder="Descripcion"></textarea>
+                                      </div>
+                                    </div>
+                                    <div class="float-right p-2  pull-right">
+                                      <button [routerLink]="['/Subject']" class="btn btn-primary mr-3">Cancelar</button>
+                                      <button type="submit" class="btn btn-primary">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <!-- </section> -->
+    </form>
+
+    <div>
+        {% for role in roles%}
+            <!-- <div>
+                <h3>{{role.name}}</h3>
+                <div>
+                    <a href="{{ url_for('roles.update', id=role.id) }}">Update</a>
+                    <a href="{{ url_for('roles.delete', id=role.id) }}">Delete</a>
+                </div>
+                <p>{{role.description}}</p>
+            </div> -->
+        {% endfor %}
+    </div>
+{% endblock %}

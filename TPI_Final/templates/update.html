@@ -1,0 +1,43 @@
+<!-- <form action="/update/{{ updates.id }}" method="post">
+    <input type="text" name="name" value="{{ updates.name }}" placeholder="Ingrese el nombre del rol"/>
+    <textarea type="text" name="description"  placeholder="Ingrese la description">{{ updates.description}}</textarea>
+
+    <button>Update</button>
+</form> -->
+
+{% extends 'layout.html' %}   
+{% block body %}
+    <form action="/update/{{ updates.id }}" method="post">
+        <div id="cover-caption">
+            <div class="container">
+                <div class="row text-white">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mx-auto text-center form">
+                            {% include 'partial/_message.html'%}
+                        <div class="px-4">
+                            <form class="justify-content-center">
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                    <label for="inputfirstName">Nombre</label>
+                                    <input type="text" class="form-control" id="inputfirstName" name="name"
+                                    name="name" placeholder="Nombre" value="{{ updates.name }}">                                            
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                    <label for="inputtextarea">Descripcion</label>
+                                    <textarea class="form-control" rows="7"  id="inputtextarea" name="description"
+                                    name="description" placeholder="Descripcion">{{ updates.description}}</textarea>
+                                    </div>
+                                </div>
+                                <div class="float-right p-2  pull-right">
+                                    <button onclick="window.location.href='role/getAll'" class="btn btn-primary mr-3">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

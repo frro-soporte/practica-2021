@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}   
+{% block body %}
+    <div>
+        <!-- <button class="btn btn-primary float-right" style="float: right;margin-bottom: 1%;"  >Nueva permision</button> -->
+        <table class="table col-xl-6 col-lg-6 col-md-6 col-sm-6 mx-auto mt-3 ">
+            <a href="{{ url_for('roles.create') }}"  style="float: right;margin-bottom: 1%;">
+                <button class="btn btn-primary float-right"  >Nueva permision</button>
+            </a>
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Accion</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for role in roles%}
+                    <tr>
+                        <td>{{role.name}}</td>
+                        <td>{{role.description}}</td>
+                        <td>
+                            <a href="{{ url_for('roles.update', id=role.id) }}"><i class="fa-solid fa-pencil"></i></a>
+                            <a href="{{ url_for('roles.delete', id=role.id) }}"><i class="fa-solid fa-trash-can"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>       
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="{{ category }} col-xl-11 col-lg-6 col-md-6 col-sm-6 mx-auto text-center" role="alert" id="successMessage">
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+{% endwith %}
+
+<script type="text/javascript">window.setTimeout("document.getElementById('successMessage').style.display='none';", 2000); </script>
