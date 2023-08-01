@@ -17,8 +17,7 @@ def numeros_al_final_basico(lista: List[Union[float, str]]) -> List[Union[float,
         else:
             liststring.append(i)
     return (liststring + listint)
-    pass # Completar
-
+   
 
 print("numeros al final basico: ",numeros_al_final_basico([3, "a", 1, "b", 10, "j"]))
 # NO MODIFICAR - INICIO
@@ -45,7 +44,6 @@ def numeros_al_final_comprension(lista: List[Union[float, str]]) -> List[Union[f
         else:
             liststring.append(i.title().lower())
     return (liststring + listint)
-    pass # Completar
 
 
 print("numeros al final basico con comprension: ",numeros_al_final_comprension([3, "a", 1, "b", 10, "j"]))
@@ -71,8 +69,7 @@ def numeros_al_final_sorted(lista: List[Union[float, str]]) -> List[Union[float,
         else:
             liststring.append(i)
     return (sorted(liststring) + listint)
-    pass # Completar
-
+   
 
 print("numeros al final basico con sorted: ",numeros_al_final_sorted([3, "a", 1, "b", 10, "j"]))
 # NO MODIFICAR - INICIO
@@ -87,11 +84,11 @@ def numeros_al_final_filter(lista: List[Union[float, str]]) -> List[Union[float,
     """CHALLENGE OPCIONAL - Re-escribir utilizando la función filter.
     Referencia: https://docs.python.org/3/library/functions.html#filter
     """
-    list_int = (x for x in lista if type(x) == int)
-    list_str = (x for x in lista if type(x) == string)
-    return (sorted(list_str, key = None, reverse=False) + sorted(list_int, key = None, reverse = False))
-    pass # Completar
-
+    #print(list(filter((lambda item: (type(item) == int)), lista)))  ## Filtro solo los numeros enteros
+    #print(list(filter((lambda item: (type(item) == str)), lista)))  ## Filtro los str
+    #print(list(filter((lambda item: (type(item) == str)), lista)) + list(filter((lambda item: (type(item) == int)), lista))) ## Concateno la lista filtrada por str con la de int
+    return list(filter((lambda item: (type(item) == str)), lista)) + list(filter((lambda item: (type(item) == int)), lista)) ## Retorno
+    
 
 print("numeros al final by filer: ",numeros_al_final_filter([3, "a", 1, "b", 10, "j"]))
 # NO MODIFICAR - INICIO
@@ -113,8 +110,7 @@ def numeros_al_final_recursivo(lista: List[Union[float, str]]) -> List[Union[flo
     else:
         liststring.append(numeros_al_final_recursivo(lista[1:]))
     return (liststring + listint)
-    pass # Completar
-
+    
 
 print("numeros al final by recursivo: ",numeros_al_final_recursivo([3, "a", 1, "b", 10, "j"]))
 # NO MODIFICAR - INICIO

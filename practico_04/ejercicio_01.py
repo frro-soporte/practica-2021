@@ -41,6 +41,44 @@ def borrar_tabla():
         print("La tabla Personas ya no existe")
     conn.commit()
     conn.close()
+
+    conexion = sqlite3.connect('mi_base_de_datos.db')
+    cursor = conexion.cursor()
+
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='persona'")
+    tabla_existente = cursor.fetchone()
+
+    if tabla_existente is not None:
+      print("La tabla ya existe")
+    else:
+      creacion_persona = '''CREATE TABLE persona (
+        IdPersona INTEGER PRIMARY KEY AUTOINCREMENT,
+        Nombre TEXT,
+        FechaNacimiento TEXT,
+        DNI INTEGER,
+        Altura INTEGER
+       )'''
+    
+      cursor.execute(creacion_persona)
+
+      conexion.commit()
+      conexion.close()
+      pass # Completar
+
+
+
+def borrar_tabla():
+    conexion = sqlite3.connect('mi_base_de_datos.db')
+    cursor = conexion.cursor()
+
+    comando_sql = '''DROP TABLE IF EXISTS persona'''
+
+    cursor.execute(comando_sql)
+
+    conexion.commit()
+    conexion.close()
+
+
     pass # Completar
 """borrar_tabla()"""
 # NO MODIFICAR - INICIO

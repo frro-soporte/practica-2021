@@ -18,7 +18,7 @@ def suma_cubo_pares_for(numeros: Iterable[int]) -> int:
         if u % 2 == 0:
             sumaPares+= u
     return sumaPares
-    pass # Completar
+    
 
 
 # NO MODIFICAR - INICIO
@@ -38,8 +38,6 @@ def suma_cubo_pares_sum_list(numeros: Iterable[int]) -> int:
     Referencia: https://docs.python.org/3/library/functions.html#sum
     """
     return sum([x ** 3 for x in numeros if x % 2 == 0])
-    pass # Completar
-
 
 # NO MODIFICAR - INICIO
 print("suma cubo pares sum list: ",suma_cubo_pares_sum_list([1, 2, 3, 4, 5, 6]))
@@ -56,9 +54,7 @@ def suma_cubo_pares_sum_gen(numeros: Iterable[int]) -> int:
     Referencia: https://docs.python.org/3/reference/expressions.html#generator-expressions
     """
     return sum([x ** 3 for x in numeros if x % 2 == 0])
-    pass # Completar
-
-
+   
 # NO MODIFICAR - INICIO
 print("suma cubo pares sum gen: ",suma_cubo_pares_sum_gen([1, 2, 3, 4, 5, 6]))
 assert suma_cubo_pares_sum_gen([1, 2, 3, 4, 5, 6]) == 288
