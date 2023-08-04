@@ -1,10 +1,12 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from models.role import role
 from data.db import db
+from flask_login import login_required
 
 roles = Blueprint('roles', __name__)
 
-@roles.route("/", methods=["GET"])
+@roles.route("/role", methods=["GET"])
+@login_required
 def getAll():
     roles = role.query.all()
     return render_template('role/list.html',roles=roles)

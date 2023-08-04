@@ -1,0 +1,77 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="{{url_for('static', filename='login.css')}}">
+<section id="cover" class="min-vh-100">
+    <!-- <div id="cover-caption"> -->
+        <div class="container">
+            <!-- <div class="row"> -->
+                <div class="col-xl-8 col-lg-6 col-md-8 col-sm-10 mx-auto">
+                    <h1 class="display-4 py-2 text-truncate  text-center">Crear usuario</h1>
+                    <!-- <div class="px-4"> -->
+                        <form action="/user/create" method="post"> 
+                          {% include 'partial/_message.html'%}
+                          <div class="form-group col-md-12 mb-3" *ngIf="!OptionBtn">
+                            <select  name="roleId"  [class]="isValidField('roleId')" class="form-control" id="inputRole">
+                              <option value="">Seleccionar un permiso</option>
+                              {%  for role in roles %}
+                                <option value="{{ role.id}}"   name="roleId">{{role.name}}</option>
+                              {% endfor %}
+                            </select>
+                            <div class="invalid-feedback">
+                              <span *ngIf="browserForm.get('roleId').errors?.required">
+                                  Debe seleccionar un permiso
+                              </span>
+                            </div>
+                          </div>
+
+                            <div class="row mb-2">
+                              <div class="form-group col">
+                                <input type="text" class="form-control" id="inputfirstName" placeholder="Nombre" name="firstName">
+                              </div>
+                              <div class="form-group col">
+                                <input type="text" class="form-control" id="inputlastName" placeholder="Apellido" name="lastName">
+                              </div>
+                            </div>
+  
+                            <div class="row mb-2">
+                              <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputaddress"  placeholder="Domicilio" name="address">
+                              </div>
+                              <div class="form-group col-md-6">                            
+                                <input type="text" class="form-control" id="inputdocnumber" placeholder="Numero de documento" name="docNumber">
+                              </div>
+                            </div>
+  
+                            <div class="row mb-2">
+                              <div class="form-group col-md-6">
+                                <input type="email" class="form-control" id="inputEmail" placeholder="Correo electronico" name="mail">
+                              </div>
+                              <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputphone" placeholder="Telefono" name="phone">
+                              </div>
+                            </div>
+
+                            <div class="row mb-2">
+                              <div class="form-group col-md-6">
+                                <input type="text" class="form-control col-md-11" id="inputUserName" name="userName" placeholder="Nombre usuario">
+                                <i class="pi pi-info-circle info" pTooltip="El usuario debe tener como minimo 6 caracteres y como maximo 50 caracteres"></i>
+                              </div>
+                              <div class="form-group col-md-6">
+                                <input type="password" class="form-control col-md-11" id="inputUserPass" placeholder="Contraseña usuario" name="userPass"
+                                formControlName="userPass"   [class]="isValidField('userPass')">                              
+                                <i class="pi pi-info-circle info" pTooltip="La contraseña debe contener al menos un numero[0-9], una letra en mayuscula[A-Z], una letra minuscula[a-z] y debe tener como minimo 6 caracteres y como maximo 50 caracteres"></i>
+                              </div>
+                            </div>
+  
+                            <div class="float-right mb-3" style="float: right;">
+                              <button formaction="http://stackoverflow.com" class="btn btn-primary mr-3">Cancelar</button>
+                              <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </form>
+                    <!-- </div> -->
+                </div>
+            <!-- </div> -->
+        </div>
+    <!-- </div> -->
+  </section>
+  

@@ -1,0 +1,22 @@
+form:before {
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: -1;
+    border-radius: 10px;
+  }
+
+  .form {
+    width: 450px;
+  }
+  
+.abs-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }

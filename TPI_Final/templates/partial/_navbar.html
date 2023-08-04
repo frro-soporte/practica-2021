@@ -7,10 +7,19 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="#">Kayak</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">Usuario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Parches</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Tipo kayak</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Ubicacion</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -20,7 +29,7 @@
               <li><a class="dropdown-item" href="#">Action</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="{{url_for('auth.logout')}}">Logout</a></li>
             </ul>
           </li>
         </ul>
