@@ -9,8 +9,8 @@ users = Blueprint('users', __name__)
 @users.route("/user", methods=["GET"])
 def getAll():
     # usr = user.query.all()
-    # userfilter = user.query.filter(state=1)
-    return render_template('auth/login.html')
+    userfilter = user.query.all()
+    return render_template('user/list.html',userfilter = userfilter)
 
     # return render_template('role/list.html',roles=roles)
 

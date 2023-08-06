@@ -50,7 +50,7 @@ def auth():
 @auths.route("/home", methods=["GET"])   
 @login_required
 def home():
-    return render_template('layout.html')
+    return render_template('layout.html',products = [{},{},{},{},{},{},{},{},{},{}])
 
 @auths.route("/logout", methods=["GET"])   
 def logout():

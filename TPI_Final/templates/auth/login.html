@@ -1,6 +1,4 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="{{url_for('static', filename='login.css')}}">
+{% include('partial/_bootstrap.html') %}  
 <div class="container">
     <div class="abs-center">
       <form id="formulario" action="/auth" method="post" class="form border p-3 form">
@@ -20,7 +18,7 @@
           <button type="submit" class="btn btn-primary btn-block col-md-12">Ingresar</button>
         </div>
         <div class="clearfix">
-          <a href="{{ url_for('users.create') }}" class="pull-right">Registrarse</a>
+          <!-- <a href="{{ url_for('users.create') }}" class="pull-right">Registrarse</a> -->
           <a href="#" class="col-md-offset-2" style="float: right;">¿Olvidar contraseña?</a>
         </div>
       </form>

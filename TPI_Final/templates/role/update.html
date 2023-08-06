@@ -3,8 +3,8 @@
 <section id="cover" class="min-vh-100 abs-center">
     <div class="container">
         <div class="col-xl-8 col-lg-6 col-md-8 col-sm-10 mx-auto">
-            <h1 class="display-6 py-2 text-truncate  text-center">Crear permiso</h1>
-            <form action="/create" method="post">
+            <h3 class="display-6  py-2  text-center">Actualizar permiso</h3>
+            <form action="/update/{{ updates.id }}" method="post">
                 <div id="cover-caption">
                     <div class="container">
                         <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" /> 
@@ -17,14 +17,14 @@
                                             <div class="form-group col-md-12">
                                             <label for="inputfirstName">Nombre</label>
                                             <input type="text" class="form-control" id="inputfirstName" name="name"
-                                            name="name" placeholder="Nombre">                                            
+                                            name="name" placeholder="Nombre" value="{{ updates.name }}">                                            
                                             </div>
                                         </div>
                                         <div class="form-row mb-2">
                                             <div class="form-group col-md-12">
                                             <label for="inputtextarea">Descripcion</label>
                                             <textarea class="form-control" rows="7"  id="inputtextarea" name="description"
-                                            name="description" placeholder="Descripcion"></textarea>
+                                            name="description" placeholder="Descripcion">{{ updates.description}}</textarea>
                                             </div>
                                         </div>
                                         <div class="float-right" style="float: right;">
@@ -41,5 +41,4 @@
         </div>
     </div>
 </section>
-   
 {% endblock %}

@@ -13,7 +13,7 @@ from routes.auth import auths,status_401,status_404
 app = Flask(__name__)
 
 
-app.secret_key="tpi"
+app.secret_key=b"5accdb11b2c10a78d7c92c5fa102ea77fcd50c2058b00f6e"
 
 app.config['SQLALCHEMY_DATABASE_URI']=DATABASE_CONNECTION_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
@@ -21,7 +21,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 db.init_app(app)
 login_manager = LoginManager(app)
 csrf = CSRFProtect()
-csrf.init_app(app)
 
 
 app.register_error_handler(401,status_401)
