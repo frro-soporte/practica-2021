@@ -5,6 +5,7 @@
                 <div class="col-xl-8 col-lg-6 col-md-8 col-sm-10 mx-auto">
                     <h1 class="display-6 py-2 text-truncate  text-center">Crear usuario</h1>
                         <form action="/user/create" method="post"> 
+                          <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" /> 
                           {% include 'partial/_message.html'%}
                           <div class="form-group col-md-12 mb-3" *ngIf="!OptionBtn">
                             <select  name="roleId"  [class]="isValidField('roleId')" class="form-control" id="inputRole">

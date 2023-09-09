@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}   
+{% block body %}
+<section id="cover" class="min-vh-100 abs-center">
+    <div class="container">
+        <div class="col-xl-8 col-lg-6 col-md-8 col-sm-10 mx-auto">
+            <h1 class="display-6 py-2 text-truncate  text-center">Crear ubicacion</h1>
+            <form action="/location/create" method="post">
+                <div id="cover-caption">
+                    <div class="container">
+                        <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" /> 
+                        <div class="row text-white">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mx-auto text-center form">
+                                    {% include 'partial/_message.html'%}
+                                <div class="px-4">
+                                    <form class="justify-content-center">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                            <label for="inputfirstName">Nombre</label>
+                                            <input type="text" class="form-control" id="inputfirstName" name="name"
+                                            name="name" placeholder="Nombre">                                            
+                                            </div>
+                                        </div>
+                                        <div class="form-row mb-2">
+                                            <div class="form-group col-md-12">
+                                            <label for="inputtextarea">Descripcion</label>
+                                            <textarea class="form-control" rows="7"  id="inputtextarea" name="description"
+                                            name="description" placeholder="Descripcion"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="float-right" style="float: right;">
+                                            <a href="{{ url_for('locations.getAll') }}" class="btn btn-primary mr-3">Cancelar</a>
+                                            <button type="submit" class="btn btn-primary">Guardar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+   
+{% endblock %}

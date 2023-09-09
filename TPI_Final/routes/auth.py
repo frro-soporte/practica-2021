@@ -4,6 +4,8 @@ from flask_login import login_user, logout_user,login_required
 from models.user import user
 from models.auth import Auth
 from data.db import db
+import data
+import json
 
 auths = Blueprint('auth', __name__)
 
@@ -50,7 +52,9 @@ def auth():
 @auths.route("/home", methods=["GET"])   
 @login_required
 def home():
-    return render_template('layout.html',products = [{},{},{},{},{},{},{},{},{},{}])
+    datos_diccionario = json.loads(datos_JSON)
+    print("datos_diccionario ",datos_diccionario);
+    return render_template('layout.html',products = datos_diccionario)
 
 @auths.route("/logout", methods=["GET"])   
 def logout():
@@ -61,3 +65,27 @@ def status_401(error):
     return redirect(url_for('auth.login'))
 def status_404(error):
     return "<h1>Pagina no encontrada</h1>", 404
+
+datos_JSON =  """
+[ {
+      "name": "Quimica",
+      "url": "kayak1.jpg"
+    },
+    {
+        "name": "Administracion de recurso",
+        "url": "kayak2.jpg"
+    },
+    {
+        "name": "Economia",
+        "url": "kayak3.jpg"
+    },
+    {
+        "name": "ESTRUCTURA DE DATOS",
+        "url": "kayak4.jpg"
+    },
+    {
+        "name": "Legislation",
+        "url": "CARPAS_PAGINA_WEB.jpg"
+    }
+]
+"""

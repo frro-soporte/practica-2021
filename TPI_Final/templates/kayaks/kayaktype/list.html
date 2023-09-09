@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}   
+{% block body %}
+    <div>
+        <table class="table col-xl-6 col-lg-6 col-md-6 col-sm-6 mx-auto mt-3 ">
+            {% include 'partial/_message.html'%}
+            <a href="{{ url_for('kayaktypes.create') }}"  style="float: right;margin-bottom: 1%;">
+                <button class="btn btn-primary float-right"  >Nuevo tipo de kayak</button>
+            </a>
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Fecha de creation</th>
+                    <th scope="col">Accion</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for loc in locs%}
+                    <tr>
+                        <td>{{loc.name}}</td>
+                        <td>{{loc.description}}</td>
+                        <td>{{loc.createDate}}</td>
+                        <td>
+                            <a href="{{ url_for('kayaktypes.update', id=loc.id) }}"><i class="fa-solid fa-pencil"></i></a>
+                            <a href="{{ url_for('kayaktypes.delete', id=loc.id) }}"><i class="fa-solid fa-trash-can"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>       
+    </div>
+{% endblock %}

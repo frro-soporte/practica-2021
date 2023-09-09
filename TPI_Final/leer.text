@@ -1,0 +1,10 @@
+Antes de levantar el proyecto tiene que correr este comando para instalar las libreria necesaria
+
+tiene q levantar el virtual
+"c:/Prade/UTN/4to/soporte grafico/TP/G2302/TPI_Final/venv/Scripts/Activate.ps1"
+reemplaza las direccion c:/Prade/UTN/4to/soporte grafico... para su direccion local
+
+pip install -r requirements.text
+
+para general el archivo de requirements
+ pip freeze > requirements.txt

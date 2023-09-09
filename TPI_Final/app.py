@@ -9,6 +9,8 @@ from flask_login import LoginManager
 from routes.role import roles
 from routes.user import users
 from routes.auth import auths,status_401,status_404
+from routes.location import locations
+from routes.kayaktype import kayaktypes
 
 app = Flask(__name__)
 
@@ -29,5 +31,7 @@ app.register_error_handler(404,status_404)
 app.register_blueprint(auths)
 app.register_blueprint(roles)
 app.register_blueprint(users)
+app.register_blueprint(locations)
+app.register_blueprint(kayaktypes)
 
 
