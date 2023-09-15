@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}   
+{% block body %}
+    <div>
+        <table class="table col-xl-6 col-lg-6 col-md-6 col-sm-6 mx-auto mt-3 ">
+            {% include 'partial/_message.html'%}
+            <a href="{{ url_for('contacts.create') }}"  style="float: right;margin-bottom: 1%;">
+                <button class="btn btn-primary float-right"  >Crear</button>
+            </a>
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Fecha de creación</th>
+                    <th scope="col">Fecha final</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in cont%}
+                    <tr>
+                        <td>{{c.fullname}}</td>
+                        <td>{{c.email}}</td>
+                        <td>{{c.phone}}</td>
+                        <td>{{c.description}}</td>
+                        <td>{{c.createDate}}</td>
+                        <td>{{c.finalDate}}</td>
+                        <td>{{c.state}}</td>
+                        <td>
+                            <a href="{{ url_for('contacts.update', id=c.id) }}"><i class="fa-solid fa-pencil"></i></a>
+                            <a href="{{ url_for('contacts.delete', id=c.id) }}"><i class="fa-solid fa-trash-can"></i></a>
+                            
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>       
+    </div>
+{% endblock %}

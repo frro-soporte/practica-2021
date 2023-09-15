@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}   
+{% block body %}
+<section id="cover" class="min-vh-100 abs-center">
+        <div class="container">
+                <div class="col-xl-8 col-lg-6 col-md-8 col-sm-10 mx-auto">
+                    <h1 class="display-6 py-2 text-truncate  text-center">Crear contacto</h1>
+                        <form action="/contact/create" method="post"> 
+                          <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" /> 
+                          {% include 'partial/_message.html'%}
+                          
+                            <div class="row mb-2">
+                              <div class="form-group col">
+                                <input type="text" class="form-control" id="inputfirstName" placeholder="Nombre completo" name="name">
+                              </div>
+                              <div class="form-group col">
+                                <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email">
+                              </div>
+                            </div>
+  
+                            <div class="row mb-2">
+                              <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputphone"  placeholder="Telefono" name="phone">
+                              </div>
+                              <div class="form-group col-md-6">                            
+                                <textarea class="form-control" rows="7"  id="inputtextarea" name="description"
+                                name="description" placeholder="Descripción"></textarea>
+                              </div>
+                            </div>
+        
+                            <div class="float-right mb-3" style="float: right;">
+                              <a href="{{ url_for('contacts.getAll') }}" class="btn btn-primary mr-3">Cancelar</a>
+                              <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </form>
+                </div>
+        </div>
+    <!-- </div> -->
+  </section>
+  {% endblock %}
