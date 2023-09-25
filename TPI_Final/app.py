@@ -12,6 +12,8 @@ from routes.auth import auths,status_401,status_404
 from routes.location import locations
 from routes.kayaktype import kayaktypes
 from routes.contacts import contacts
+from routes.hanger import hangers
+
 
 app = Flask(__name__)
 
@@ -35,4 +37,5 @@ app.register_blueprint(users)
 app.register_blueprint(locations)
 app.register_blueprint(kayaktypes)
 app.register_blueprint(contacts)
+app.register_blueprint(hangers)
 

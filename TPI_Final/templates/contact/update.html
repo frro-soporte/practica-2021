@@ -10,30 +10,26 @@
                           
                             <div class="row mb-2">
                               <div class="form-group col">
-                                <input type="text" class="form-control" id="inputfirstName" placeholder="Nombre completo" name="name">
+                                <input type="text" class="form-control" id="inputfirstName" placeholder="Nombre completo" name="name" value="{{contacto.fullname}}">
                               </div>
                               <div class="form-group col">
-                                <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email">
+                                <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email" value="{{contacto.email}}">
                               </div>
                             </div>
   
                             <div class="row mb-2">
-                                <div class="form-group col-md-6">
-                                  <input type="text" class="form-control" id="inputstate"  placeholder="Estado" name="state">
-                                </div>
+                            
                                 <div class="form-group col-md-6">                  
-                                    <input type="text" class="form-control" id="inputphone"  placeholder="Telefono" name="phone">
+                                    <input type="text" class="form-control" id="inputphone"  placeholder="Telefono" name="phone" value="{{contacto.phone}}">
                                 </div>
                                 
                               </div>
 
                             <div class="row mb-2">
-                                <div class="form-group col-md-6">                  
-                                    <input type="date" class="form-control" id="inputdate" name="finaldate">
-                                </div>
+                  
                               <div class="form-group col-md-6">                  
                                 <textarea class="form-control" rows="7"  id="inputtextarea" name="description"
-                                name="description" placeholder="Descripción"></textarea>
+                                name="description" placeholder="Descripción">{{contacto.description }}</textarea>
                               </div>
                             </div>
                             

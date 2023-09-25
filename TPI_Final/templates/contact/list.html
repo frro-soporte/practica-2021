@@ -13,27 +13,25 @@
                     <th scope="col">Telefono</th>
                     <th scope="col">Descripción</th>
                     <th scope="col">Fecha de creación</th>
-                    <th scope="col">Fecha final</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col"></th>
+                    <th scope="col">Acción</th>
                 </tr>
             </thead>
             <tbody>
                 {% for c in cont%}
+                {% if c.state == 1%}
                     <tr>
                         <td>{{c.fullname}}</td>
                         <td>{{c.email}}</td>
                         <td>{{c.phone}}</td>
                         <td>{{c.description}}</td>
                         <td>{{c.createDate}}</td>
-                        <td>{{c.finalDate}}</td>
-                        <td>{{c.state}}</td>
                         <td>
                             <a href="{{ url_for('contacts.update', id=c.id) }}"><i class="fa-solid fa-pencil"></i></a>
                             <a href="{{ url_for('contacts.delete', id=c.id) }}"><i class="fa-solid fa-trash-can"></i></a>
                             
                         </td>
                     </tr>
+                {% endif %}
                 {% endfor %}
             </tbody>
         </table>       

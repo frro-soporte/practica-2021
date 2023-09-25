@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}   
+{% block body %}
+<section id="cover" class="min-vh-100 abs-center">
+        <div class="container">
+                <div class="col-xl-8 col-lg-6 col-md-8 col-sm-10 mx-auto">
+                    <h1 class="display-6 py-2 text-truncate  text-center">Crear hanger</h1>
+                        <form action="/hanger/create" method="post"> 
+                          <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" /> 
+                          {% include 'partial/_message.html'%}
+                          
+                            <div class="row mb-2">
+                              <div class="form-group col">
+                                <input type="text" class="form-control" placeholder="Número Hanger" name="nroHanger">
+                              </div>
+                              <div class="form-group col">
+                                <select class="form-select" aria-label="Default select example" name="location">
+                                    {% for l in loc%}
+                                    <option value="{{l.id}}">{{l.name}}</option>
+                                    {%endfor%}
+                                </select>
+                              </div>
+                            </div>
+  
+                            <div class="row mb-2">
+                              <div class="form-group col-md-6">                            
+                                <textarea class="form-control" rows="7"  id="inputtextarea" name="description"
+                                name="description" placeholder="Descripción"></textarea>
+                              </div>
+                            </div>
+        
+                            <div class="float-right mb-3" style="float: right;">
+                              <a href="{{ url_for('hangers.getAll') }}" class="btn btn-primary mr-3">Cancelar</a>
+                              <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </form>
+                </div>
+        </div>
+    <!-- </div> -->
+  </section>
+  {% endblock %}

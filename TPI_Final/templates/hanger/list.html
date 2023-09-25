@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}   
+{% block body %}
+    <div>
+        <table class="table col-xl-6 col-lg-6 col-md-6 col-sm-6 mx-auto mt-3 ">
+            {% include 'partial/_message.html'%}
+            <a href="{{ url_for('hangers.create') }}"  style="float: right;margin-bottom: 1%;">
+                <button class="btn btn-primary float-right"  >Crear</button>
+            </a>
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Número Hanger</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Fecha de creación</th>
+                    <th scope="col">Ubicación</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for h in hang%}
+                {% if h.state == 1 %}
+                    <tr>
+                        <td>{{h.nroHanger}}</td>
+                        <td>{{h.description}}</td>
+                        <td>{{h.createDate}}</td>
+                        <td>{%for l in loc%}
+                            {%if l.id == h.locationId %}
+                            {{l.name}}
+                            {% endif %}
+                            {% endfor %}
+                        </td>
+                        
+                        <td>
+                            <a href="{{ url_for('hangers.update', id=h.id) }}"><i class="fa-solid fa-pencil"></i></a>
+                            
+                            <a href="{{ url_for('hangers.delete', id=h.id) }}"><i class="fa-solid fa-trash-can"></i></a>
+                        </td>
+                    </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>       
+    </div>
+{% endblock %}

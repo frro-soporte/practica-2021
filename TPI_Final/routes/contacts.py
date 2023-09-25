@@ -52,10 +52,8 @@ def update(id):
         c = contact.query.get(id)
         
         c.fullname = request.form['name']
-        c.finalDate = request.form['finaldate']
         c.phone = request.form['phone']
         c.description = request.form['description']
-        c.state = request.form['state']
         
         db.session.commit()
 
@@ -70,8 +68,9 @@ def update(id):
 @login_required
 def delete(id):
    try:
-        dele = contact.query.get(id)
-        db.session.delete(dele)
+        c = contact.query.get(id)
+        c.state = 0
+        c.finalDate = datetime.now()
         db.session.commit()
         
         flash("El contacto se eliminó correctamente", "alert alert-success")
@@ -79,4 +78,4 @@ def delete(id):
         return redirect(url_for('contacts.getAll'))
    except Exception as ex:
         flash("No se puede eliminar este contacto","alert alert-danger")
-        return redirect(url_for('cpntacts.getAll'))
+        return redirect(url_for('contacts.getAll'))
