@@ -22,7 +22,12 @@ def generar_pares_clousure(initial: int = 0) -> Callable[[], int]:
         - Usar el modificador nonlocal
     """
     pass # Completar
-
+    initial=-2
+    def par_siguiente():
+        nonlocal initial
+        initial+=2
+        return initial
+    return par_siguiente
 
 # NO MODIFICAR - INICIO
 generador_pares = generar_pares_clousure(0)
@@ -43,10 +48,13 @@ yield en lugar del return.
 
 def generar_pares_generator(initial: int = 0) -> Iterator[int]:
     """Re-Escribir utilizando Generadores
-    Referencia: https://docs.python.org/3/howto/functional.html?highlight=generator#generators
+    Referencia: https://docs.python.org/  3/howto/functional.html?highlight=generator#generators
     """
     pass # Completar
-
+    yield initial
+    for i in generar_pares_generator():
+      initial+=2
+      yield initial
 
 # NO MODIFICAR - INICIO
 generador_pares = generar_pares_generator()
@@ -59,8 +67,10 @@ assert next(generador_pares) == 4
 ###############################################################################
 
 
+
+"""     NO ME SALIO
 def generar_pares_generator_send(initial: int = 0) -> Iterator[int]:
-    """CHALLENGE OPCIONAL: Re-Escribir utilizando send para saltear numeros"""
+    #CHALLENGE OPCIONAL: Re-Escribir utilizando send para saltear numeros
     pass # Completar
 
 
@@ -76,14 +86,16 @@ if __name__ == "__main__":
     assert next(generador_pares) == 16
 # NO MODIFICAR - FIN
 
-
+"""
 ###############################################################################
 
 
 def generar_pares_delegados(initial: int = 0) -> Iterator[int]:
     """CHALLENGE OPCIONAL: Re-Escribir utilizando Generadores delegados (yield from)"""
     pass # Completar
-
+    yield initial
+    yield from generar_pares_delegados(initial + 2)
+    yield initial
 
 # NO MODIFICAR - INICIO
 if __name__ == "__main__":
